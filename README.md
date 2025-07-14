@@ -132,6 +132,89 @@ python collage_maker.py --folder my_photos --style magazine --width 2560 --heigh
 python collage_maker.py --folder my_photos --style all --no-frames
 ```
 
+## 📸 Extensive Examples Gallery
+
+### Standard Collage Styles (1920x1080)
+
+| Style | Example | Description |
+|-------|---------|-------------|
+| **Grid** | ![Grid](collage_grid.jpg) | Perfect grid layout with equal spacing |
+| **Mosaic** | ![Mosaic](collage_mosaic.jpg) | Dynamic sizes with zero wasted space |
+| **Polaroid** | ![Polaroid](collage_polaroid.jpg) | Nostalgic rotated photos with captions |
+| **Magazine** | ![Magazine](collage_magazine.jpg) | Featured image with thumbnail grid |
+
+### Size Variations
+
+#### Small Formats
+- **Square (800x800)**: ![Small Square](small_square_grid.jpg)
+- **Portrait (600x900)**: ![Small Portrait](small_portrait_mosaic.jpg)  
+- **Landscape (1000x700)**: ![Small Landscape](small_landscape_polaroid.jpg)
+
+#### Large Formats
+- **4K (3840x2160)**: ![Large 4K](large_4k_magazine.jpg)
+- **Ultrawide (3440x1440)**: ![Ultrawide](ultrawide_mosaic.jpg)
+- **Large Grid (2560x1600)**: ![Large Grid](large_grid_grid.jpg)
+
+### Grid Variations
+
+| Configuration | Example | Use Case |
+|---------------|---------|----------|
+| **1x5 Banner** | ![1x5 Banner](grid_1x5_banner.jpg) | Website headers, banners |
+| **5x1 Tower** | ![5x1 Tower](grid_5x1_tower.jpg) | Vertical displays, timelines |
+| **2x2 Square** | ![2x2 Square](grid_2x2_square.jpg) | Simple, clean layouts |
+| **3x2 Portrait** | ![3x2 Portrait](grid_3x2_portrait.jpg) | Mobile-friendly layouts |
+| **2x4 Wide** | ![2x4 Wide](grid_2x4_wide.jpg) | Widescreen displays |
+| **1x3 Triptych** | ![1x3 Triptych](grid_1x3_triptych.jpg) | Artistic triptych style |
+| **3x3 Instagram** | ![3x3 Instagram](grid_3x3_instagram.jpg) | Social media perfect |
+
+### Without Frames
+
+| Style | With Frames | Without Frames |
+|-------|-------------|----------------|
+| **Grid** | ![Grid Frames](collage_grid.jpg) | ![Grid No Frames](grid_no_frames.jpg) |
+| **Mosaic** | ![Mosaic Frames](collage_mosaic.jpg) | ![Mosaic No Frames](mosaic_no_frames.jpg) |
+| **Polaroid** | ![Polaroid Frames](collage_polaroid.jpg) | ![Polaroid No Frames](polaroid_no_frames.jpg) |
+| **Magazine** | ![Magazine Frames](collage_magazine.jpg) | ![Magazine No Frames](magazine_no_frames.jpg) |
+
+### Social Media Ready
+
+| Platform | Size | Example | Command |
+|----------|------|---------|---------|
+| **Instagram Square** | 1080x1080 | ![Instagram Square](instagram_square_grid.jpg) | `--width 1080 --height 1080` |
+| **Instagram Story** | 1080x1920 | ![Instagram Story](instagram_story_mosaic.jpg) | `--width 1080 --height 1920` |
+| **Facebook Cover** | 1200x630 | ![Facebook Cover](facebook_cover_magazine.jpg) | `--width 1200 --height 630` |
+| **Twitter Header** | 1024x512 | ![Twitter Header](twitter_header_polaroid.jpg) | `--width 1024 --height 512` |
+| **YouTube Thumbnail** | 1920x1080 | ![YouTube Thumbnail](youtube_thumbnail_grid.jpg) | `--width 1920 --height 1080` |
+
+### Ultimate Space Utilization Examples
+
+For maximum space efficiency, use the advanced algorithms:
+
+| Style | Standard | Ultimate | Improvement |
+|-------|----------|----------|-------------|
+| **Mosaic** | ![Standard Mosaic](collage_mosaic.jpg) | ![Ultimate Mosaic](ultimate_mosaic.jpg) | Bin-packing algorithm |
+| **Polaroid** | ![Standard Polaroid](collage_polaroid.jpg) | ![Ultimate Polaroid](ultimate_polaroid.jpg) | Perfect grid positioning |
+| **Magazine** | ![Standard Magazine](collage_magazine.jpg) | ![Ultimate Magazine](ultimate_magazine.jpg) | Smart layout optimization |
+
+### Creating Your Own Examples
+
+```bash
+# Small square format
+python collage_maker.py --folder photos --style grid --width 800 --height 800
+
+# Large 4K format
+python collage_maker.py --folder photos --style magazine --width 3840 --height 2160
+
+# Social media ready
+python collage_maker.py --folder photos --style mosaic --width 1080 --height 1080
+
+# Without frames
+python collage_maker.py --folder photos --style all --no-frames
+
+# Ultimate space utilization
+python collage_maker_v3.py photos
+```
+
 ## Technical Features
 
 ### Frame System

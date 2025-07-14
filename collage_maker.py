@@ -17,9 +17,9 @@ class CollageMaker:
     def __init__(self, output_size=(1920, 1080), background_color=(245, 245, 245)):
         self.output_size = output_size
         self.background_color = background_color
-        self.padding = 8
-        self.shadow_offset = 3
-        self.shadow_blur = 5
+        self.padding = 6
+        self.shadow_offset = 2
+        self.shadow_blur = 4
         
     def load_images(self, folder_path):
         """Load images from folder with caption support"""
@@ -81,28 +81,7 @@ class CollageMaker:
         """Extract caption from filename (remove extension)"""
         return os.path.splitext(filename)[0].replace('_', ' ').replace('-', ' ').title()
     
-    def _add_shadow(self, img, shadow_color=(0, 0, 0, 60)):
-        """Add shadow to image"""
-        # Create shadow
-        shadow = Image.new('RGBA', 
-                          (img.width + self.shadow_offset * 2, img.height + self.shadow_offset * 2), 
-                          (0, 0, 0, 0))
-        shadow_draw = ImageDraw.Draw(shadow)
-        shadow_draw.rectangle([self.shadow_offset, self.shadow_offset, 
-                             img.width + self.shadow_offset, img.height + self.shadow_offset], 
-                            fill=shadow_color)
-        
-        # Blur shadow
-        shadow = shadow.filter(ImageFilter.GaussianBlur(self.shadow_blur))
-        
-        # Composite
-        result = Image.new('RGBA', shadow.size, (0, 0, 0, 0))
-        result.paste(shadow, (0, 0))
-        result.paste(img, (0, 0))
-        
-        return result
-    
-    def _add_frame(self, img, frame_width=8, frame_color=(255, 255, 255)):
+    def _add_frame(self, img, frame_width=6, frame_color=(255, 255, 255)):
         """Add frame to image"""
         framed = Image.new('RGB', 
                           (img.width + frame_width * 2, img.height + frame_width * 2), 
@@ -176,88 +155,156 @@ class CollageMaker:
         return collage
     
     def create_mosaic_collage(self, images, add_frames=True):
-        """Create a mosaic-style collage with better space utilization"""
+        """Create a mosaic-style collage with perfect space utilization"""
         if not images:
             return None
             
         collage = Image.new('RGB', self.output_size, self.background_color)
         
-        # Define size categories with better distribution
-        sizes = [
-            (380, 280),  # Large landscape
-            (280, 380),  # Large portrait
-            (280, 200),  # Medium landscape
-            (200, 280),  # Medium portrait
-            (200, 200),  # Square
-        ]
+        # Use a more systematic approach to fill the space
+        # Divide canvas into regions and fill them strategically
         
-        positions = []
-        used_images = random.sample(images, min(len(images), 12))
+        selected_images = random.sample(images, min(len(images), 15))
         
-        # Place larger images first
-        for i, img_data in enumerate(used_images):
-            # Use larger sizes for first few images
-            if i < 3:
-                size = random.choice(sizes[:2])  # Large sizes
-            elif i < 6:
-                size = random.choice(sizes[2:4])  # Medium sizes
-            else:
-                size = sizes[4]  # Square for remaining
-            
-            placed = False
-            attempts = 0
-            
-            while not placed and attempts < 200:
-                margin = 20
-                x = random.randint(margin, self.output_size[0] - size[0] - margin)
-                y = random.randint(margin, self.output_size[1] - size[1] - margin)
+        # Define regions with exact coordinates (no gaps)
+        regions = []
+        
+        # Large regions (for hero images)
+        regions.extend([
+            (0, 0, self.output_size[0] // 2, self.output_size[1] // 2),
+            (self.output_size[0] // 2, 0, self.output_size[0], self.output_size[1] // 2),
+            (0, self.output_size[1] // 2, self.output_size[0] // 2, self.output_size[1]),
+            (self.output_size[0] // 2, self.output_size[1] // 2, self.output_size[0], self.output_size[1])
+        ])
+        
+        # Medium regions (subdivide some large regions)
+        w, h = self.output_size
+        regions.extend([
+            (0, 0, w // 3, h // 3),
+            (w // 3, 0, 2 * w // 3, h // 3),
+            (2 * w // 3, 0, w, h // 3),
+            (0, h // 3, w // 3, 2 * h // 3),
+            (w // 3, h // 3, 2 * w // 3, 2 * h // 3),
+            (2 * w // 3, h // 3, w, 2 * h // 3),
+            (0, 2 * h // 3, w // 3, h),
+            (w // 3, 2 * h // 3, 2 * w // 3, h),
+            (2 * w // 3, 2 * h // 3, w, h)
+        ])
+        
+        # Small regions for variety
+        regions.extend([
+            (0, 0, w // 4, h // 4),
+            (w // 4, 0, w // 2, h // 4),
+            (w // 2, 0, 3 * w // 4, h // 4),
+            (3 * w // 4, 0, w, h // 4),
+            (0, h // 4, w // 4, h // 2),
+            (3 * w // 4, h // 4, w, h // 2),
+            (0, 3 * h // 4, w // 4, h),
+            (w // 4, 3 * h // 4, w // 2, h),
+            (w // 2, 3 * h // 4, 3 * w // 4, h),
+            (3 * w // 4, 3 * h // 4, w, h)
+        ])
+        
+        # Shuffle and select best regions
+        random.shuffle(regions)
+        
+        # Use a greedy algorithm to pack rectangles
+        placed_regions = []
+        
+        for i, img_data in enumerate(selected_images):
+            if i >= len(regions):
+                break
                 
-                # Check for overlap with existing positions
-                new_rect = (x, y, x + size[0], y + size[1])
-                overlap = False
+            best_region = None
+            best_score = 0
+            
+            for region in regions:
+                x1, y1, x2, y2 = region
+                width = x2 - x1
+                height = y2 - y1
                 
-                for pos in positions:
-                    if self._rectangles_overlap(new_rect, pos):
-                        overlap = True
+                # Skip tiny regions
+                if width < 100 or height < 100:
+                    continue
+                
+                # Check if this region overlaps with placed regions
+                overlaps = False
+                for placed in placed_regions:
+                    if self._rectangles_overlap(region, placed):
+                        overlaps = True
                         break
                 
-                if not overlap:
-                    img = img_data['image'].copy()
-                    img = self._resize_to_fit(img, size, crop=True)
-                    
-                    if add_frames:
-                        img = self._add_frame(img, frame_width=3)
-                        img = self._resize_to_fit(img, size)
-                    
-                    # Center in allocated space
-                    final_x = x + (size[0] - img.width) // 2
-                    final_y = y + (size[1] - img.height) // 2
-                    
-                    collage.paste(img, (final_x, final_y))
-                    positions.append(new_rect)
-                    placed = True
+                if not overlaps:
+                    # Score based on size and position variety
+                    score = width * height
+                    if best_region is None or score > best_score:
+                        best_region = region
+                        best_score = score
+            
+            if best_region:
+                x1, y1, x2, y2 = best_region
+                width = x2 - x1 - self.padding * 2
+                height = y2 - y1 - self.padding * 2
                 
-                attempts += 1
+                # Process image
+                img = img_data['image'].copy()
+                img = self._resize_to_fit(img, (width, height), crop=True)
                 
+                if add_frames:
+                    img = self._add_frame(img, frame_width=3)
+                    img = self._resize_to_fit(img, (width, height))
+                
+                # Center in region
+                final_x = x1 + self.padding + (width - img.width) // 2
+                final_y = y1 + self.padding + (height - img.height) // 2
+                
+                collage.paste(img, (final_x, final_y))
+                placed_regions.append(best_region)
+        
         return collage
     
     def create_polaroid_collage(self, images, add_frames=True):
-        """Create a polaroid-style collage with better layout"""
+        """Create a polaroid-style collage with optimal space usage"""
         if not images:
             return None
             
         collage = Image.new('RGB', self.output_size, self.background_color)
         
-        # Polaroid dimensions
-        polaroid_width = 280
-        polaroid_height = 340
-        photo_width = 240
-        photo_height = 240
+        # Polaroid dimensions - smaller for better packing
+        polaroid_width = 240
+        polaroid_height = 290
+        photo_width = 200
+        photo_height = 200
         
-        selected_images = random.sample(images, min(len(images), 8))
+        selected_images = random.sample(images, min(len(images), 12))
+        
+        # Create a grid-based approach first, then add rotation
+        # Calculate how many can fit in a grid
+        cols = self.output_size[0] // (polaroid_width + 20)
+        rows = self.output_size[1] // (polaroid_height + 20)
+        
+        # Create positions in a grid with some randomness
         positions = []
+        for row in range(rows):
+            for col in range(cols):
+                if len(positions) >= len(selected_images):
+                    break
+                    
+                # Base grid position
+                base_x = col * (polaroid_width + 20) + 50
+                base_y = row * (polaroid_height + 20) + 50
+                
+                # Add some randomness but keep within bounds
+                rand_x = random.randint(-30, 30)
+                rand_y = random.randint(-30, 30)
+                
+                x = max(20, min(base_x + rand_x, self.output_size[0] - polaroid_width - 20))
+                y = max(20, min(base_y + rand_y, self.output_size[1] - polaroid_height - 20))
+                
+                positions.append((x, y))
         
-        for i, img_data in enumerate(selected_images):
+        # Create polaroids
+        for i, img_data in enumerate(selected_images[:len(positions)]):
             # Create polaroid background
             polaroid = Image.new('RGB', (polaroid_width, polaroid_height), (255, 255, 255))
             
@@ -272,57 +319,42 @@ class CollageMaker:
             
             # Add caption
             try:
-                font = ImageFont.truetype("/System/Library/Fonts/Arial.ttf", 14)
+                font = ImageFont.truetype("/System/Library/Fonts/Arial.ttf", 12)
             except:
                 font = ImageFont.load_default()
             
             draw = ImageDraw.Draw(polaroid)
             caption = img_data['caption']
-            if len(caption) > 25:
-                caption = caption[:22] + "..."
+            if len(caption) > 20:
+                caption = caption[:17] + "..."
             
             # Center caption
             bbox = draw.textbbox((0, 0), caption, font=font)
             text_width = bbox[2] - bbox[0]
             text_x = (polaroid_width - text_width) // 2
-            draw.text((text_x, photo_y + photo_height + 15), caption, fill=(60, 60, 60), font=font)
+            draw.text((text_x, photo_y + photo_height + 12), caption, fill=(60, 60, 60), font=font)
             
             # Add frame if requested
             if add_frames:
                 polaroid = self._add_frame(polaroid, frame_width=2, frame_color=(250, 250, 250))
             
-            # Random rotation
-            angle = random.randint(-12, 12)
+            # Smaller rotation for better packing
+            angle = random.randint(-8, 8)
             rotated = polaroid.rotate(angle, expand=True, fillcolor=self.background_color)
             
-            # Find non-overlapping position
-            placed = False
-            attempts = 0
+            # Use pre-calculated position
+            x, y = positions[i]
             
-            while not placed and attempts < 100:
-                margin = 30
-                max_x = max(0, self.output_size[0] - rotated.width - margin)
-                max_y = max(0, self.output_size[1] - rotated.height - margin)
-                
-                if max_x > margin and max_y > margin:
-                    x = random.randint(margin, max_x)
-                    y = random.randint(margin, max_y)
-                    
-                    new_rect = (x, y, x + rotated.width, y + rotated.height)
-                    overlap = False
-                    
-                    for pos in positions:
-                        if self._rectangles_overlap(new_rect, pos):
-                            overlap = True
-                            break
-                    
-                    if not overlap:
-                        collage.paste(rotated, (x, y))
-                        positions.append(new_rect)
-                        placed = True
-                
-                attempts += 1
-                
+            # Adjust for rotation expansion
+            x -= (rotated.width - polaroid_width) // 2
+            y -= (rotated.height - polaroid_height) // 2
+            
+            # Ensure within bounds
+            x = max(0, min(x, self.output_size[0] - rotated.width))
+            y = max(0, min(y, self.output_size[1] - rotated.height))
+            
+            collage.paste(rotated, (x, y))
+        
         return collage
     
     def create_magazine_collage(self, images, add_frames=True):
@@ -333,11 +365,11 @@ class CollageMaker:
         collage = Image.new('RGB', self.output_size, self.background_color)
         
         # Select images
-        selected_images = random.sample(images, min(len(images), 8))
+        selected_images = random.sample(images, min(len(images), 10))
         
-        # Featured image (large, left side)
+        # Featured image (60% of width, full height)
         featured = selected_images[0]
-        feature_width = self.output_size[0] // 2 - self.padding * 2
+        feature_width = int(self.output_size[0] * 0.6) - self.padding * 2
         feature_height = self.output_size[1] - self.padding * 2
         
         featured_img = featured['image'].copy()
@@ -354,26 +386,28 @@ class CollageMaker:
         
         # Add caption for featured image
         try:
-            font = ImageFont.truetype("/System/Library/Fonts/Arial.ttf", 18)
+            font = ImageFont.truetype("/System/Library/Fonts/Arial.ttf", 16)
         except:
             font = ImageFont.load_default()
         
         draw = ImageDraw.Draw(collage)
         caption = featured['caption']
-        if len(caption) > 30:
-            caption = caption[:27] + "..."
+        if len(caption) > 35:
+            caption = caption[:32] + "..."
         
-        # Position caption below featured image
-        caption_y = feat_y + featured_img.height + 10
-        draw.text((feat_x, caption_y), caption, fill=(40, 40, 40), font=font)
+        # Position caption below featured image with background
+        caption_y = feat_y + featured_img.height + 8
+        caption_bg = Image.new('RGBA', (len(caption) * 10, 25), (255, 255, 255, 200))
+        collage.paste(caption_bg, (feat_x, caption_y), caption_bg)
+        draw.text((feat_x + 5, caption_y + 5), caption, fill=(40, 40, 40), font=font)
         
-        # Right side smaller images
+        # Right side - use remaining 40% width
         remaining_images = selected_images[1:]
-        right_start_x = self.output_size[0] // 2 + self.padding
-        right_width = self.output_size[0] // 2 - self.padding * 2
+        right_start_x = int(self.output_size[0] * 0.6) + self.padding
+        right_width = int(self.output_size[0] * 0.4) - self.padding * 2
         
-        # Create grid on right side
-        rows = 3
+        # Create a tighter grid on right side
+        rows = 4
         cols = 2
         cell_width = (right_width - self.padding) // cols
         cell_height = (self.output_size[1] - self.padding * 2) // rows
@@ -386,75 +420,16 @@ class CollageMaker:
             y = self.padding + row * (cell_height + self.padding // 2)
             
             img = img_data['image'].copy()
-            img = self._resize_to_fit(img, (cell_width - 10, cell_height - 10), crop=True)
+            img = self._resize_to_fit(img, (cell_width - 5, cell_height - 5), crop=True)
             
             if add_frames:
-                img = self._add_frame(img, frame_width=3)
-                img = self._resize_to_fit(img, (cell_width - 10, cell_height - 10))
+                img = self._add_frame(img, frame_width=2)
+                img = self._resize_to_fit(img, (cell_width - 5, cell_height - 5))
             
             # Center in cell
             img_x = x + (cell_width - img.width) // 2
             img_y = y + (cell_height - img.height) // 2
             collage.paste(img, (img_x, img_y))
-        
-        return collage
-    
-    def create_heart_collage(self, images, add_frames=True):
-        """Create a heart-shaped collage"""
-        if not images:
-            return None
-            
-        collage = Image.new('RGB', self.output_size, self.background_color)
-        
-        # Heart shape points (scaled to output size)
-        center_x = self.output_size[0] // 2
-        center_y = self.output_size[1] // 2
-        scale = min(self.output_size[0], self.output_size[1]) // 3
-        
-        # Generate heart-shaped positions
-        heart_positions = []
-        for t in range(0, 360, 20):  # 18 positions
-            rad = math.radians(t)
-            # Heart equation: x = 16sin³(t), y = 13cos(t) - 5cos(2t) - 2cos(3t) - cos(4t)
-            x = 16 * (math.sin(rad) ** 3)
-            y = 13 * math.cos(rad) - 5 * math.cos(2 * rad) - 2 * math.cos(3 * rad) - math.cos(4 * rad)
-            
-            # Scale and center
-            x = center_x + int(x * scale / 16)
-            y = center_y - int(y * scale / 16)  # Flip Y
-            
-            heart_positions.append((x, y))
-        
-        # Place images at heart positions
-        selected_images = random.sample(images, min(len(images), len(heart_positions)))
-        image_size = (120, 120)
-        
-        for i, (pos_x, pos_y) in enumerate(heart_positions[:len(selected_images)]):
-            img_data = selected_images[i]
-            img = img_data['image'].copy()
-            img = self._resize_to_fit(img, image_size, crop=True)
-            
-            if add_frames:
-                img = self._add_frame(img, frame_width=3)
-                img = self._resize_to_fit(img, image_size)
-            
-            # Create circular mask
-            mask = Image.new('L', img.size, 0)
-            draw = ImageDraw.Draw(mask)
-            draw.ellipse((0, 0, img.width, img.height), fill=255)
-            
-            # Apply mask
-            img.putalpha(mask)
-            
-            # Position on collage
-            final_x = pos_x - img.width // 2
-            final_y = pos_y - img.height // 2
-            
-            # Ensure within bounds
-            final_x = max(0, min(final_x, self.output_size[0] - img.width))
-            final_y = max(0, min(final_y, self.output_size[1] - img.height))
-            
-            collage.paste(img, (final_x, final_y), img)
         
         return collage
     
@@ -468,7 +443,11 @@ class CollageMaker:
         if collage:
             # Enhance image quality
             enhancer = ImageEnhance.Sharpness(collage)
-            collage = enhancer.enhance(1.1)
+            collage = enhancer.enhance(1.2)
+            
+            # Slight contrast enhancement
+            enhancer = ImageEnhance.Contrast(collage)
+            collage = enhancer.enhance(1.05)
             
             collage.save(output_path, 'JPEG', quality=95, optimize=True)
             print(f"Collage saved to: {output_path}")
@@ -526,7 +505,7 @@ def download_sample_images():
 @click.command()
 @click.option('--folder', '-f', help='Folder containing images')
 @click.option('--output', '-o', default='collage.jpg', help='Output filename')
-@click.option('--style', '-s', type=click.Choice(['grid', 'mosaic', 'polaroid', 'magazine', 'heart', 'all']), 
+@click.option('--style', '-s', type=click.Choice(['grid', 'mosaic', 'polaroid', 'magazine', 'all']), 
               default='grid', help='Collage style')
 @click.option('--width', '-w', default=1920, help='Output width')
 @click.option('--height', '-h', default=1080, help='Output height')
@@ -562,7 +541,7 @@ def main(folder, output, style, width, height, no_frames, download_samples):
     
     # Create collages based on style
     if style == 'all':
-        styles = ['grid', 'mosaic', 'polaroid', 'magazine', 'heart']
+        styles = ['grid', 'mosaic', 'polaroid', 'magazine']
     else:
         styles = [style]
     
@@ -579,8 +558,6 @@ def main(folder, output, style, width, height, no_frames, download_samples):
             collage = collage_maker.create_polaroid_collage(images, add_frames=add_frames)
         elif style_name == 'magazine':
             collage = collage_maker.create_magazine_collage(images, add_frames=add_frames)
-        elif style_name == 'heart':
-            collage = collage_maker.create_heart_collage(images, add_frames=add_frames)
         
         if collage:
             output_filename = f"{os.path.splitext(output)[0]}_{style_name}.jpg"

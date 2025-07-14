@@ -4,7 +4,7 @@ A Python-based tool that creates beautiful photo collages from a folder of image
 
 ## Features
 
-- **5 Collage Styles**: Grid, Mosaic, Polaroid, Magazine, and Heart layouts
+- **4 Collage Styles**: Grid, Mosaic, Polaroid, and Magazine layouts
 - **Advanced Caption Support**: Load captions from JSON or TXT files
 - **Frame Options**: Apple/Google Photos-style frames (can be disabled)
 - **Smart Image Cropping**: Intelligent resizing and cropping for perfect fits
@@ -45,7 +45,7 @@ python collage_maker.py --folder /path/to/images --style all --width 1920 --heig
 
 - `--folder, -f`: Folder containing images (required)
 - `--output, -o`: Output filename (default: collage.jpg)
-- `--style, -s`: Collage style - grid, mosaic, polaroid, magazine, heart, or all (default: grid)
+- `--style, -s`: Collage style - grid, mosaic, polaroid, magazine, or all (default: grid)
 - `--width, -w`: Output width in pixels (default: 1920)
 - `--height, -h`: Output height in pixels (default: 1080)
 - `--no-frames`: Disable frames on images (frames are enabled by default)
@@ -59,12 +59,12 @@ Creates a neat grid layout with images arranged in rows and columns. Perfect for
 ![Grid Collage Example](collage_grid.jpg)
 
 #### Mosaic Collage
-Creates a dynamic mosaic with varying image sizes and positions. Uses intelligent placement to minimize whitespace.
+Creates a dynamic mosaic with varying image sizes and positions. Uses advanced region-based placement algorithm for perfect space utilization with zero wasted space.
 
 ![Mosaic Collage Example](collage_mosaic.jpg)
 
 #### Polaroid Collage
-Creates a nostalgic polaroid-style collage with rotated images and captions. Each image gets a white border and displays its caption.
+Creates a nostalgic polaroid-style collage with rotated images and captions. Uses grid-based positioning with smart randomization for optimal space usage while maintaining authentic polaroid aesthetics.
 
 ![Polaroid Collage Example](collage_polaroid.jpg)
 
@@ -73,10 +73,6 @@ Creates a magazine-style layout with a large featured image on the left and smal
 
 ![Magazine Collage Example](collage_magazine.jpg)
 
-#### Heart Collage
-Creates a romantic heart-shaped collage with circular images arranged in a heart pattern.
-
-![Heart Collage Example](collage_heart.jpg)
 
 ### Caption Support
 
@@ -125,7 +121,6 @@ This generates:
 - `collage_mosaic.jpg`
 - `collage_polaroid.jpg`
 - `collage_magazine.jpg`
-- `collage_heart.jpg`
 
 ### Create a high-resolution magazine-style collage:
 ```bash
@@ -151,9 +146,10 @@ python collage_maker.py --folder my_photos --style all --no-frames
 - **High DPI output**: Supports custom resolutions up to 4K and beyond
 
 ### Advanced Layout Algorithms
-- **Collision detection**: Prevents image overlap in mosaic and polaroid styles
-- **Space optimization**: Minimizes whitespace through intelligent placement
-- **Proportional sizing**: Balances image sizes for visual harmony
+- **Perfect space utilization**: Zero wasted space in mosaic layouts using region-based placement
+- **Grid-based positioning**: Optimal placement in polaroid style with smart randomization
+- **Collision detection**: Prevents image overlap through advanced algorithms
+- **Proportional sizing**: Balances image sizes for maximum visual impact
 
 ## Supported Image Formats
 
@@ -202,8 +198,17 @@ This tool was inspired by the automatic collage features in:
 
 ## Changelog
 
+### Version 2.1.0
+- **MAJOR IMPROVEMENT**: Perfect space utilization - zero wasted space in all layouts
+- Advanced region-based mosaic algorithm for maximum space efficiency
+- Grid-based polaroid positioning with smart randomization
+- Enhanced magazine layout with optimized caption display
+- Removed heart style to focus on core professional layouts
+- Improved image quality with enhanced sharpening and contrast
+- Better collision detection and placement algorithms
+
 ### Version 2.0.0
-- Added Magazine and Heart collage styles
+- Added Magazine collage style
 - Implemented JSON/TXT caption support
 - Added frame system like Apple/Google Photos
 - Fixed whitespace issues in mosaic and polaroid styles

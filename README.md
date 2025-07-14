@@ -14,7 +14,7 @@ A Python-based tool that creates beautiful photo collages from a folder of image
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/collage-maker.git
+git clone https://github.com/nipunbatra/collage-maker.git
 cd collage-maker
 ```
 
@@ -52,11 +52,17 @@ python collage_maker.py --folder /path/to/images --style all --width 1920 --heig
 #### Grid Collage
 Creates a neat grid layout with images arranged in rows and columns.
 
+![Grid Collage Example](collage_grid.jpg)
+
 #### Mosaic Collage
 Creates a dynamic mosaic with varying image sizes and positions.
 
+![Mosaic Collage Example](collage_mosaic.jpg)
+
 #### Polaroid Collage
 Creates a nostalgic polaroid-style collage with rotated images and captions.
+
+![Polaroid Collage Example](collage_polaroid.jpg)
 
 ### Sample Images
 

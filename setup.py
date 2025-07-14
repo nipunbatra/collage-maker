@@ -7,7 +7,7 @@ setup(
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     author="Nipun",
-    url="https://github.com/yourusername/collage-maker",
+    url="https://github.com/nipunbatra/collage-maker",
     py_modules=["collage_maker"],
     install_requires=[
         "Pillow>=10.0.0",

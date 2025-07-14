@@ -22,4 +22,7 @@ build/
 *.webp
 *.bmp
 sample_images/
-collage_*.jpg
+# Allow example collages for README
+!collage_grid.jpg
+!collage_mosaic.jpg
+!collage_polaroid.jpg

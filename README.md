@@ -4,10 +4,13 @@ A Python-based tool that creates beautiful photo collages from a folder of image
 
 ## Features
 
-- **Multiple Collage Styles**: Grid, Mosaic, and Polaroid layouts
-- **Automatic Caption Support**: Extracts captions from image filenames
+- **5 Collage Styles**: Grid, Mosaic, Polaroid, Magazine, and Heart layouts
+- **Advanced Caption Support**: Load captions from JSON or TXT files
+- **Frame Options**: Apple/Google Photos-style frames (can be disabled)
+- **Smart Image Cropping**: Intelligent resizing and cropping for perfect fits
+- **High Quality Output**: Enhanced image quality with sharpening and optimization
 - **Flexible Output**: Customizable dimensions and output formats
-- **Sample Images**: Built-in sample image downloader for testing
+- **Sample Images**: Built-in sample image downloader with captions for testing
 - **Command Line Interface**: Easy-to-use CLI with multiple options
 
 ## Installation
@@ -42,36 +45,74 @@ python collage_maker.py --folder /path/to/images --style all --width 1920 --heig
 
 - `--folder, -f`: Folder containing images (required)
 - `--output, -o`: Output filename (default: collage.jpg)
-- `--style, -s`: Collage style - grid, mosaic, polaroid, or all (default: grid)
+- `--style, -s`: Collage style - grid, mosaic, polaroid, magazine, heart, or all (default: grid)
 - `--width, -w`: Output width in pixels (default: 1920)
 - `--height, -h`: Output height in pixels (default: 1080)
+- `--no-frames`: Disable frames on images (frames are enabled by default)
 - `--download-samples`: Download sample images for testing
 
 ### Collage Styles
 
 #### Grid Collage
-Creates a neat grid layout with images arranged in rows and columns.
+Creates a neat grid layout with images arranged in rows and columns. Perfect for showcasing multiple photos with equal importance.
 
 ![Grid Collage Example](collage_grid.jpg)
 
 #### Mosaic Collage
-Creates a dynamic mosaic with varying image sizes and positions.
+Creates a dynamic mosaic with varying image sizes and positions. Uses intelligent placement to minimize whitespace.
 
 ![Mosaic Collage Example](collage_mosaic.jpg)
 
 #### Polaroid Collage
-Creates a nostalgic polaroid-style collage with rotated images and captions.
+Creates a nostalgic polaroid-style collage with rotated images and captions. Each image gets a white border and displays its caption.
 
 ![Polaroid Collage Example](collage_polaroid.jpg)
 
+#### Magazine Collage
+Creates a magazine-style layout with a large featured image on the left and smaller images arranged in a grid on the right.
+
+![Magazine Collage Example](collage_magazine.jpg)
+
+#### Heart Collage
+Creates a romantic heart-shaped collage with circular images arranged in a heart pattern.
+
+![Heart Collage Example](collage_heart.jpg)
+
+### Caption Support
+
+The tool supports captions in multiple formats:
+
+#### JSON Format (recommended)
+Create a `captions.json` file in your image folder:
+```json
+{
+  "photo1.jpg": "Beautiful sunset over the mountains",
+  "photo2.jpg": "Family gathering at the beach",
+  "photo3.jpg": "Morning coffee and newspaper"
+}
+```
+
+#### TXT Format
+Create a `captions.txt` file in your image folder:
+```
+photo1.jpg: Beautiful sunset over the mountains
+photo2.jpg: Family gathering at the beach
+photo3.jpg: Morning coffee and newspaper
+```
+
+#### Automatic Caption Extraction
+If no caption file is found, captions are automatically extracted from filenames:
+- `my_summer_vacation.jpg` → `My Summer Vacation`
+- `beach-sunset-2023.jpg` → `Beach Sunset 2023`
+
 ### Sample Images
 
-To download sample images for testing:
+To download sample images with captions for testing:
 ```bash
 python collage_maker.py --download-samples
 ```
 
-This will create a `sample_images` folder with 8 sample images from Picsum.
+This creates a `sample_images` folder with 8 sample images and a `captions.json` file with beautiful captions.
 
 ## Examples
 
@@ -83,11 +124,36 @@ This generates:
 - `collage_grid.jpg`
 - `collage_mosaic.jpg`
 - `collage_polaroid.jpg`
+- `collage_magazine.jpg`
+- `collage_heart.jpg`
 
-### Custom dimensions:
+### Create a high-resolution magazine-style collage:
 ```bash
-python collage_maker.py --folder my_photos --width 2560 --height 1440 --style mosaic
+python collage_maker.py --folder my_photos --style magazine --width 2560 --height 1440
 ```
+
+### Create collages without frames:
+```bash
+python collage_maker.py --folder my_photos --style all --no-frames
+```
+
+## Technical Features
+
+### Frame System
+- **Apple/Google Photos-style frames**: Subtle white borders that enhance image presentation
+- **Adaptive frame sizing**: Different frame widths for different collage styles
+- **Optional frames**: Can be disabled with `--no-frames` flag
+
+### Smart Image Processing
+- **Intelligent cropping**: Maintains aspect ratios while fitting images perfectly
+- **Quality enhancement**: Automatic sharpening and optimization
+- **Format support**: Works with all major image formats
+- **High DPI output**: Supports custom resolutions up to 4K and beyond
+
+### Advanced Layout Algorithms
+- **Collision detection**: Prevents image overlap in mosaic and polaroid styles
+- **Space optimization**: Minimizes whitespace through intelligent placement
+- **Proportional sizing**: Balances image sizes for visual harmony
 
 ## Supported Image Formats
 
@@ -97,21 +163,12 @@ python collage_maker.py --folder my_photos --width 2560 --height 1440 --style mo
 - TIFF (.tiff)
 - WebP (.webp)
 
-## Caption Support
-
-The tool automatically extracts captions from image filenames:
-- Underscores and hyphens are converted to spaces
-- File extensions are removed
-- Text is title-cased
-
-Example: `my_summer_vacation.jpg` → `My Summer Vacation`
-
 ## Requirements
 
 - Python 3.7+
-- Pillow (PIL)
-- Click
-- Requests
+- Pillow (PIL) - Image processing
+- Click - Command line interface
+- Requests - Sample image downloading
 
 ## License
 
@@ -130,12 +187,31 @@ This tool was inspired by the automatic collage features in:
 - Google Photos Memories
 - Apple Photos Memories
 - Instagram Story layouts
+- Magazine and scrapbook designs
 
 ## Future Enhancements
 
-- Web interface
-- More collage styles
-- Video support
-- Face detection for better cropping
+- Web interface for easier use
+- Video collage support
+- Face detection for smart cropping
 - Color theme matching
 - Text overlay options
+- Social media format presets
+- Batch processing for multiple folders
+- AI-powered layout suggestions
+
+## Changelog
+
+### Version 2.0.0
+- Added Magazine and Heart collage styles
+- Implemented JSON/TXT caption support
+- Added frame system like Apple/Google Photos
+- Fixed whitespace issues in mosaic and polaroid styles
+- Improved image quality with sharpening
+- Enhanced collision detection algorithms
+- Better space utilization in all layouts
+
+### Version 1.0.0
+- Initial release with Grid, Mosaic, and Polaroid styles
+- Basic caption support from filenames
+- Sample image download functionality

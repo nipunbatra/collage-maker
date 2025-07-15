@@ -1,62 +1,150 @@
 ---
 title: "Collage Maker"
+page-layout: full
 ---
 
-A Python-based tool that creates professional photo collages from a folder of images, inspired by Google Photos and Apple Photos automatic collages.
+::: {.hero-banner}
+# Transform Your Photos Into Stunning Collages
 
-## Quick Start
+**15+ artistic styles • Zero wasted space • Professional quality**
+
+One command creates magazine-worthy collages from any folder of photos.
+:::
+
+## Gallery Showcase
+
+### Professional Grid Layouts
+Perfect for portfolios, presentations, and social media.
 
 ```bash
+python modular_collage_maker.py --folder vacation_photos --style grid
+```
+*Creates: Clean, organized layouts with perfect spacing*
+
+---
+
+### Artistic Mandala Patterns
+Circular arrangements with mathematical beauty.
+
+```bash
+python modular_collage_maker.py --folder family_pics --style mandala
+```
+*Creates: Symmetrical, meditative circular designs*
+
+---
+
+### Vintage Polaroid Memories
+Nostalgic photo arrangements with captions.
+
+```bash
+python modular_collage_maker.py --folder memories --style polaroid
+```
+*Creates: Authentic vintage feel with handwritten-style captions*
+
+---
+
+### Dynamic Mosaic Layouts
+Intelligent space-filling with varied photo sizes.
+
+```bash
+python modular_collage_maker.py --folder travel --style mosaic
+```
+*Creates: Modern, magazine-style layouts*
+
+---
+
+### Film Strip Cinema
+Classic movie aesthetic with perforations.
+
+```bash
+python modular_collage_maker.py --folder events --style filmstrip
+```
+*Creates: Cinematic storytelling sequences*
+
+---
+
+### Geometric Voronoi Cells
+Organic, mathematical cell divisions.
+
+```bash
+python modular_collage_maker.py --folder nature --style voronoi
+```
+*Creates: Scientific, organic pattern beauty*
+
+## Instant Results
+
+```bash
+# Get started in 30 seconds
 git clone https://github.com/nipunbatra/collage-maker.git
-cd collage-maker
-pip install -r requirements.txt
+cd collage-maker && pip install -r requirements.txt
 
-# List all available styles
-python modular_collage_maker.py --list-styles
+# Download sample images
+python modular_collage_maker.py --download-samples
 
-# Create a collage
-python modular_collage_maker.py --folder /path/to/images --style mandala
+# Create your first masterpiece
+python modular_collage_maker.py --folder sample_images --style mandala
 ```
 
-## Key Features
+## Popular Use Cases
 
-- **15+ Collage Styles** across Basic, Creative, and Geometric categories
-- **Modular Architecture** with plugin-based extensibility 
-- **Professional Quality** output with zero wasted space
-- **Caption Support** from JSON/TXT files or automatic extraction
-- **Multiple Formats** for social media and custom dimensions
+::: {.use-case-grid}
 
-## Available Styles
+### Social Media Ready
+- **Instagram**: Perfect 1080x1080 squares
+- **Facebook**: Cover photo layouts
+- **Stories**: Vertical 1080x1920 formats
 
-### Basic Styles (4)
-- **Grid** - Perfect alignment and spacing
-- **Mosaic** - Dynamic sizes with intelligent placement
-- **Polaroid** - Nostalgic photos with captions
-- **Magazine** - Hero image with thumbnail grid
+### Professional Work
+- **Portfolios**: Clean grid presentations
+- **Marketing**: Eye-catching mosaic designs
+- **Presentations**: Magazine-style layouts
 
-### Creative Styles (5)
-- **Spiral** - Flowing arrangement from center outward
-- **Hexagon** - Honeycomb tessellation layout
-- **Film Strip** - Classic cinema aesthetic with perforations
-- **Scrapbook** - Overlapping photos with tape effects
-- **Puzzle** - Interlocking jigsaw pieces
+### Personal Projects
+- **Family Albums**: Nostalgic polaroid styles
+- **Travel Memories**: Dynamic spiral arrangements
+- **Art Projects**: Geometric kaleidoscope patterns
 
-### Geometric Styles (4)
-- **Mandala** - Circular rings and symmetrical patterns
-- **Voronoi** - Organic cell-like divisions
-- **Fractal** - Recursive subdivision patterns
-- **Kaleidoscope** - Symmetrical reflections and rotations
+:::
 
-## Getting Started
+## Why Choose Collage Maker?
 
-1. [Installation Guide](installation.qmd) - Set up the environment
-2. [Basic Usage](features.qmd) - Create your first collage
-3. [Style Examples](examples.qmd) - See all 15+ styles in action
-4. [Developer Guide](developer.qmd) - Extend with new styles
+::: {.feature-highlights}
 
-## Project Statistics
+**🎨 15+ Unique Styles**  
+From basic grids to complex fractals
 
-- **15+** Collage Styles Available
-- **3** Major Architecture Versions
-- **25+** Example Collages Generated
-- **Zero** Wasted Space in Layouts
+**🚀 Zero Configuration**  
+Works instantly with any image folder
+
+**📐 Perfect Space Usage**  
+Mathematical algorithms eliminate wasted space
+
+**🔧 Infinitely Extensible**  
+Plugin architecture for custom styles
+
+**📱 Social Media Ready**  
+Pre-configured for all major platforms
+
+**💎 Professional Quality**  
+High-resolution output with image enhancement
+
+:::
+
+## Explore More
+
+::: {.nav-cards}
+
+[**See All Examples →**](examples.qmd)  
+Browse the complete gallery of 15+ styles
+
+[**Quick Installation →**](installation.qmd)  
+Set up in under 2 minutes
+
+[**Create Custom Styles →**](developer.qmd)  
+Extend with your own algorithms
+
+:::
+
+---
+
+*Transform any folder of photos into professional collages. No design skills required.*

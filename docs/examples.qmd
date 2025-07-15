@@ -1,40 +1,85 @@
 ---
-title: "Examples"
+title: "Gallery"
+page-layout: full
 ---
 
-# Example Gallery
+::: {.gallery-hero}
+# Complete Style Gallery
 
-Explore collages created with all 15+ available styles using the same set of sample images.
+**25+ example collages showcasing every style**
+
+See the same 8 photos transformed into completely different artistic layouts.
+:::
+
+::: {.gallery-intro}
+**Quick Test**: Download samples and create your first collage in 30 seconds:
+
+```bash
+python modular_collage_maker.py --download-samples
+python modular_collage_maker.py --folder sample_images --style mandala
+```
+:::
 
 ## Basic Styles
+*Perfect for everyday use, professional presentations, and social media*
 
-### Grid Style
-Clean, professional layout with perfect alignment.
+::: {.style-showcase}
+
+### 🏢 Grid Style
+**Best for**: Portfolios • LinkedIn • Professional presentations
+
+Clean, mathematical perfection with equal spacing and alignment.
 ```bash
 python modular_collage_maker.py --folder sample_images --style grid
 ```
-**Output**: `grid_collage.jpg`
 
-### Mosaic Style  
-Dynamic layout with varied image sizes and optimal space usage.
+**Perfect for**: Company portfolios, product showcases, real estate listings  
+**Social Media**: Instagram posts (1080x1080), Facebook albums  
+**Space Usage**: 100% (zero waste)
+
+---
+
+### 🎨 Mosaic Style  
+**Best for**: Instagram • Modern websites • Art galleries
+
+Dynamic intelligence that finds the perfect size for every photo.
 ```bash
 python modular_collage_maker.py --folder sample_images --style mosaic
 ```
-**Output**: `mosaic_collage.jpg`
 
-### Polaroid Style
-Nostalgic polaroid photos with captions and authentic rotation.
+**Perfect for**: Travel blogs, event photography, creative portfolios  
+**Social Media**: Instagram stories, website headers  
+**Space Usage**: 95% (smart algorithm)
+
+---
+
+### 📸 Polaroid Style
+**Best for**: Family albums • Personal blogs • Memory books
+
+Authentic vintage feel with hand-written style captions and natural rotation.
 ```bash
 python modular_collage_maker.py --folder sample_images --style polaroid
 ```
-**Output**: `polaroid_collage.jpg`
 
-### Magazine Style
-Editorial layout featuring one hero image with supporting thumbnails.
+**Perfect for**: Wedding albums, baby photos, vacation memories  
+**Social Media**: Facebook posts, Pinterest boards  
+**Special Feature**: Automatic caption extraction from filenames
+
+---
+
+### 📰 Magazine Style
+**Best for**: Editorial content • Feature stories • Hero sections
+
+Editorial elegance with one stunning hero image and supporting thumbnails.
 ```bash
 python modular_collage_maker.py --folder sample_images --style magazine
 ```
-**Output**: `magazine_collage.jpg`
+
+**Perfect for**: Blog headers, news articles, product launches  
+**Social Media**: Facebook covers (1200x630), LinkedIn banners  
+**Pro Tip**: First image becomes the hero shot
+
+:::
 
 ## Creative Styles
 

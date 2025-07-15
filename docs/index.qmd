@@ -16,7 +16,7 @@ One command creates magazine-worthy collages from any folder of photos.
 ::: {.gallery-grid}
 
 ::: {.gallery-item}
-### 🏢 Professional Grid 
+###  Professional Grid 
 Perfect for portfolios and social media
 ![Professional Grid Style - Clean, organized layouts with perfect spacing](images/collage_grid.jpg){.lightbox group="gallery"}
 ```bash
@@ -26,7 +26,7 @@ Perfect for portfolios and social media
 :::
 
 ::: {.gallery-item}
-### 🎨 Artistic Mandala
+###  Artistic Mandala
 Circular mathematical beauty
 ![Artistic Mandala Style - Symmetrical, meditative circular designs](images/test_mandala.jpg){.lightbox group="gallery"}
 ```bash
@@ -36,7 +36,7 @@ Circular mathematical beauty
 :::
 
 ::: {.gallery-item}
-### 📸 Vintage Polaroid
+###  Vintage Polaroid
 Nostalgic photo memories
 ![Vintage Polaroid Style - Authentic vintage feel with captions](images/collage_polaroid.jpg){.lightbox group="gallery"}
 ```bash
@@ -46,7 +46,7 @@ Nostalgic photo memories
 :::
 
 ::: {.gallery-item}
-### 🧩 Dynamic Mosaic
+###  Dynamic Mosaic
 Intelligent space-filling
 ![Dynamic Mosaic Style - Modern, magazine-style layouts](images/collage_mosaic.jpg){.lightbox group="gallery"}
 ```bash
@@ -56,7 +56,7 @@ Intelligent space-filling
 :::
 
 ::: {.gallery-item}
-### 🎬 Film Strip Cinema
+###  Film Strip Cinema
 Classic movie aesthetic
 ![Film Strip Cinema Style - Cinematic storytelling sequences](images/creative_filmstrip.jpg){.lightbox group="gallery"}
 ```bash
@@ -66,7 +66,7 @@ Classic movie aesthetic
 :::
 
 ::: {.gallery-item}
-### 🔬 Voronoi Cells
+###  Voronoi Cells
 Organic mathematical patterns
 ![Voronoi Cells Style - Scientific, organic pattern beauty](images/test_voronoi.jpg){.lightbox group="gallery"}
 ```bash
@@ -116,22 +116,22 @@ python collage_maker.py --folder sample_images --style mandala
 
 ::: {.feature-highlights}
 
-**🎨 15+ Unique Styles**  
+** 15+ Unique Styles**  
 From basic grids to complex fractals
 
-**🚀 Zero Configuration**  
+** Zero Configuration**  
 Works instantly with any image folder
 
-**📐 Perfect Space Usage**  
+** Perfect Space Usage**  
 Mathematical algorithms eliminate wasted space
 
-**🔧 Infinitely Extensible**  
+** Infinitely Extensible**  
 Plugin architecture for custom styles
 
-**📱 Social Media Ready**  
+** Social Media Ready**  
 Pre-configured for all major platforms
 
-**💎 Professional Quality**  
+** Professional Quality**  
 High-resolution output with image enhancement
 
 :::

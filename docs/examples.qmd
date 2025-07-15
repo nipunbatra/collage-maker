@@ -1,0 +1,179 @@
+---
+title: "Examples"
+---
+
+# Example Gallery
+
+Explore collages created with all 15+ available styles using the same set of sample images.
+
+## Basic Styles
+
+### Grid Style
+Clean, professional layout with perfect alignment.
+```bash
+python modular_collage_maker.py --folder sample_images --style grid
+```
+**Output**: `grid_collage.jpg`
+
+### Mosaic Style  
+Dynamic layout with varied image sizes and optimal space usage.
+```bash
+python modular_collage_maker.py --folder sample_images --style mosaic
+```
+**Output**: `mosaic_collage.jpg`
+
+### Polaroid Style
+Nostalgic polaroid photos with captions and authentic rotation.
+```bash
+python modular_collage_maker.py --folder sample_images --style polaroid
+```
+**Output**: `polaroid_collage.jpg`
+
+### Magazine Style
+Editorial layout featuring one hero image with supporting thumbnails.
+```bash
+python modular_collage_maker.py --folder sample_images --style magazine
+```
+**Output**: `magazine_collage.jpg`
+
+## Creative Styles
+
+### Spiral Style
+Circular arrangement flowing outward from the center.
+```bash
+python modular_collage_maker.py --folder sample_images --style spiral
+```
+**Output**: `spiral_collage.jpg`
+
+### Hexagon Style
+Honeycomb tessellation with hexagonal image frames.
+```bash
+python modular_collage_maker.py --folder sample_images --style hexagon
+```
+**Output**: `hexagon_collage.jpg`
+
+### Film Strip Style
+Classic cinema aesthetic with film perforations and frame borders.
+```bash
+python modular_collage_maker.py --folder sample_images --style filmstrip
+```
+**Output**: `filmstrip_collage.jpg`
+
+### Scrapbook Style
+Artistic overlapping with tape effects and random positioning.
+```bash
+python modular_collage_maker.py --folder sample_images --style scrapbook
+```
+**Output**: `scrapbook_collage.jpg`
+
+### Puzzle Style
+Interlocking jigsaw pieces with realistic shadows and depth.
+```bash
+python modular_collage_maker.py --folder sample_images --style puzzle
+```
+**Output**: `puzzle_collage.jpg`
+
+## Geometric Styles
+
+### Mandala Style
+Circular rings with symmetrical patterns and balanced composition.
+```bash
+python modular_collage_maker.py --folder sample_images --style mandala
+```
+**Output**: `mandala_collage.jpg`
+
+### Voronoi Style
+Organic cell-like divisions based on mathematical Voronoi diagrams.
+```bash
+python modular_collage_maker.py --folder sample_images --style voronoi
+```
+**Output**: `voronoi_collage.jpg`
+
+### Fractal Style
+Recursive subdivision patterns with self-similar structures.
+```bash
+python modular_collage_maker.py --folder sample_images --style fractal
+```
+**Output**: `fractal_collage.jpg`
+
+### Kaleidoscope Style
+Symmetrical reflections and rotations creating kaleidoscope patterns.
+```bash
+python modular_collage_maker.py --folder sample_images --style kaleidoscope
+```
+**Output**: `kaleidoscope_collage.jpg`
+
+## Special Features
+
+### Multiple Styles at Once
+Generate all basic styles in one command:
+```bash
+python modular_collage_maker.py --folder sample_images --style all
+```
+
+### Custom Dimensions
+Create collages for specific platforms:
+
+**Instagram Square**:
+```bash
+python modular_collage_maker.py --folder sample_images --style grid --width 1080 --height 1080
+```
+
+**Facebook Cover**:
+```bash
+python modular_collage_maker.py --folder sample_images --style magazine --width 1200 --height 630
+```
+
+**YouTube Thumbnail**:
+```bash
+python modular_collage_maker.py --folder sample_images --style mosaic --width 1280 --height 720
+```
+
+**Ultrawide Desktop**:
+```bash
+python modular_collage_maker.py --folder sample_images --style mandala --width 3440 --height 1440
+```
+
+### Without Frames
+Remove borders for seamless layouts:
+```bash
+python modular_collage_maker.py --folder sample_images --style mosaic --no-frames
+```
+
+## Sample Images
+
+Download sample images to test all styles:
+```bash
+python modular_collage_maker.py --download-samples
+```
+
+This creates:
+- `sample_images/` folder with 8 diverse images
+- `sample_images/captions.json` with descriptive captions
+- Perfect for testing all collage styles
+
+## Performance Notes
+
+### Style Complexity
+- **Low complexity**: Grid, Magazine (fast generation)
+- **Medium complexity**: Mosaic, Hexagon, Polaroid (moderate processing)
+- **High complexity**: Mandala, Fractal, Kaleidoscope (intensive algorithms)
+
+### Recommended Image Counts
+- **Grid**: Works well with any number (4-100+)
+- **Mosaic**: Optimal with 6-20 images
+- **Polaroid**: Best with 4-12 images
+- **Geometric styles**: Ideal with 8-16 images
+
+### Output Quality
+All examples use:
+- JPEG format with 95% quality
+- Automatic image sharpening
+- Optimal contrast adjustment
+- High-resolution output (1920x1080 default)
+
+## Next Steps
+
+- [Learn about all features](features.qmd)
+- [Explore style customization](styles.qmd)
+- [Create custom styles](developer.qmd)

@@ -1,0 +1,144 @@
+---
+title: "Features"
+---
+
+# Features Overview
+
+## Core Capabilities
+
+### 15+ Collage Styles
+Choose from a wide variety of artistic layouts:
+- **Basic Styles**: Grid, Mosaic, Polaroid, Magazine
+- **Creative Styles**: Spiral, Hexagon, Film Strip, Scrapbook, Puzzle  
+- **Geometric Styles**: Mandala, Voronoi, Fractal, Kaleidoscope
+
+### Modular Architecture
+- Plugin-based system for infinite extensibility
+- Easy 3-step process to add new styles
+- Automatic style registration and discovery
+- Clean separation of concerns
+
+### Professional Quality Output
+- Zero wasted space algorithms
+- Smart image cropping and resizing
+- Enhanced image quality with sharpening
+- Support for high-resolution outputs up to 4K+
+
+## Advanced Features
+
+### Caption Support
+Multiple caption sources supported:
+- **JSON files**: `captions.json` with filename-caption mapping
+- **TXT files**: Simple `filename: caption` format
+- **Automatic extraction**: From image filenames with smart formatting
+
+### Flexible Output Options
+- Custom dimensions for any use case
+- Social media ready formats (Instagram, Facebook, Twitter, YouTube)
+- Multiple aspect ratios (square, landscape, portrait, ultrawide)
+- Frame options (can be enabled/disabled)
+
+### Sample Content
+- Built-in sample image downloader
+- Pre-written captions for testing
+- Example gallery with 25+ generated collages
+
+## Usage Examples
+
+### Basic Usage
+```bash
+# List all available styles
+python modular_collage_maker.py --list-styles
+
+# Create a specific style
+python modular_collage_maker.py --folder photos --style mandala
+
+# Create all basic styles
+python modular_collage_maker.py --folder photos --style all
+```
+
+### Advanced Options
+```bash
+# Custom dimensions
+python modular_collage_maker.py --folder photos --style mosaic --width 2560 --height 1440
+
+# Without frames
+python modular_collage_maker.py --folder photos --style polaroid --no-frames
+
+# Social media format
+python modular_collage_maker.py --folder photos --style grid --width 1080 --height 1080
+```
+
+### Caption Examples
+
+**JSON format** (`captions.json`):
+```json
+{
+  "vacation1.jpg": "Beautiful sunset over the mountains",
+  "family2.jpg": "Family gathering at the beach",
+  "city3.jpg": "Urban nightscape with lights"
+}
+```
+
+**TXT format** (`captions.txt`):
+```
+vacation1.jpg: Beautiful sunset over the mountains
+family2.jpg: Family gathering at the beach
+city3.jpg: Urban nightscape with lights
+```
+
+## Command Line Options
+
+### Modular Interface
+- `--folder, -f`: Folder containing images (required)
+- `--style, -s`: Any of 15+ available styles
+- `--output, -o`: Output filename
+- `--width, -w`: Output width in pixels (default: 1920)
+- `--height, -h`: Output height in pixels (default: 1080)
+- `--no-frames`: Disable image frames
+- `--list-styles`: Show all available styles
+
+### Legacy Interface
+- Same options but limited to 4 original styles
+- `--download-samples`: Download sample images
+
+## Performance Features
+
+### Efficient Processing
+- Smart image sampling to prevent memory issues
+- Optimized algorithms for space utilization
+- Parallel processing where possible
+- Minimal memory footprint
+
+### Quality Enhancements
+- Automatic image sharpening
+- Contrast optimization
+- High-quality JPEG output with 95% quality
+- Proper color space handling
+
+## Technical Specifications
+
+### Supported Image Formats
+- JPEG (.jpg, .jpeg)
+- PNG (.png)
+- BMP (.bmp)
+- TIFF (.tiff)
+- WebP (.webp)
+
+### Output Specifications
+- Default: 1920x1080 pixels
+- Maximum: Limited by system memory
+- Format: JPEG with 95% quality
+- Color space: RGB
+- DPI: Configurable
+
+### System Requirements
+- Python 3.7+
+- 512MB+ RAM (depending on image sizes)
+- Cross-platform (Windows, macOS, Linux)
+
+## Next Steps
+
+- [View all styles](styles.qmd)
+- [Browse example gallery](examples.qmd)
+- [Learn to extend the system](developer.qmd)

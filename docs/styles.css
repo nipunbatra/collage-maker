@@ -1,0 +1,63 @@
+/* Custom styles for Collage Maker documentation */
+
+.hero-section {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #f8f9fa;
+}
+
+.style-comparison table {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.style-comparison th,
+.style-comparison td {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+code {
+    background-color: #f1f3f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+.callout {
+    border-left: 4px solid #007bff;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.callout-warning {
+    border-left-color: #ffc107;
+    background-color: #fff3cd;
+}
+
+.callout-success {
+    border-left-color: #28a745;
+    background-color: #d4edda;
+}

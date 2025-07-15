@@ -1,0 +1,62 @@
+---
+title: "Collage Maker"
+---
+
+A Python-based tool that creates professional photo collages from a folder of images, inspired by Google Photos and Apple Photos automatic collages.
+
+## Quick Start
+
+```bash
+git clone https://github.com/nipunbatra/collage-maker.git
+cd collage-maker
+pip install -r requirements.txt
+
+# List all available styles
+python modular_collage_maker.py --list-styles
+
+# Create a collage
+python modular_collage_maker.py --folder /path/to/images --style mandala
+```
+
+## Key Features
+
+- **15+ Collage Styles** across Basic, Creative, and Geometric categories
+- **Modular Architecture** with plugin-based extensibility 
+- **Professional Quality** output with zero wasted space
+- **Caption Support** from JSON/TXT files or automatic extraction
+- **Multiple Formats** for social media and custom dimensions
+
+## Available Styles
+
+### Basic Styles (4)
+- **Grid** - Perfect alignment and spacing
+- **Mosaic** - Dynamic sizes with intelligent placement
+- **Polaroid** - Nostalgic photos with captions
+- **Magazine** - Hero image with thumbnail grid
+
+### Creative Styles (5)
+- **Spiral** - Flowing arrangement from center outward
+- **Hexagon** - Honeycomb tessellation layout
+- **Film Strip** - Classic cinema aesthetic with perforations
+- **Scrapbook** - Overlapping photos with tape effects
+- **Puzzle** - Interlocking jigsaw pieces
+
+### Geometric Styles (4)
+- **Mandala** - Circular rings and symmetrical patterns
+- **Voronoi** - Organic cell-like divisions
+- **Fractal** - Recursive subdivision patterns
+- **Kaleidoscope** - Symmetrical reflections and rotations
+
+## Getting Started
+
+1. [Installation Guide](installation.qmd) - Set up the environment
+2. [Basic Usage](features.qmd) - Create your first collage
+3. [Style Examples](examples.qmd) - See all 15+ styles in action
+4. [Developer Guide](developer.qmd) - Extend with new styles
+
+## Project Statistics
+
+- **15+** Collage Styles Available
+- **3** Major Architecture Versions
+- **25+** Example Collages Generated
+- **Zero** Wasted Space in Layouts

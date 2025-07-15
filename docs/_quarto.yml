@@ -1,0 +1,48 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Collage Maker"
+  description: "Professional photo collage creation tool with 15+ artistic styles"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: installation.qmd
+        text: Installation
+      - href: features.qmd
+        text: Features
+      - href: styles.qmd
+        text: Styles
+      - href: examples.qmd
+        text: Examples
+      - href: developer.qmd
+        text: Developer
+    right:
+      - icon: github
+        href: https://github.com/nipunbatra/collage-maker
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Getting Started"
+        contents:
+          - installation.qmd
+          - features.qmd
+      - section: "Styles & Examples"
+        contents:
+          - styles.qmd
+          - examples.qmd
+      - section: "Development"
+        contents:
+          - developer.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    code-overflow: wrap

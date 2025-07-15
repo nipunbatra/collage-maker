@@ -1,0 +1,273 @@
+---
+title: "Developer Guide"
+---
+
+# Developer Guide
+
+Learn how to extend Collage Maker with custom styles and contribute to the modular architecture.
+
+## Architecture Overview
+
+### Modular Plugin System
+The collage maker uses a decorator-based registration system that automatically discovers and registers new styles.
+
+```python
+from collage_core import CollageBase, register_style
+
+@register_style
+class MyCustomStyle(CollageBase):
+    @property
+    def style_name(self):
+        return "mystyle"
+    
+    def create_collage(self, images, **kwargs):
+        # Implementation here
+        return collage_image
+```
+
+### Core Components
+
+#### CollageBase Abstract Class
+All styles inherit from this base class:
+
+```python
+class CollageBase(ABC):
+    @property
+    @abstractmethod
+    def style_name(self):
+        """Return the name of this collage style"""
+        pass
+    
+    @abstractmethod 
+    def create_collage(self, images, **kwargs):
+        """Create and return a collage PIL Image"""
+        pass
+```
+
+#### Style Registry
+Automatic discovery and registration system:
+
+```python
+class CollageStyleRegistry:
+    _styles = {}
+    
+    @classmethod
+    def register(cls, style_class):
+        cls._styles[style_class().style_name] = style_class
+        return style_class
+    
+    @classmethod
+    def get_style(cls, name):
+        return cls._styles.get(name)
+```
+
+## Creating Custom Styles
+
+### Step 1: Create Style File
+Create a new file in the `styles/` directory:
+
+```python
+# styles/my_custom_styles.py
+from PIL import Image, ImageDraw
+from collage_core import CollageBase, register_style
+import math
+
+@register_style
+class CircularStyle(CollageBase):
+    @property
+    def style_name(self):
+        return "circular"
+    
+    def create_collage(self, images, **kwargs):
+        width = kwargs.get('width', 1920)
+        height = kwargs.get('height', 1080)
+        
+        # Create base canvas
+        collage = Image.new('RGB', (width, height), 'white')
+        
+        # Calculate circular arrangement
+        center_x, center_y = width // 2, height // 2
+        radius = min(width, height) // 3
+        
+        for i, img in enumerate(images):
+            angle = 2 * math.pi * i / len(images)
+            x = center_x + radius * math.cos(angle)
+            y = center_y + radius * math.sin(angle)
+            
+            # Resize and paste image
+            size = min(width, height) // (len(images) + 2)
+            img_resized = img.resize((size, size))
+            
+            paste_x = int(x - size // 2)
+            paste_y = int(y - size // 2)
+            collage.paste(img_resized, (paste_x, paste_y))
+        
+        return collage
+```
+
+### Step 2: Register with Main System
+Import your new styles in the main file:
+
+```python
+# modular_collage_maker.py
+from styles import (
+    basic_styles, 
+    creative_styles, 
+    geometric_styles,
+    my_custom_styles  # Add this line
+)
+```
+
+### Step 3: Test Your Style
+```bash
+python modular_collage_maker.py --list-styles
+python modular_collage_maker.py --folder sample_images --style circular
+```
+
+## Advanced Techniques
+
+### Image Processing Utilities
+
+#### Smart Cropping
+```python
+def smart_crop(image, target_width, target_height):
+    """Crop image to target dimensions, focusing on center"""
+    img_width, img_height = image.size
+    
+    # Calculate crop box to maintain aspect ratio
+    aspect_ratio = target_width / target_height
+    img_aspect = img_width / img_height
+    
+    if img_aspect > aspect_ratio:
+        # Image is wider, crop horizontally
+        new_width = int(img_height * aspect_ratio)
+        left = (img_width - new_width) // 2
+        crop_box = (left, 0, left + new_width, img_height)
+    else:
+        # Image is taller, crop vertically  
+        new_height = int(img_width / aspect_ratio)
+        top = (img_height - new_height) // 2
+        crop_box = (0, top, img_width, top + new_height)
+    
+    return image.crop(crop_box)
+```
+
+### Mathematical Layouts
+
+#### Fibonacci Spiral
+```python
+def fibonacci_spiral_positions(count, width, height):
+    """Generate positions following Fibonacci spiral"""
+    positions = []
+    golden_ratio = 1.618
+    
+    for i in range(count):
+        angle = i * 2.399  # Golden angle in radians
+        radius = math.sqrt(i) * 20
+        
+        x = width // 2 + radius * math.cos(angle)
+        y = height // 2 + radius * math.sin(angle)
+        positions.append((int(x), int(y)))
+    
+    return positions
+```
+
+## Testing Custom Styles
+
+### Unit Testing
+```python
+# test_custom_styles.py
+import unittest
+from PIL import Image
+from styles.my_custom_styles import CircularStyle
+
+class TestCustomStyles(unittest.TestCase):
+    def setUp(self):
+        # Create test images
+        self.test_images = []
+        for i in range(5):
+            img = Image.new('RGB', (200, 200), f'rgb({i*50}, {i*40}, {i*30})')
+            self.test_images.append(img)
+    
+    def test_circular_style(self):
+        style = CircularStyle()
+        result = style.create_collage(self.test_images, width=800, height=600)
+        
+        self.assertIsInstance(result, Image.Image)
+        self.assertEqual(result.size, (800, 600))
+```
+
+## Best Practices
+
+### Code Organization
+- Create focused style modules (max 5 styles per file)
+- Use descriptive class and method names
+- Include docstrings for complex algorithms
+- Follow PEP 8 style guidelines
+
+### Performance Optimization
+- Use efficient image processing operations
+- Minimize memory allocation in loops
+- Consider using numpy for mathematical operations
+- Cache expensive calculations when possible
+
+### Error Handling
+```python
+@register_style
+class RobustStyle(CollageBase):
+    @property
+    def style_name(self):
+        return "robust"
+    
+    def create_collage(self, images, **kwargs):
+        try:
+            # Validate inputs
+            if not images:
+                raise ValueError("No images provided")
+            
+            width = max(100, kwargs.get('width', 1920))
+            height = max(100, kwargs.get('height', 1080))
+            
+            # Implementation with error handling
+            return self._create_safe_collage(images, width, height)
+            
+        except Exception as e:
+            print(f"Error in {self.style_name}: {e}")
+            # Return fallback simple grid
+            return self._create_fallback_grid(images, width, height)
+```
+
+## Contributing to the Project
+
+### Development Setup
+```bash
+git clone https://github.com/nipunbatra/collage-maker.git
+cd collage-maker
+pip install -r requirements.txt
+```
+
+### Code Quality
+```bash
+# Format code
+black styles/
+flake8 styles/
+
+# Type checking
+mypy styles/
+
+# Run tests
+python -m pytest tests/
+```
+
+### Submitting Changes
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/new-style`
+3. Make changes and add tests
+4. Ensure all tests pass
+5. Submit pull request with description
+
+## Next Steps
+
+- [Explore existing styles](styles.qmd)
+- [View example implementations](examples.qmd)
+- [Check out the source code](https://github.com/nipunbatra/collage-maker)

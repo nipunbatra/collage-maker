@@ -1,0 +1,99 @@
+---
+title: "Installation"
+---
+
+# Installation Guide
+
+## Requirements
+
+- Python 3.7 or higher
+- Git (for cloning the repository)
+
+## Dependencies
+
+The following Python packages are required:
+- **Pillow** - Image processing and manipulation
+- **Click** - Command line interface
+- **Requests** - For downloading sample images
+
+## Installation Steps
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/nipunbatra/collage-maker.git
+cd collage-maker
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Or install manually:
+```bash
+pip install Pillow>=10.0.0 click>=8.1.0 requests>=2.31.0
+```
+
+### 3. Download Sample Images (Optional)
+
+```bash
+python modular_collage_maker.py --download-samples
+```
+
+This creates a `sample_images` folder with 8 sample images and captions.
+
+### 4. Verify Installation
+
+```bash
+python modular_collage_maker.py --list-styles
+```
+
+You should see a list of 15+ available collage styles.
+
+## Installation Options
+
+### Option 1: Modular System (Recommended)
+Use the new modular architecture with all 15+ styles:
+```bash
+python modular_collage_maker.py --folder photos --style mandala
+```
+
+### Option 2: Legacy System
+Use the original 4-style system:
+```bash
+python collage_maker.py --folder photos --style grid
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**ImportError: No module named 'PIL'**
+```bash
+pip install Pillow
+```
+
+**Permission errors on macOS/Linux**
+```bash
+pip install --user -r requirements.txt
+```
+
+**Font errors**
+The system will fall back to default fonts if system fonts are not available.
+
+### Virtual Environment (Recommended)
+
+```bash
+python -m venv collage-env
+source collage-env/bin/activate  # On Windows: collage-env\Scripts\activate
+pip install -r requirements.txt
+```
+
+## Next Steps
+
+- [Create your first collage](features.qmd)
+- [Explore all styles](styles.qmd)
+- [View example gallery](examples.qmd)
+- [Learn to extend the system](developer.qmd)

@@ -79,9 +79,13 @@ def download_sample_images():
 @click.option('--width', '-w', default=1920, help='Output width')
 @click.option('--height', '-h', default=1080, help='Output height')
 @click.option('--no-frames', is_flag=True, help='Disable frames on images')
+@click.option('--rows', type=int, help='Number of rows for grid layout (grid style only)')
+@click.option('--cols', type=int, help='Number of columns for grid layout (grid style only)')
+@click.option('--title', help='Overall title text for the collage')
+@click.option('--title-position', type=click.Choice(['top', 'bottom', 'center']), default='bottom', help='Position for title text')
 @click.option('--list-styles', is_flag=True, help='List all available styles')
 @click.option('--download-samples', is_flag=True, help='Download sample images for testing')
-def main(folder, output, style, width, height, no_frames, list_styles, download_samples):
+def main(folder, output, style, width, height, no_frames, rows, cols, title, title_position, list_styles, download_samples):
     """Create beautiful photo collages with modular extensible styles"""
     
     if list_styles:
@@ -128,11 +132,21 @@ def main(folder, output, style, width, height, no_frames, list_styles, download_
         print(f"Creating {style_name} collage...")
         
         try:
+            # Pass custom grid dimensions and title if specified
+            kwargs = {'add_frames': add_frames}
+            if style_name == 'grid' and rows is not None:
+                kwargs['rows'] = rows
+            if style_name == 'grid' and cols is not None:
+                kwargs['cols'] = cols
+            if title:
+                kwargs['title'] = title
+                kwargs['title_position'] = title_position
+            
             collage = CollageStyleRegistry.create_collage(
                 style_name, 
                 folder, 
                 output_size=(width, height),
-                add_frames=add_frames
+                **kwargs
             )
             
             if collage:

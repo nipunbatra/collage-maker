@@ -21,10 +21,16 @@ class GridStyle(CollageBase):
     def description(self):
         return "Perfect grid layout with equal spacing"
     
-    def create_collage(self, images, rows=2, cols=3, add_frames=True, **kwargs):
+    def create_collage(self, images, rows=None, cols=None, add_frames=True, title=None, title_position='bottom', **kwargs):
         """Create grid collage"""
         if not images:
             return None
+        
+        # Auto-calculate optimal grid layout if not specified
+        if rows is None or cols is None:
+            rows, cols = self._calculate_optimal_grid(len(images))
+        
+        print(f"Using {rows}x{cols} grid for {len(images)} images")
         
         # Calculate cell dimensions
         cell_width = (self.output_size[0] - (cols + 1) * self.min_padding) // cols
@@ -33,8 +39,9 @@ class GridStyle(CollageBase):
         # Create background
         collage = Image.new('RGB', self.output_size, self.background_color)
         
-        # Select random images
-        selected_images = random.sample(images, min(len(images), rows * cols))
+        # Use all images (no random sampling since we calculated optimal grid)
+        selected_images = images[:rows * cols]
+        print(f"Placing {len(selected_images)} images in {rows}x{cols} grid")
         
         for i, img_data in enumerate(selected_images):
             row = i // cols
@@ -58,7 +65,37 @@ class GridStyle(CollageBase):
             
             collage.paste(img, (img_x, img_y))
         
+        # Add title overlay if provided
+        if title:
+            collage = self._add_title_overlay(collage, title, position=title_position)
+        
         return collage
+    
+    def _calculate_optimal_grid(self, image_count):
+        """Calculate optimal grid layout for given number of images"""
+        if image_count <= 1:
+            return 1, 1
+        elif image_count <= 4:
+            return 2, 2
+        elif image_count <= 6:
+            return 2, 3
+        elif image_count <= 8:
+            return 2, 4  # 7-8 images in 2x4 grid
+        elif image_count <= 9:
+            return 3, 3
+        elif image_count <= 12:
+            return 3, 4
+        elif image_count <= 16:
+            return 4, 4
+        elif image_count <= 20:
+            return 4, 5
+        elif image_count <= 25:
+            return 5, 5
+        else:
+            # For larger counts, calculate square-ish grid
+            cols = int(math.ceil(math.sqrt(image_count)))
+            rows = int(math.ceil(image_count / cols))
+            return rows, cols
 
 
 @register_style
@@ -73,7 +110,7 @@ class MosaicStyle(CollageBase):
     def description(self):
         return "Dynamic mosaic with zero wasted space"
     
-    def create_collage(self, images, add_frames=True, **kwargs):
+    def create_collage(self, images, add_frames=True, title=None, title_position='bottom', **kwargs):
         """Create mosaic collage with perfect space utilization"""
         if not images:
             return None
@@ -109,6 +146,10 @@ class MosaicStyle(CollageBase):
                 
                 collage.paste(img, (final_x, final_y))
                 placed_regions.append(best_region)
+        
+        # Add title overlay if provided
+        if title:
+            collage = self._add_title_overlay(collage, title, position=title_position)
         
         return collage
     
@@ -179,7 +220,7 @@ class PolaroidStyle(CollageBase):
     def description(self):
         return "Nostalgic polaroid photos with captions"
     
-    def create_collage(self, images, add_frames=True, **kwargs):
+    def create_collage(self, images, add_frames=True, title=None, title_position='bottom', **kwargs):
         """Create polaroid collage"""
         if not images:
             return None
@@ -238,6 +279,10 @@ class PolaroidStyle(CollageBase):
             
             collage.paste(rotated, (final_x, final_y))
         
+        # Add title overlay if provided
+        if title:
+            collage = self._add_title_overlay(collage, title, position=title_position)
+        
         return collage
     
     def _create_polaroid(self, img_data, p_width, p_height, photo_width, photo_height, add_frames):
@@ -286,7 +331,7 @@ class MagazineStyle(CollageBase):
     def description(self):
         return "Magazine layout with hero image and thumbnail grid"
     
-    def create_collage(self, images, add_frames=True, **kwargs):
+    def create_collage(self, images, add_frames=True, title=None, title_position='bottom', **kwargs):
         """Create magazine collage"""
         if not images:
             return None
@@ -345,5 +390,9 @@ class MagazineStyle(CollageBase):
                 img = self._resize_to_fit(img, (cell_width - 2, cell_height - 2))
             
             collage.paste(img, (x, y))
+        
+        # Add title overlay if provided
+        if title:
+            collage = self._add_title_overlay(collage, title, position=title_position)
         
         return collage

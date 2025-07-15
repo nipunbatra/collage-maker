@@ -32,6 +32,14 @@ Multiple caption sources supported:
 - **TXT files**: Simple `filename: caption` format
 - **Automatic extraction**: From image filenames with smart formatting
 
+### Title & Branding Features
+Professional labeling and customization:
+- **Custom titles**: Add overall collage titles with `--title`
+- **Flexible positioning**: Top, bottom, or center placement
+- **Professional typography**: Adaptive font sizing and styling
+- **Semi-transparent backgrounds**: Ensures text readability
+- **Works with all styles**: Grid, mosaic, polaroid, magazine, and more
+
 ### Flexible Output Options
 - Custom dimensions for any use case
 - Social media ready formats (Instagram, Facebook, Twitter, YouTube)
@@ -65,8 +73,11 @@ python collage_maker.py --folder photos --style mosaic --width 2560 --height 144
 # Without frames
 python collage_maker.py --folder photos --style polaroid --no-frames
 
-# Social media format
-python collage_maker.py --folder photos --style grid --width 1080 --height 1080
+# Social media format with title
+python collage_maker.py --folder photos --style grid --width 1080 --height 1080 --title "Instagram Post"
+
+# Professional title positioning
+python collage_maker.py --folder photos --style magazine --title "Feature Story" --title-position top
 ```
 
 ### Caption Examples
@@ -96,6 +107,10 @@ city3.jpg: Urban nightscape with lights
 - `--width, -w`: Output width in pixels (default: 1920)
 - `--height, -h`: Output height in pixels (default: 1080)
 - `--no-frames`: Disable image frames
+- `--title`: Add custom title to collage
+- `--title-position`: Title position (top, bottom, center)
+- `--rows`: Custom grid rows (grid style only)
+- `--cols`: Custom grid columns (grid style only)
 - `--list-styles`: Show all available styles
 
 ### Legacy Interface

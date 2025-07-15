@@ -89,6 +89,9 @@ python collage_maker.py --download-samples
 
 # Create your first masterpiece
 python collage_maker.py --folder sample_images --style mandala
+
+# Add custom titles to your collages
+python collage_maker.py --folder sample_images --style grid --title "My Photo Collection"
 ```
 
 ## Popular Use Cases
@@ -112,12 +115,61 @@ python collage_maker.py --folder sample_images --style mandala
 
 :::
 
+## Title & Customization Features
+
+::: {.gallery-grid}
+
+::: {.gallery-item}
+### **Grid with Title**
+Perfect for labeled collections
+![Grid collage with custom title](images/sample_grid_with_title.jpg){.lightbox group="titles" title="Grid Style with Custom Title"}
+```bash
+--title "Sample Gallery"
+```
+*Professional labeling for any photo collection*
+:::
+
+::: {.gallery-item}
+### **Mosaic with Title**
+Creative layouts with branding
+![Mosaic collage with custom title](images/sample_mosaic_with_title.jpg){.lightbox group="titles" title="Mosaic Style with Custom Title"}
+```bash
+--title "Creative Mosaic"
+```
+*Artistic presentations with custom branding*
+:::
+
+::: {.gallery-item}
+### **Polaroid with Title**
+Vintage memories with labels
+![Polaroid collage with custom title](images/sample_polaroid_with_title.jpg){.lightbox group="titles" title="Polaroid Style with Custom Title"}
+```bash
+--title "Vintage Memories"
+```
+*Nostalgic layouts with meaningful captions*
+:::
+
+::: {.gallery-item}
+### **Magazine with Title**
+Professional editorial style
+![Magazine collage with custom title](images/sample_magazine_with_title.jpg){.lightbox group="titles" title="Magazine Style with Custom Title"}
+```bash
+--title "Feature Story" --title-position top
+```
+*Editorial layouts with professional typography*
+:::
+
+:::
+
 ## Why Choose Collage Maker?
 
 ::: {.feature-highlights}
 
 ** 15+ Unique Styles**  
 From basic grids to complex fractals
+
+** Custom Titles & Branding**  
+Add professional labels and captions
 
 ** Zero Configuration**  
 Works instantly with any image folder

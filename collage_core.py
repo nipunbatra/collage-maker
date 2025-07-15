@@ -10,6 +10,14 @@ import json
 from abc import ABC, abstractmethod
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
 
+# Enable HEIC support
+try:
+    from pillow_heif import register_heif_opener
+    register_heif_opener()
+    HEIC_SUPPORTED = True
+except ImportError:
+    HEIC_SUPPORTED = False
+
 
 class CollageBase(ABC):
     """Base class for all collage styles"""
@@ -20,6 +28,7 @@ class CollageBase(ABC):
         self.center_x = output_size[0] // 2
         self.center_y = output_size[1] // 2
         self.min_padding = 3
+        self.title_height = 80  # Reserved space for title
     
     @abstractmethod
     def create_collage(self, images, **kwargs):
@@ -40,7 +49,13 @@ class CollageBase(ABC):
     def load_images(self, folder_path):
         """Load images from folder with caption support"""
         supported_formats = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.webp'}
+        if HEIC_SUPPORTED:
+            supported_formats.update({'.heic', '.heif'})
         images = []
+        
+        # Show supported formats on first load
+        formats_str = ', '.join(sorted(supported_formats))
+        print(f"Supported image formats: {formats_str}")
         
         # Load captions
         captions = self._load_captions(folder_path)
@@ -89,6 +104,66 @@ class CollageBase(ABC):
                 print(f"Error loading captions.txt: {e}")
         
         return captions
+    
+    def _add_title_overlay(self, collage, title, position='bottom'):
+        """Add title as overlay on the collage"""
+        if not title:
+            return collage
+        
+        # Create a copy to work with
+        titled_collage = collage.copy()
+        draw = ImageDraw.Draw(titled_collage)
+        
+        # Try to load a nice font, fall back to default
+        try:
+            font_size = min(self.output_size[0] // 25, 72)  # Adaptive font size
+            font = ImageFont.truetype("/System/Library/Fonts/Arial.ttf", font_size)
+        except:
+            try:
+                font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttf", font_size)
+            except:
+                font = ImageFont.load_default()
+        
+        # Calculate text dimensions
+        bbox = draw.textbbox((0, 0), title, font=font)
+        text_width = bbox[2] - bbox[0]
+        text_height = bbox[3] - bbox[1]
+        
+        # Calculate position based on preference
+        if position == 'top':
+            text_x = (self.output_size[0] - text_width) // 2
+            text_y = 20
+        elif position == 'bottom':
+            text_x = (self.output_size[0] - text_width) // 2
+            text_y = self.output_size[1] - text_height - 20
+        elif position == 'center':
+            text_x = (self.output_size[0] - text_width) // 2
+            text_y = (self.output_size[1] - text_height) // 2
+        else:  # bottom default
+            text_x = (self.output_size[0] - text_width) // 2
+            text_y = self.output_size[1] - text_height - 20
+        
+        # Add semi-transparent background for better readability
+        padding = 20
+        bg_x1 = text_x - padding
+        bg_y1 = text_y - padding//2
+        bg_x2 = text_x + text_width + padding
+        bg_y2 = text_y + text_height + padding//2
+        
+        # Draw background rectangle with transparency
+        overlay = Image.new('RGBA', self.output_size, (0, 0, 0, 0))
+        overlay_draw = ImageDraw.Draw(overlay)
+        overlay_draw.rectangle([bg_x1, bg_y1, bg_x2, bg_y2], fill=(0, 0, 0, 128))
+        
+        # Composite the overlay
+        titled_collage = Image.alpha_composite(titled_collage.convert('RGBA'), overlay)
+        titled_collage = titled_collage.convert('RGB')
+        
+        # Draw the text
+        draw = ImageDraw.Draw(titled_collage)
+        draw.text((text_x, text_y), title, font=font, fill=(255, 255, 255))
+        
+        return titled_collage
     
     def _extract_caption(self, filename):
         """Extract caption from filename"""

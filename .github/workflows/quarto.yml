@@ -33,10 +33,24 @@ jobs:
           cd docs
           quarto render
           
-      - name: Upload artifact
+      - name: List generated files
+        run: |
+          echo "Generated site structure:"
+          ls -la docs/_site/
+          echo "Site files:"
+          find docs/_site -type f -name "*.html" | head -10
+          
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs/_site
+          
+      - name: Upload site as artifact for debugging
+        uses: actions/upload-artifact@v4
+        with:
+          name: quarto-site
+          path: ./docs/_site
+          retention-days: 7
 
   deploy:
     environment:

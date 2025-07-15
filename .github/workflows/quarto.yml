@@ -31,6 +31,7 @@ jobs:
       - name: Render site
         run: |
           cd docs
+          mkdir -p _site
           quarto render
           
       - name: List generated files

@@ -6,7 +6,7 @@ page-layout: full
 ::: {.hero-banner}
 # Transform Your Photos Into Stunning Collages
 
-**15+ artistic styles • Zero wasted space • Professional quality**
+**15+ artistic styles | Zero wasted space | Professional quality**
 
 One command creates magazine-worthy collages from any folder of photos.
 :::

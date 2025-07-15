@@ -217,8 +217,9 @@ hr {
 }
 
 .gallery-item pre {
-    background: #2d3748;
-    color: #e2e8f0;
+    background: #f8f9fa;
+    color: #2d3748;
+    border: 1px solid #e9ecef;
     font-size: 0.85rem;
     margin: 1rem 0 0.5rem 0;
     padding: 0.75rem;
@@ -292,15 +293,15 @@ h2 + p em {
 
 /* Command examples */
 .style-showcase pre {
-    background: #2d3748;
-    color: #e2e8f0;
-    border: none;
+    background: #f8f9fa;
+    color: #2d3748;
+    border: 1px solid #e9ecef;
     margin: 1rem 0;
 }
 
 .style-showcase code {
     background: transparent;
-    color: #e2e8f0;
+    color: #2d3748;
 }
 
 /* Responsive design */

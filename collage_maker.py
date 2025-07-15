@@ -25,7 +25,8 @@ from styles import basic_styles, creative_styles, geometric_styles, example_new_
 @click.option('--height', '-h', default=1080, help='Output height')
 @click.option('--no-frames', is_flag=True, help='Disable frames on images')
 @click.option('--list-styles', is_flag=True, help='List all available styles')
-def main(folder, output, style, width, height, no_frames, list_styles):
+@click.option('--download-samples', is_flag=True, help='Download sample images for testing')
+def main(folder, output, style, width, height, no_frames, list_styles, download_samples):
     """Create beautiful photo collages with modular extensible styles"""
     
     if list_styles:
@@ -34,6 +35,11 @@ def main(folder, output, style, width, height, no_frames, list_styles):
             style_class = CollageStyleRegistry.get_style(style_name)
             style_instance = style_class()
             print(f"  {style_name:12} - {style_instance.description}")
+        return
+    
+    if download_samples:
+        from collage_maker_legacy import download_sample_images
+        download_sample_images()
         return
     
     if not folder:

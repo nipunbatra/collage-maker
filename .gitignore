@@ -14,64 +14,12 @@ venv.bak/
 dist/
 build/
 .pytest_cache/
-*.jpg
-*.png
-*.jpeg
-*.gif
-*.tiff
-*.webp
-*.bmp
-sample_images/
-# Allow example collages for README
-!collage_grid.jpg
-!collage_mosaic.jpg
-!collage_polaroid.jpg
-!collage_magazine.jpg
 
-# Allow diverse examples
-!small_square_grid.jpg
-!small_portrait_mosaic.jpg
-!small_landscape_polaroid.jpg
-!large_4k_magazine.jpg
-!ultrawide_mosaic.jpg
-!large_grid_grid.jpg
+# Temporary output files
+output_*.jpg
+temp_*.jpg
+debug_*.jpg
 
-# Allow grid variations
-!grid_1x5_banner.jpg
-!grid_5x1_tower.jpg
-!grid_2x2_square.jpg
-!grid_3x2_portrait.jpg
-!grid_2x4_wide.jpg
-!grid_1x3_triptych.jpg
-!grid_3x3_instagram.jpg
-
-# Allow no-frames examples
-!grid_no_frames.jpg
-!mosaic_no_frames.jpg
-!polaroid_no_frames.jpg
-!magazine_no_frames.jpg
-
-# Allow social media examples
-!instagram_square_grid.jpg
-!instagram_story_mosaic.jpg
-!facebook_cover_magazine.jpg
-!twitter_header_polaroid.jpg
-!youtube_thumbnail_grid.jpg
-
-# Allow ultimate examples
-!ultimate_mosaic.jpg
-!ultimate_polaroid.jpg
-!ultimate_magazine.jpg
-
-# Allow modular test examples
-!test_spiral.jpg
-!test_mandala.jpg
-!test_voronoi.jpg
-!test_diamond.jpg
-!test_wave.jpg
-
-# Allow creative examples
-!creative_*.jpg
-
-# Allow advanced examples  
-!advanced_*.jpg
+# Keep organized examples and docs images
+!examples/**/*.jpg
+!docs/images/*.jpg

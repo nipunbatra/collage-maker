@@ -35,10 +35,12 @@ jobs:
           
       - name: List generated files
         run: |
-          echo "Generated site structure:"
-          ls -la docs/_site/
-          echo "Site files:"
-          find docs/_site -type f -name "*.html" | head -10
+          echo "Checking for generated files:"
+          ls -la docs/
+          echo "Looking for _site directory:"
+          find docs -name "_site" -type d || echo "No _site directory found"
+          echo "All HTML files:"
+          find docs -name "*.html" -type f || echo "No HTML files found"
           
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

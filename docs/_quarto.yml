@@ -46,3 +46,5 @@ format:
     toc-depth: 3
     code-copy: true
     code-overflow: wrap
+    link-external-newwindow: true
+    lightbox: true

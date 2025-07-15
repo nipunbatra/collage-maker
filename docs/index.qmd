@@ -18,7 +18,7 @@ One command creates magazine-worthy collages from any folder of photos.
 ::: {.gallery-item}
 ### 🏢 Professional Grid 
 Perfect for portfolios and social media
-![Grid Layout Example](images/collage_grid.jpg)
+[![Grid Layout Example](images/collage_grid.jpg){.gallery-image}](images/collage_grid.jpg)
 ```bash
 --style grid
 ```
@@ -28,7 +28,7 @@ Perfect for portfolios and social media
 ::: {.gallery-item}
 ### 🎨 Artistic Mandala
 Circular mathematical beauty
-![Mandala Layout Example](images/test_mandala.jpg)
+[![Mandala Layout Example](images/test_mandala.jpg){.gallery-image}](images/test_mandala.jpg)
 ```bash
 --style mandala
 ```
@@ -38,7 +38,7 @@ Circular mathematical beauty
 ::: {.gallery-item}
 ### 📸 Vintage Polaroid
 Nostalgic photo memories
-![Polaroid Layout Example](images/collage_polaroid.jpg)
+[![Polaroid Layout Example](images/collage_polaroid.jpg){.gallery-image}](images/collage_polaroid.jpg)
 ```bash
 --style polaroid
 ```
@@ -48,7 +48,7 @@ Nostalgic photo memories
 ::: {.gallery-item}
 ### 🧩 Dynamic Mosaic
 Intelligent space-filling
-![Mosaic Layout Example](images/collage_mosaic.jpg)
+[![Mosaic Layout Example](images/collage_mosaic.jpg){.gallery-image}](images/collage_mosaic.jpg)
 ```bash
 --style mosaic
 ```
@@ -58,7 +58,7 @@ Intelligent space-filling
 ::: {.gallery-item}
 ### 🎬 Film Strip Cinema
 Classic movie aesthetic
-![Film Strip Example](images/creative_filmstrip.jpg)
+[![Film Strip Example](images/creative_filmstrip.jpg){.gallery-image}](images/creative_filmstrip.jpg)
 ```bash
 --style filmstrip
 ```
@@ -68,7 +68,7 @@ Classic movie aesthetic
 ::: {.gallery-item}
 ### 🔬 Voronoi Cells
 Organic mathematical patterns
-![Voronoi Example](images/test_voronoi.jpg)
+[![Voronoi Example](images/test_voronoi.jpg){.gallery-image}](images/test_voronoi.jpg)
 ```bash
 --style voronoi
 ```

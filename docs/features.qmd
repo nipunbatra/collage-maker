@@ -48,25 +48,25 @@ Multiple caption sources supported:
 ### Basic Usage
 ```bash
 # List all available styles
-python modular_collage_maker.py --list-styles
+python collage_maker.py --list-styles
 
 # Create a specific style
-python modular_collage_maker.py --folder photos --style mandala
+python collage_maker.py --folder photos --style mandala
 
 # Create all basic styles
-python modular_collage_maker.py --folder photos --style all
+python collage_maker.py --folder photos --style all
 ```
 
 ### Advanced Options
 ```bash
 # Custom dimensions
-python modular_collage_maker.py --folder photos --style mosaic --width 2560 --height 1440
+python collage_maker.py --folder photos --style mosaic --width 2560 --height 1440
 
 # Without frames
-python modular_collage_maker.py --folder photos --style polaroid --no-frames
+python collage_maker.py --folder photos --style polaroid --no-frames
 
 # Social media format
-python modular_collage_maker.py --folder photos --style grid --width 1080 --height 1080
+python collage_maker.py --folder photos --style grid --width 1080 --height 1080
 ```
 
 ### Caption Examples

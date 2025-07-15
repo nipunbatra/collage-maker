@@ -15,8 +15,8 @@ See the same 8 photos transformed into completely different artistic layouts.
 **Quick Test**: Download samples and create your first collage in 30 seconds:
 
 ```bash
-python modular_collage_maker.py --download-samples
-python modular_collage_maker.py --folder sample_images --style mandala
+python collage_maker.py --download-samples
+python collage_maker.py --folder sample_images --style mandala
 ```
 :::
 
@@ -30,7 +30,7 @@ python modular_collage_maker.py --folder sample_images --style mandala
 
 Clean, mathematical perfection with equal spacing and alignment.
 ```bash
-python modular_collage_maker.py --folder sample_images --style grid
+python collage_maker.py --folder sample_images --style grid
 ```
 
 **Perfect for**: Company portfolios, product showcases, real estate listings  
@@ -44,7 +44,7 @@ python modular_collage_maker.py --folder sample_images --style grid
 
 Dynamic intelligence that finds the perfect size for every photo.
 ```bash
-python modular_collage_maker.py --folder sample_images --style mosaic
+python collage_maker.py --folder sample_images --style mosaic
 ```
 
 **Perfect for**: Travel blogs, event photography, creative portfolios  
@@ -58,7 +58,7 @@ python modular_collage_maker.py --folder sample_images --style mosaic
 
 Authentic vintage feel with hand-written style captions and natural rotation.
 ```bash
-python modular_collage_maker.py --folder sample_images --style polaroid
+python collage_maker.py --folder sample_images --style polaroid
 ```
 
 **Perfect for**: Wedding albums, baby photos, vacation memories  
@@ -72,7 +72,7 @@ python modular_collage_maker.py --folder sample_images --style polaroid
 
 Editorial elegance with one stunning hero image and supporting thumbnails.
 ```bash
-python modular_collage_maker.py --folder sample_images --style magazine
+python collage_maker.py --folder sample_images --style magazine
 ```
 
 **Perfect for**: Blog headers, news articles, product launches  
@@ -86,35 +86,35 @@ python modular_collage_maker.py --folder sample_images --style magazine
 ### Spiral Style
 Circular arrangement flowing outward from the center.
 ```bash
-python modular_collage_maker.py --folder sample_images --style spiral
+python collage_maker.py --folder sample_images --style spiral
 ```
 **Output**: `spiral_collage.jpg`
 
 ### Hexagon Style
 Honeycomb tessellation with hexagonal image frames.
 ```bash
-python modular_collage_maker.py --folder sample_images --style hexagon
+python collage_maker.py --folder sample_images --style hexagon
 ```
 **Output**: `hexagon_collage.jpg`
 
 ### Film Strip Style
 Classic cinema aesthetic with film perforations and frame borders.
 ```bash
-python modular_collage_maker.py --folder sample_images --style filmstrip
+python collage_maker.py --folder sample_images --style filmstrip
 ```
 **Output**: `filmstrip_collage.jpg`
 
 ### Scrapbook Style
 Artistic overlapping with tape effects and random positioning.
 ```bash
-python modular_collage_maker.py --folder sample_images --style scrapbook
+python collage_maker.py --folder sample_images --style scrapbook
 ```
 **Output**: `scrapbook_collage.jpg`
 
 ### Puzzle Style
 Interlocking jigsaw pieces with realistic shadows and depth.
 ```bash
-python modular_collage_maker.py --folder sample_images --style puzzle
+python collage_maker.py --folder sample_images --style puzzle
 ```
 **Output**: `puzzle_collage.jpg`
 
@@ -123,28 +123,28 @@ python modular_collage_maker.py --folder sample_images --style puzzle
 ### Mandala Style
 Circular rings with symmetrical patterns and balanced composition.
 ```bash
-python modular_collage_maker.py --folder sample_images --style mandala
+python collage_maker.py --folder sample_images --style mandala
 ```
 **Output**: `mandala_collage.jpg`
 
 ### Voronoi Style
 Organic cell-like divisions based on mathematical Voronoi diagrams.
 ```bash
-python modular_collage_maker.py --folder sample_images --style voronoi
+python collage_maker.py --folder sample_images --style voronoi
 ```
 **Output**: `voronoi_collage.jpg`
 
 ### Fractal Style
 Recursive subdivision patterns with self-similar structures.
 ```bash
-python modular_collage_maker.py --folder sample_images --style fractal
+python collage_maker.py --folder sample_images --style fractal
 ```
 **Output**: `fractal_collage.jpg`
 
 ### Kaleidoscope Style
 Symmetrical reflections and rotations creating kaleidoscope patterns.
 ```bash
-python modular_collage_maker.py --folder sample_images --style kaleidoscope
+python collage_maker.py --folder sample_images --style kaleidoscope
 ```
 **Output**: `kaleidoscope_collage.jpg`
 
@@ -153,7 +153,7 @@ python modular_collage_maker.py --folder sample_images --style kaleidoscope
 ### Multiple Styles at Once
 Generate all basic styles in one command:
 ```bash
-python modular_collage_maker.py --folder sample_images --style all
+python collage_maker.py --folder sample_images --style all
 ```
 
 ### Custom Dimensions
@@ -161,35 +161,35 @@ Create collages for specific platforms:
 
 **Instagram Square**:
 ```bash
-python modular_collage_maker.py --folder sample_images --style grid --width 1080 --height 1080
+python collage_maker.py --folder sample_images --style grid --width 1080 --height 1080
 ```
 
 **Facebook Cover**:
 ```bash
-python modular_collage_maker.py --folder sample_images --style magazine --width 1200 --height 630
+python collage_maker.py --folder sample_images --style magazine --width 1200 --height 630
 ```
 
 **YouTube Thumbnail**:
 ```bash
-python modular_collage_maker.py --folder sample_images --style mosaic --width 1280 --height 720
+python collage_maker.py --folder sample_images --style mosaic --width 1280 --height 720
 ```
 
 **Ultrawide Desktop**:
 ```bash
-python modular_collage_maker.py --folder sample_images --style mandala --width 3440 --height 1440
+python collage_maker.py --folder sample_images --style mandala --width 3440 --height 1440
 ```
 
 ### Without Frames
 Remove borders for seamless layouts:
 ```bash
-python modular_collage_maker.py --folder sample_images --style mosaic --no-frames
+python collage_maker.py --folder sample_images --style mosaic --no-frames
 ```
 
 ## Sample Images
 
 Download sample images to test all styles:
 ```bash
-python modular_collage_maker.py --download-samples
+python collage_maker.py --download-samples
 ```
 
 This creates:

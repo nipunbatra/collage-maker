@@ -39,7 +39,7 @@ pip install Pillow>=10.0.0 click>=8.1.0 requests>=2.31.0
 ### 3. Download Sample Images (Optional)
 
 ```bash
-python modular_collage_maker.py --download-samples
+python collage_maker.py --download-samples
 ```
 
 This creates a `sample_images` folder with 8 sample images and captions.
@@ -47,7 +47,7 @@ This creates a `sample_images` folder with 8 sample images and captions.
 ### 4. Verify Installation
 
 ```bash
-python modular_collage_maker.py --list-styles
+python collage_maker.py --list-styles
 ```
 
 You should see a list of 15+ available collage styles.
@@ -57,7 +57,7 @@ You should see a list of 15+ available collage styles.
 ### Option 1: Modular System (Recommended)
 Use the new modular architecture with all 15+ styles:
 ```bash
-python modular_collage_maker.py --folder photos --style mandala
+python collage_maker.py --folder photos --style mandala
 ```
 
 ### Option 2: Legacy System

@@ -12,10 +12,10 @@ cd collage-maker
 pip install -r requirements.txt
 
 # List all available styles
-python modular_collage_maker.py --list-styles
+python collage_maker.py --list-styles
 
 # Create a collage
-python modular_collage_maker.py --folder /path/to/images --style mandala
+python collage_maker.py --folder /path/to/images --style mandala
 ```
 
 ## Features

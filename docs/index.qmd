@@ -13,63 +13,69 @@ One command creates magazine-worthy collages from any folder of photos.
 
 ## Gallery Showcase
 
-### Professional Grid Layouts
-Perfect for portfolios, presentations, and social media.
+::: {.gallery-grid}
 
+::: {.gallery-item}
+### 🏢 Professional Grid 
+Perfect for portfolios and social media
+![Grid Layout Example](images/collage_grid.jpg)
 ```bash
-python modular_collage_maker.py --folder vacation_photos --style grid
+--style grid
 ```
-*Creates: Clean, organized layouts with perfect spacing*
+*Clean, organized layouts with perfect spacing*
+:::
 
----
-
-### Artistic Mandala Patterns
-Circular arrangements with mathematical beauty.
-
+::: {.gallery-item}
+### 🎨 Artistic Mandala
+Circular mathematical beauty
+![Mandala Layout Example](images/test_mandala.jpg)
 ```bash
-python modular_collage_maker.py --folder family_pics --style mandala
+--style mandala
 ```
-*Creates: Symmetrical, meditative circular designs*
+*Symmetrical, meditative circular designs*
+:::
 
----
-
-### Vintage Polaroid Memories
-Nostalgic photo arrangements with captions.
-
+::: {.gallery-item}
+### 📸 Vintage Polaroid
+Nostalgic photo memories
+![Polaroid Layout Example](images/collage_polaroid.jpg)
 ```bash
-python modular_collage_maker.py --folder memories --style polaroid
+--style polaroid
 ```
-*Creates: Authentic vintage feel with handwritten-style captions*
+*Authentic vintage feel with captions*
+:::
 
----
-
-### Dynamic Mosaic Layouts
-Intelligent space-filling with varied photo sizes.
-
+::: {.gallery-item}
+### 🧩 Dynamic Mosaic
+Intelligent space-filling
+![Mosaic Layout Example](images/collage_mosaic.jpg)
 ```bash
-python modular_collage_maker.py --folder travel --style mosaic
+--style mosaic
 ```
-*Creates: Modern, magazine-style layouts*
+*Modern, magazine-style layouts*
+:::
 
----
-
-### Film Strip Cinema
-Classic movie aesthetic with perforations.
-
+::: {.gallery-item}
+### 🎬 Film Strip Cinema
+Classic movie aesthetic
+![Film Strip Example](images/creative_filmstrip.jpg)
 ```bash
-python modular_collage_maker.py --folder events --style filmstrip
+--style filmstrip
 ```
-*Creates: Cinematic storytelling sequences*
+*Cinematic storytelling sequences*
+:::
 
----
-
-### Geometric Voronoi Cells
-Organic, mathematical cell divisions.
-
+::: {.gallery-item}
+### 🔬 Voronoi Cells
+Organic mathematical patterns
+![Voronoi Example](images/test_voronoi.jpg)
 ```bash
-python modular_collage_maker.py --folder nature --style voronoi
+--style voronoi
 ```
-*Creates: Scientific, organic pattern beauty*
+*Scientific, organic pattern beauty*
+:::
+
+:::
 
 ## Instant Results
 
@@ -79,10 +85,10 @@ git clone https://github.com/nipunbatra/collage-maker.git
 cd collage-maker && pip install -r requirements.txt
 
 # Download sample images
-python modular_collage_maker.py --download-samples
+python collage_maker.py --download-samples
 
 # Create your first masterpiece
-python modular_collage_maker.py --folder sample_images --style mandala
+python collage_maker.py --folder sample_images --style mandala
 ```
 
 ## Popular Use Cases

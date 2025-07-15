@@ -11,28 +11,28 @@ Professional layouts suitable for any use case.
 ### Grid
 Perfect grid layout with equal spacing and alignment.
 ```bash
-python modular_collage_maker.py --folder photos --style grid
+python collage_maker.py --folder photos --style grid
 ```
 **Best for**: Professional presentations, portfolios, equal emphasis on all photos
 
 ### Mosaic  
 Dynamic mosaic with varying image sizes and intelligent space utilization.
 ```bash
-python modular_collage_maker.py --folder photos --style mosaic
+python collage_maker.py --folder photos --style mosaic
 ```
 **Best for**: Showcasing variety, creating visual interest, modern layouts
 
 ### Polaroid
 Nostalgic polaroid-style photos with captions and authentic rotation.
 ```bash
-python modular_collage_maker.py --folder photos --style polaroid
+python collage_maker.py --folder photos --style polaroid
 ```
 **Best for**: Personal memories, vintage aesthetic, storytelling with captions
 
 ### Magazine
 Magazine-style layout with large featured image and thumbnail grid.
 ```bash
-python modular_collage_maker.py --folder photos --style magazine
+python collage_maker.py --folder photos --style magazine
 ```
 **Best for**: Highlighting one main photo, editorial layouts, professional presentations
 
@@ -43,35 +43,35 @@ Artistic arrangements for unique visual presentations.
 ### Spiral
 Circular spiral arrangement flowing outward from center.
 ```bash
-python modular_collage_maker.py --folder photos --style spiral
+python collage_maker.py --folder photos --style spiral
 ```
 **Best for**: Dynamic presentations, artistic displays, creating movement
 
 ### Hexagon
 Honeycomb tessellation layout with hexagonal frames.
 ```bash
-python modular_collage_maker.py --folder photos --style hexagon
+python collage_maker.py --folder photos --style hexagon
 ```
 **Best for**: Modern geometric aesthetic, scientific presentations, unique layouts
 
 ### Film Strip
 Classic cinema aesthetic with film perforations and frames.
 ```bash
-python modular_collage_maker.py --folder photos --style filmstrip
+python collage_maker.py --folder photos --style filmstrip
 ```
 **Best for**: Movie themes, vintage cinema aesthetic, storytelling sequences
 
 ### Scrapbook
 Artistic overlapping photos with tape effects and random positioning.
 ```bash
-python modular_collage_maker.py --folder photos --style scrapbook
+python collage_maker.py --folder photos --style scrapbook
 ```
 **Best for**: Personal memories, craft aesthetic, informal presentations
 
 ### Puzzle
 Interlocking jigsaw puzzle pieces with realistic shadows.
 ```bash
-python modular_collage_maker.py --folder photos --style puzzle
+python collage_maker.py --folder photos --style puzzle
 ```
 **Best for**: Teamwork themes, problem-solving concepts, interactive feel
 
@@ -82,28 +82,28 @@ Mathematical patterns and symmetrical arrangements.
 ### Mandala
 Circular rings with symmetrical patterns and multiple layers.
 ```bash
-python modular_collage_maker.py --folder photos --style mandala
+python collage_maker.py --folder photos --style mandala
 ```
 **Best for**: Meditative themes, spiritual content, balanced compositions
 
 ### Voronoi
 Organic cell-like divisions based on mathematical Voronoi diagrams.
 ```bash
-python modular_collage_maker.py --folder photos --style voronoi
+python collage_maker.py --folder photos --style voronoi
 ```
 **Best for**: Scientific themes, organic patterns, unique mathematical beauty
 
 ### Fractal
 Recursive subdivision patterns with self-similar structures.
 ```bash
-python modular_collage_maker.py --folder photos --style fractal
+python collage_maker.py --folder photos --style fractal
 ```
 **Best for**: Mathematical themes, complex patterns, technical presentations
 
 ### Kaleidoscope
 Symmetrical reflections and rotations creating kaleidoscope patterns.
 ```bash
-python modular_collage_maker.py --folder photos --style kaleidoscope
+python collage_maker.py --folder photos --style kaleidoscope
 ```
 **Best for**: Artistic presentations, symmetrical themes, decorative purposes
 
@@ -152,22 +152,22 @@ python modular_collage_maker.py --folder photos --style kaleidoscope
 ### Frame Options
 ```bash
 # With frames (default)
-python modular_collage_maker.py --folder photos --style grid
+python collage_maker.py --folder photos --style grid
 
 # Without frames
-python modular_collage_maker.py --folder photos --style grid --no-frames
+python collage_maker.py --folder photos --style grid --no-frames
 ```
 
 ### Custom Dimensions
 ```bash
 # Square format
-python modular_collage_maker.py --folder photos --style mandala --width 1080 --height 1080
+python collage_maker.py --folder photos --style mandala --width 1080 --height 1080
 
 # Ultrawide format
-python modular_collage_maker.py --folder photos --style mosaic --width 3440 --height 1440
+python collage_maker.py --folder photos --style mosaic --width 3440 --height 1440
 
 # Portrait format
-python modular_collage_maker.py --folder photos --style magazine --width 1080 --height 1920
+python collage_maker.py --folder photos --style magazine --width 1080 --height 1920
 ```
 
 ## Next Steps

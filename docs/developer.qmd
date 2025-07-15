@@ -109,7 +109,7 @@ class CircularStyle(CollageBase):
 Import your new styles in the main file:
 
 ```python
-# modular_collage_maker.py
+# collage_maker.py
 from styles import (
     basic_styles, 
     creative_styles, 
@@ -120,8 +120,8 @@ from styles import (
 
 ### Step 3: Test Your Style
 ```bash
-python modular_collage_maker.py --list-styles
-python modular_collage_maker.py --folder sample_images --style circular
+python collage_maker.py --list-styles
+python collage_maker.py --folder sample_images --style circular
 ```
 
 ## Advanced Techniques

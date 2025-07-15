@@ -42,9 +42,10 @@ format:
   html:
     theme: cosmo
     css: styles.css
+    include-after-body: |
+      <script src="lightbox.js"></script>
     toc: true
     toc-depth: 3
     code-copy: true
     code-overflow: wrap
     link-external-newwindow: true
-    lightbox: true

@@ -5,7 +5,9 @@ Modular Collage Maker - Extensible plugin-based collage creation system
 
 import os
 import sys
+import json
 import click
+import requests
 from pathlib import Path
 
 # Add the project root to Python path
@@ -15,6 +17,59 @@ sys.path.insert(0, str(project_root))
 # Import all style modules to register them
 from collage_core import CollageStyleRegistry
 from styles import basic_styles, creative_styles, geometric_styles, example_new_style
+
+
+def create_sample_captions():
+    """Create sample captions file"""
+    sample_captions = {
+        "sample_1.jpg": "Golden sunset over mountains",
+        "sample_2.jpg": "Peaceful lake reflection",
+        "sample_3.jpg": "Vibrant city nightscape",
+        "sample_4.jpg": "Autumn forest pathway",
+        "sample_5.jpg": "Ocean waves crashing",
+        "sample_6.jpg": "Beautiful cherry blossoms",
+        "sample_7.jpg": "Majestic snow-capped peaks",
+        "sample_8.jpg": "Serene beach paradise"
+    }
+    
+    with open("sample_images/captions.json", "w") as f:
+        json.dump(sample_captions, f, indent=2)
+    
+    print("Created sample captions.json file")
+
+
+def download_sample_images():
+    """Download sample images for testing"""
+    sample_folder = "sample_images"
+    os.makedirs(sample_folder, exist_ok=True)
+    
+    # Picsum sample images for consistent testing
+    sample_urls = [
+        "https://picsum.photos/800/600?random=1",
+        "https://picsum.photos/800/600?random=2", 
+        "https://picsum.photos/800/600?random=3",
+        "https://picsum.photos/800/600?random=4",
+        "https://picsum.photos/800/600?random=5",
+        "https://picsum.photos/800/600?random=6",
+        "https://picsum.photos/800/600?random=7",
+        "https://picsum.photos/800/600?random=8",
+    ]
+    
+    print("Downloading sample images...")
+    for i, url in enumerate(sample_urls):
+        try:
+            response = requests.get(url)
+            if response.status_code == 200:
+                with open(f"{sample_folder}/sample_{i+1}.jpg", "wb") as f:
+                    f.write(response.content)
+                print(f"Downloaded sample_{i+1}.jpg")
+        except Exception as e:
+            print(f"Error downloading sample_{i+1}.jpg: {e}")
+    
+    # Create captions file
+    create_sample_captions()
+    print(f"\nSample images downloaded to '{sample_folder}/' folder")
+    print("You can now create collages with: python collage_maker.py --folder sample_images --style mandala")
 
 
 @click.command()
@@ -38,7 +93,6 @@ def main(folder, output, style, width, height, no_frames, list_styles, download_
         return
     
     if download_samples:
-        from collage_maker_legacy import download_sample_images
         download_sample_images()
         return
     

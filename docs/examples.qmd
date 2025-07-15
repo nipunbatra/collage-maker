@@ -5,7 +5,7 @@ page-layout: full
 
 <div class="gallery-hero">
 
-# 🎨 Complete Style Gallery
+# Complete Style Gallery
 
 **15+ stunning styles • Professional quality • Infinite possibilities**
 
@@ -26,26 +26,26 @@ python collage_maker.py --folder sample_images --style mandala
 
 <div class="gallery-features">
 
-**🔍 Interactive Gallery**: Click any image for full-size viewing • Navigate with arrow keys • See detailed descriptions • Professional lightbox experience
+**Interactive Gallery**: Click any image for full-size viewing • Navigate with arrow keys • See detailed descriptions • Professional lightbox experience
 
 </div>
 
 ---
 
-## 🎯 Basic Styles Collection
+## Basic Styles Collection
 *Professional layouts for business, social media, and everyday use*
 
 <div class="mega-gallery">
 
 <div class="gallery-card featured">
 
-### 🏢 **Perfect Grid Layout**
+### **Perfect Grid Layout**
 
 ![Professional Grid Style - Mathematical precision with perfect spacing](images/collage_grid.jpg){.lightbox group="basic" title="Grid Style: Perfect Business Alignment"}
 
-**🎯 Best for**: Business portfolios • LinkedIn posts • Product catalogs • Real estate  
-**⚡ Performance**: Lightning fast • 100% space efficiency • Zero wasted pixels  
-**📱 Social Ready**: Instagram (1080x1080) • Facebook albums • Professional presentations
+**Best for**: Business portfolios • LinkedIn posts • Product catalogs • Real estate  
+**Performance**: Lightning fast • 100% space efficiency • Zero wasted pixels  
+**Social Ready**: Instagram (1080x1080) • Facebook albums • Professional presentations
 
 ```bash
 python collage_maker.py --folder photos --style grid
@@ -55,13 +55,13 @@ python collage_maker.py --folder photos --style grid
 
 <div class="gallery-card featured">
 
-### 🎨 **Intelligent Mosaic**
+### **Intelligent Mosaic**
 
 ![Dynamic Mosaic Style - Smart algorithm optimizes size and placement](images/collage_mosaic.jpg){.lightbox group="basic" title="Mosaic Style: AI-Powered Layout"}
 
-**🚀 Innovation**: Smart size detection • Visual weight balancing • Dynamic optimization  
-**🎨 Perfect for**: Travel blogs • Creative showcases • Modern websites • Art galleries  
-**📊 Algorithm**: 95% space usage • Intelligent placement • Professional aesthetics
+**Innovation**: Smart size detection • Visual weight balancing • Dynamic optimization  
+**Perfect for**: Travel blogs • Creative showcases • Modern websites • Art galleries  
+**Algorithm**: 95% space usage • Intelligent placement • Professional aesthetics
 
 ```bash
 python collage_maker.py --folder photos --style mosaic
@@ -71,13 +71,13 @@ python collage_maker.py --folder photos --style mosaic
 
 <div class="gallery-card featured">
 
-### 📸 **Vintage Polaroid Magic**
+### **Vintage Polaroid Magic**
 
 ![Authentic Polaroid Style - Hand-rotated photos with film borders](images/collage_polaroid.jpg){.lightbox group="basic" title="Polaroid Style: Nostalgic Memories"}
 
-**💝 Nostalgia**: Authentic rotation • Hand-written captions • Film grain borders  
-**💫 Perfect for**: Family albums • Wedding memories • Personal stories • Scrapbooks  
-**🎪 Features**: Auto-caption extraction • JSON support • Vintage film aesthetic
+**Nostalgia**: Authentic rotation • Hand-written captions • Film grain borders  
+**Perfect for**: Family albums • Wedding memories • Personal stories • Scrapbooks  
+**Features**: Auto-caption extraction • JSON support • Vintage film aesthetic
 
 ```bash
 python collage_maker.py --folder photos --style polaroid
@@ -87,13 +87,13 @@ python collage_maker.py --folder photos --style polaroid
 
 <div class="gallery-card featured">
 
-### 📰 **Editorial Magazine**
+### **Editorial Magazine**
 
 ![Magazine Style - Hero image with professional thumbnail layout](images/collage_magazine.jpg){.lightbox group="basic" title="Magazine Style: Editorial Excellence"}
 
-**📰 Professional**: Hero image focus • Supporting thumbnails • Editorial typography  
-**🏆 Best for**: Blog headers • News articles • Feature stories • Brand showcases  
-**📱 Social Media**: Facebook covers (1200x630) • LinkedIn banners • YouTube thumbnails
+**Professional**: Hero image focus • Supporting thumbnails • Editorial typography  
+**Best for**: Blog headers • News articles • Feature stories • Brand showcases  
+**Social Media**: Facebook covers (1200x630) • LinkedIn banners • YouTube thumbnails
 
 ```bash
 python collage_maker.py --folder photos --style magazine
@@ -105,210 +105,258 @@ python collage_maker.py --folder photos --style magazine
 
 ---
 
-## 🚀 Creative Styles Collection
+## Creative Styles Collection
 *Artistic arrangements that captivate and inspire*
 
 <div class="mega-gallery">
 
 <div class="gallery-card creative">
-### 🌀 **Mesmerizing Spiral**
+
+### **Mesmerizing Spiral**
+
 ![Spiral Style - Hypnotic flow from center outward](images/creative_spiral.jpg){.lightbox group="creative" title="Spiral Style: Hypnotic Flow"}
 
-**🌪️ Visual Impact**: Hypnotic movement • Golden ratio mathematics • Natural flow patterns  
-**🎭 Perfect for**: Artistic presentations • Gallery exhibitions • Creative portfolios  
-**🔬 Science**: Fibonacci sequences • Mathematical spirals • Organic growth patterns
+**Visual Impact**: Hypnotic movement • Golden ratio mathematics • Natural flow patterns  
+**Perfect for**: Artistic presentations • Gallery exhibitions • Creative portfolios  
+**Science**: Fibonacci sequences • Mathematical spirals • Organic growth patterns
 
 ```bash
 python collage_maker.py --folder photos --style spiral
 ```
+
 </div>
 
-</div> {.gallery-card creative}
-### ⬢ **Honeycomb Hexagons**
+<div class="gallery-card creative">
+
+### **Honeycomb Hexagons**
+
 ![Hexagon Style - Perfect geometric tessellation](images/creative_hexagon.jpg){.lightbox group="creative" title="Hexagon Style: Nature's Geometry"}
 
-**🐝 Nature's Design**: Perfect tessellation • Honeycomb efficiency • Zero-waste geometry  
-**🔬 Best for**: Scientific presentations • Tech showcases • Modern architecture  
-**⚡ Mathematics**: Perfect fit • No gaps • Maximum efficiency • Natural inspiration
+**Nature's Design**: Perfect tessellation • Honeycomb efficiency • Zero-waste geometry  
+**Best for**: Scientific presentations • Tech showcases • Modern architecture  
+**Mathematics**: Perfect fit • No gaps • Maximum efficiency • Natural inspiration
 
 ```bash
 python collage_maker.py --folder photos --style hexagon
 ```
+
 </div>
 
-</div> {.gallery-card creative}
-### 🎬 **Cinematic Film Strip**
+<div class="gallery-card creative">
+
+### **Cinematic Film Strip**
+
 ![Film Strip Style - Classic movie reel with authentic perforations](images/creative_filmstrip.jpg){.lightbox group="creative" title="Film Strip Style: Hollywood Magic"}
 
-**🎞️ Cinema Magic**: Vintage film aesthetic • Sprocket holes • Sequential storytelling  
-**🏆 Perfect for**: Movie themes • Timeline stories • Event documentation • Retro vibes  
-**🎨 Authentic**: Film grain texture • Real perforations • Hollywood glamour
+**Cinema Magic**: Vintage film aesthetic • Sprocket holes • Sequential storytelling  
+**Perfect for**: Movie themes • Timeline stories • Event documentation • Retro vibes  
+**Authentic**: Film grain texture • Real perforations • Hollywood glamour
 
 ```bash
 python collage_maker.py --folder photos --style filmstrip
 ```
+
 </div>
 
-</div> {.gallery-card creative}
-### 📚 **Handmade Scrapbook**
+<div class="gallery-card creative">
+
+### **Handmade Scrapbook**
+
 ![Scrapbook Style - Casual overlapping with tape effects](images/creative_scrapbook.jpg){.lightbox group="creative" title="Scrapbook Style: Handcrafted Love"}
 
-**✋ Handcrafted**: Overlapping layers • Realistic tape • Casual arrangement  
-**💕 Best for**: Personal memories • DIY projects • Family albums • Casual presentations  
-**🎨 Details**: Random rotation • Authentic shadows • Craft aesthetic • Personal touch
+**Handcrafted**: Overlapping layers • Realistic tape • Casual arrangement  
+**Best for**: Personal memories • DIY projects • Family albums • Casual presentations  
+**Details**: Random rotation • Authentic shadows • Craft aesthetic • Personal touch
 
 ```bash
 python collage_maker.py --folder photos --style scrapbook
 ```
+
 </div>
 
-</div> {.gallery-card creative}
-### 🧩 **Interlocking Puzzle**
+<div class="gallery-card creative">
+
+### **Interlocking Puzzle**
+
 ![Puzzle Style - Realistic jigsaw pieces with 3D shadows](images/creative_puzzle.jpg){.lightbox group="creative" title="Puzzle Style: Perfect Fit"}
 
-**🧩 Puzzle Magic**: Interlocking pieces • Realistic shadows • 3D depth effects  
-**🤝 Perfect for**: Team building • Problem solving • Interactive presentations  
-**🎨 Visual**: Deep shadows • Piece variations • Professional finish • Tactile feel
+**Puzzle Magic**: Interlocking pieces • Realistic shadows • 3D depth effects  
+**Perfect for**: Team building • Problem solving • Interactive presentations  
+**Visual**: Deep shadows • Piece variations • Professional finish • Tactile feel
 
 ```bash
 python collage_maker.py --folder photos --style puzzle
 ```
+
 </div>
 
 </div>
 
 ---
 
-## 🔬 Geometric Styles Collection  
+## Geometric Styles Collection  
 *Where mathematics meets artistic beauty*
 
-</div> {.mega-gallery}
+<div class="mega-gallery">
 
-</div> {.gallery-card geometric}
-### 🕉️ **Sacred Mandala**
+<div class="gallery-card geometric">
+
+### **Sacred Mandala**
+
 ![Mandala Style - Sacred geometry with perfect radial symmetry](images/test_mandala.jpg){.lightbox group="geometric" title="Mandala Style: Sacred Mathematics"}
 
-**🕉️ Sacred Geometry**: Perfect symmetry • Spiritual patterns • Meditative beauty  
-**🧘 Best for**: Wellness content • Spiritual themes • Balanced presentations • Art therapy  
-**🔢 Mathematics**: Radial symmetry • Golden proportions • Harmonic divisions
+**Sacred Geometry**: Perfect symmetry • Spiritual patterns • Meditative beauty  
+**Best for**: Wellness content • Spiritual themes • Balanced presentations • Art therapy  
+**Mathematics**: Radial symmetry • Golden proportions • Harmonic divisions
 
 ```bash
 python collage_maker.py --folder photos --style mandala
 ```
+
 </div>
 
-</div> {.gallery-card geometric}
-### 🧬 **Voronoi Cells**
+<div class="gallery-card geometric">
+
+### **Voronoi Cells**
+
 ![Voronoi Style - Natural cell division patterns](images/test_voronoi.jpg){.lightbox group="geometric" title="Voronoi Style: Nature's Algorithm"}
 
-**🧬 Nature's Math**: Organic boundaries • Proximity calculations • Natural efficiency  
-**🔬 Perfect for**: Scientific themes • Biology presentations • Tech innovations  
-**⚡ Algorithm**: Optimal space division • Natural boundaries • Mathematical precision
+**Nature's Math**: Organic boundaries • Proximity calculations • Natural efficiency  
+**Perfect for**: Scientific themes • Biology presentations • Tech innovations  
+**Algorithm**: Optimal space division • Natural boundaries • Mathematical precision
 
 ```bash
 python collage_maker.py --folder photos --style voronoi
 ```
+
 </div>
 
-</div> {.gallery-card geometric}
-### 🌿 **Fractal Universe**
+<div class="gallery-card geometric">
+
+### **Fractal Universe**
+
 ![Fractal Style - Self-similar recursive patterns](images/geometric_fractal.jpg){.lightbox group="geometric" title="Fractal Style: Infinite Beauty"}
 
-**♾️ Infinite Patterns**: Self-similarity • Recursive beauty • Multiple scales  
-**🎓 Best for**: Mathematical art • Technical presentations • Complex data visualization  
-**🔬 Features**: Scale independence • Natural complexity • Mathematical elegance
+**Infinite Patterns**: Self-similarity • Recursive beauty • Multiple scales  
+**Best for**: Mathematical art • Technical presentations • Complex data visualization  
+**Features**: Scale independence • Natural complexity • Mathematical elegance
 
 ```bash
 python collage_maker.py --folder photos --style fractal
 ```
+
 </div>
 
-</div> {.gallery-card geometric}
-### 🔮 **Kaleidoscope Dreams**
+<div class="gallery-card geometric">
+
+### **Kaleidoscope Dreams**
+
 ![Kaleidoscope Style - Mesmerizing symmetrical reflections](images/geometric_kaleidoscope.jpg){.lightbox group="geometric" title="Kaleidoscope Style: Mirror Magic"}
 
-**🔮 Mirror Magic**: Symmetrical reflections • Hypnotic patterns • Radial repetition  
-**✨ Perfect for**: Artistic displays • Decorative purposes • Creative presentations  
-**👁️ Visual**: Multiple reflections • Mesmerizing beauty • Optical illusions
+**Mirror Magic**: Symmetrical reflections • Hypnotic patterns • Radial repetition  
+**Perfect for**: Artistic displays • Decorative purposes • Creative presentations  
+**Visual**: Multiple reflections • Mesmerizing beauty • Optical illusions
 
 ```bash
 python collage_maker.py --folder photos --style kaleidoscope
 ```
+
 </div>
 
 </div>
 
 ---
 
-## 🏆 Performance & Quality Guide
+## Performance & Quality Guide
 
-</div> {.performance-grid}
+<div class="performance-grid">
 
-</div> {.perf-card lightning}
-### ⚡ **Lightning Fast**
+<div class="perf-card lightning">
+
+### **Lightning Fast**
+
 **Grid • Magazine • Mosaic**  
 Generate professional collages in under 5 seconds
+
 </div>
 
-</div> {.perf-card balanced}
-### ⚖️ **Balanced Power**  
+<div class="perf-card balanced">
+
+### **Balanced Power**  
+
 **Polaroid • Hexagon • Film Strip • Scrapbook • Puzzle**  
 Perfect balance of speed and artistic complexity
+
 </div>
 
-</div> {.perf-card artistic}
-### 🎨 **Artistic Mastery**
+<div class="perf-card artistic">
+
+### **Artistic Mastery**
+
 **Mandala • Spiral • Voronoi • Fractal • Kaleidoscope**  
 Complex algorithms create stunning mathematical art
+
 </div>
 
 </div>
 
 ---
 
-## 💡 Pro Tips for Spectacular Results
+## Pro Tips for Spectacular Results
 
-</div> {.tips-grid}
+<div class="tips-grid">
 
-</div> {.tip-card}
-### 📊 **Image Count Sweet Spots**
+<div class="tip-card">
+
+### **Image Count Sweet Spots**
+
 - **Grid**: 4-100+ images (scales infinitely)
 - **Mosaic**: 6-20 images (optimal balance)  
 - **Geometric**: 8-16 images (mathematical harmony)
 - **Creative**: 5-15 images (perfect storytelling)
+
 </div>
 
-</div> {.tip-card}
-### 📱 **Social Media Mastery**
+<div class="tip-card">
+
+### **Social Media Mastery**
+
 - **Instagram Posts**: 1080x1080 (Grid, Mandala)
 - **Facebook Covers**: 1200x630 (Magazine)  
 - **YouTube Thumbnails**: 1280x720 (Mosaic)
 - **Instagram Stories**: 1080x1920 (Polaroid)
+
 </div>
 
-</div> {.tip-card}
-### 🎨 **Quality Excellence**
+<div class="tip-card">
+
+### **Quality Excellence**
+
 - **Format**: JPEG with 95% quality
 - **Enhancement**: Auto-sharpening + contrast
 - **Resolution**: Up to 4K+ supported
 - **Color**: Full RGB color space
+
 </div>
 
-</div> {.tip-card}
-### 🚀 **Speed Optimization**
+<div class="tip-card">
+
+### **Speed Optimization**
+
 - **SSD Storage**: 3x faster processing
 - **RAM**: 8GB+ for large batches
 - **CPU**: Multi-core for complex styles
 - **Image Size**: 800x600+ for best quality
+
 </div>
 
 </div>
 
 ---
 
-## 🎯 Quick Start Commands
+## Quick Start Commands
 
-</div> {.commands-showcase}
+<div class="commands-showcase">
 
 ```bash
 # Download perfect test images
@@ -331,4 +379,4 @@ python collage_maker.py --list-styles
 
 </div>
 
-**🚀 Ready to transform your photos into stunning art? Start creating magic in 30 seconds!**
+**Ready to transform your photos into stunning art? Start creating magic in 30 seconds!**

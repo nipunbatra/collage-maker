@@ -62,3 +62,16 @@ sample_images/
 !ultimate_mosaic.jpg
 !ultimate_polaroid.jpg
 !ultimate_magazine.jpg
+
+# Allow modular test examples
+!test_spiral.jpg
+!test_mandala.jpg
+!test_voronoi.jpg
+!test_diamond.jpg
+!test_wave.jpg
+
+# Allow creative examples
+!creative_*.jpg
+
+# Allow advanced examples  
+!advanced_*.jpg

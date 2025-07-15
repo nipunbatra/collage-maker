@@ -1,0 +1,208 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Build site
+      run: |
+        mkdir -p _site
+        
+        # Copy README as index
+        cp README.md _site/index.md
+        
+        # Copy images
+        cp *.jpg _site/ 2>/dev/null || true
+        cp *.png _site/ 2>/dev/null || true
+        
+        # Copy additional docs
+        cp MODULAR_SYSTEM.md _site/ 2>/dev/null || true
+        
+        # Create a simple HTML wrapper
+        cat > _site/_config.yml << EOF
+        title: "Collage Maker"
+        description: "Professional photo collage creation tool with 15+ styles"
+        theme: minima
+        plugins:
+          - jekyll-feed
+          - jekyll-sitemap
+        
+        markdown: kramdown
+        highlighter: rouge
+        
+        header_pages:
+          - index.md
+          - MODULAR_SYSTEM.md
+        EOF
+        
+        # Create a custom layout
+        mkdir -p _site/_layouts
+        cat > _site/_layouts/default.html << 'EOF'
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>{{ page.title | default: site.title }}</title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.4.0/github-markdown-light.min.css">
+            <style>
+                body {
+                    box-sizing: border-box;
+                    min-width: 200px;
+                    max-width: 980px;
+                    margin: 0 auto;
+                    padding: 45px;
+                    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;
+                }
+                .header {
+                    text-align: center;
+                    margin-bottom: 2rem;
+                    padding: 2rem;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    border-radius: 10px;
+                }
+                .header h1 {
+                    margin: 0;
+                    font-size: 2.5em;
+                }
+                .header p {
+                    margin: 0.5rem 0 0 0;
+                    opacity: 0.9;
+                }
+                .nav {
+                    text-align: center;
+                    margin: 2rem 0;
+                }
+                .nav a {
+                    display: inline-block;
+                    margin: 0 1rem;
+                    padding: 0.5rem 1rem;
+                    background: #f8f9fa;
+                    color: #495057;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    border: 1px solid #dee2e6;
+                }
+                .nav a:hover {
+                    background: #e9ecef;
+                }
+                .markdown-body {
+                    background: white;
+                }
+                .footer {
+                    text-align: center;
+                    margin-top: 3rem;
+                    padding: 2rem;
+                    background: #f8f9fa;
+                    border-radius: 10px;
+                    color: #6c757d;
+                }
+                .stats {
+                    display: flex;
+                    justify-content: center;
+                    gap: 2rem;
+                    margin: 2rem 0;
+                    flex-wrap: wrap;
+                }
+                .stat {
+                    text-align: center;
+                    padding: 1rem;
+                    background: white;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    min-width: 120px;
+                }
+                .stat-number {
+                    font-size: 2rem;
+                    font-weight: bold;
+                    color: #667eea;
+                    display: block;
+                }
+                .stat-label {
+                    font-size: 0.9rem;
+                    color: #6c757d;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>🎨 Collage Maker</h1>
+                <p>Professional photo collage creation tool with 15+ artistic styles</p>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Collage Styles</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Style Categories</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Extensible</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Wasted Space</span>
+                </div>
+            </div>
+            
+            <nav class="nav">
+                <a href="#features">Features</a>
+                <a href="#installation">Installation</a>
+                <a href="#usage">Usage</a>
+                <a href="MODULAR_SYSTEM.html">Developer Docs</a>
+                <a href="https://github.com/nipunbatra/collage-maker">GitHub</a>
+            </nav>
+            
+            <article class="markdown-body">
+                {{ content }}
+            </article>
+            
+            <footer class="footer">
+                <p>🚀 <strong>Collage Maker v3.0</strong> - Built with ❤️ for creators and developers</p>
+                <p><a href="https://github.com/nipunbatra/collage-maker">⭐ Star on GitHub</a> | <a href="https://github.com/nipunbatra/collage-maker/issues">🐛 Report Issues</a></p>
+            </footer>
+        </body>
+        </html>
+        EOF
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '_site'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

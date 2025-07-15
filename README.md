@@ -2,16 +2,19 @@
 
 A Python-based tool that creates beautiful photo collages from a folder of images, inspired by the automatic collage features in Google Photos and Apple Photos.
 
+**🌐 [Visit the Website](https://nipunbatra.github.io/collage-maker/)** | **📚 [Developer Docs](MODULAR_SYSTEM.md)** | **⭐ [Star on GitHub](https://github.com/nipunbatra/collage-maker)**
+
 ## Features
 
-- **4 Collage Styles**: Grid, Mosaic, Polaroid, and Magazine layouts
+- **15+ Collage Styles**: Grid, Mosaic, Polaroid, Magazine, Spiral, Hexagon, Film Strip, Scrapbook, Puzzle, Mandala, Voronoi, Fractal, Kaleidoscope, and more!
 - **Advanced Caption Support**: Load captions from JSON or TXT files
 - **Frame Options**: Apple/Google Photos-style frames (can be disabled)
 - **Smart Image Cropping**: Intelligent resizing and cropping for perfect fits
 - **High Quality Output**: Enhanced image quality with sharpening and optimization
 - **Flexible Output**: Customizable dimensions and output formats
 - **Sample Images**: Built-in sample image downloader with captions for testing
-- **Command Line Interface**: Easy-to-use CLI with multiple options
+- **Modular Architecture**: Plugin-based system for infinite extensibility
+- **Command Line Interface**: Easy-to-use CLI with style discovery
 
 ## Installation
 
@@ -26,52 +29,131 @@ cd collage-maker
 pip install -r requirements.txt
 ```
 
-## Usage
+## 🚀 New Modular System
 
-### Basic Usage
+The collage maker now features a **modular, extensible architecture** with 15+ styles and easy plugin system!
 
-Create a grid collage from images in a folder:
+### Quick Start with Modular System
+
 ```bash
-python collage_maker.py --folder /path/to/images
+# List all available styles (15+ total)
+python modular_collage_maker.py --list-styles
+
+# Create any style
+python modular_collage_maker.py --folder photos --style mandala
+
+# Create examples of all styles
+python modular_collage_maker.py examples --folder sample_images
 ```
 
-### Advanced Options
+### Available Styles
 
+| Category | Styles | Description |
+|----------|--------|-------------|
+| **Basic (4)** | grid, mosaic, polaroid, magazine | Professional layouts |
+| **Creative (5)** | spiral, hexagon, filmstrip, scrapbook, puzzle | Artistic arrangements |
+| **Geometric (4)** | mandala, voronoi, fractal, kaleidoscope | Mathematical patterns |
+| **Examples (2+)** | diamond, wave, ... | Developer examples + your custom styles |
+
+### Adding New Styles (3 Steps!)
+
+```python
+# 1. Create style class
+@register_style
+class MyStyle(CollageBase):
+    @property
+    def style_name(self):
+        return "mystyle"
+    
+    def create_collage(self, images, **kwargs):
+        # Your layout algorithm here
+        return collage
+
+# 2. Import in main script
+from styles import my_new_styles
+
+# 3. Use immediately!
+# python modular_collage_maker.py --folder photos --style mystyle
+```
+
+**See [MODULAR_SYSTEM.md](MODULAR_SYSTEM.md) for complete developer documentation.**
+
+## Usage
+
+### Basic Usage (Two Interfaces Available)
+
+#### New Modular Interface (Recommended)
 ```bash
-python collage_maker.py --folder /path/to/images --style all --width 1920 --height 1080 --output my_collage.jpg
+# Create specific style
+python modular_collage_maker.py --folder /path/to/images --style mandala
+
+# List all available styles
+python modular_collage_maker.py --list-styles
+
+# Create all basic styles
+python modular_collage_maker.py --folder /path/to/images --style all
+```
+
+#### Legacy Interface (Still Supported)
+```bash
+# Original 4 styles
+python collage_maker.py --folder /path/to/images --style grid
+
+# All original styles
+python collage_maker.py --folder /path/to/images --style all
 ```
 
 ### Command Line Options
 
+#### Modular Interface
 - `--folder, -f`: Folder containing images (required)
 - `--output, -o`: Output filename (default: collage.jpg)
-- `--style, -s`: Collage style - grid, mosaic, polaroid, magazine, or all (default: grid)
+- `--style, -s`: Any of 15+ available styles (use --list-styles to see all)
 - `--width, -w`: Output width in pixels (default: 1920)
 - `--height, -h`: Output height in pixels (default: 1080)
-- `--no-frames`: Disable frames on images (frames are enabled by default)
+- `--no-frames`: Disable frames on images
+- `--list-styles`: Show all available styles
+
+#### Legacy Interface
+- `--folder, -f`: Folder containing images (required)
+- `--output, -o`: Output filename (default: collage.jpg)
+- `--style, -s`: grid, mosaic, polaroid, magazine, or all (default: grid)
+- `--width, -w`: Output width in pixels (default: 1920)
+- `--height, -h`: Output height in pixels (default: 1080)
+- `--no-frames`: Disable frames on images
 - `--download-samples`: Download sample images for testing
 
-### Collage Styles
+### Collage Styles (15+ Available!)
 
-#### Grid Collage
-Creates a neat grid layout with images arranged in rows and columns. Perfect for showcasing multiple photos with equal importance.
+#### Basic Styles
 
-![Grid Collage Example](collage_grid.jpg)
+| Style | Example | Description |
+|-------|---------|-------------|
+| **Grid** | ![Grid](collage_grid.jpg) | Perfect grid layout with equal spacing |
+| **Mosaic** | ![Mosaic](collage_mosaic.jpg) | Dynamic sizes with zero wasted space |
+| **Polaroid** | ![Polaroid](collage_polaroid.jpg) | Nostalgic rotated photos with captions |
+| **Magazine** | ![Magazine](collage_magazine.jpg) | Featured image with thumbnail grid |
 
-#### Mosaic Collage
-Creates a dynamic mosaic with varying image sizes and positions. Uses advanced region-based placement algorithm for perfect space utilization with zero wasted space.
+#### Creative Styles
 
-![Mosaic Collage Example](collage_mosaic.jpg)
+| Style | Example | Description |
+|-------|---------|-------------|
+| **Spiral** | ![Spiral](test_spiral.jpg) | Spiral arrangement from center outward |
+| **Mandala** | ![Mandala](test_mandala.jpg) | Circular rings like a mandala pattern |
+| **Hexagon** | ![Hexagon](creative_hexagon.jpg) | Honeycomb tessellation layout |
+| **Film Strip** | ![Film](creative_filmstrip.jpg) | Classic film with perforations |
+| **Scrapbook** | ![Scrapbook](creative_scrapbook.jpg) | Overlapping photos with tape effects |
 
-#### Polaroid Collage
-Creates a nostalgic polaroid-style collage with rotated images and captions. Uses grid-based positioning with smart randomization for optimal space usage while maintaining authentic polaroid aesthetics.
+#### Geometric Styles
 
-![Polaroid Collage Example](collage_polaroid.jpg)
+| Style | Example | Description |
+|-------|---------|-------------|
+| **Voronoi** | ![Voronoi](test_voronoi.jpg) | Organic cell-like divisions |
+| **Fractal** | ![Fractal](advanced_fractal.jpg) | Recursive subdivision pattern |
+| **Puzzle** | ![Puzzle](creative_puzzle.jpg) | Interlocking jigsaw pieces |
+| **Kaleidoscope** | ![Kaleidoscope](advanced_kaleidoscope.jpg) | Symmetrical reflections |
 
-#### Magazine Collage
-Creates a magazine-style layout with a large featured image on the left and smaller images arranged in a grid on the right.
-
-![Magazine Collage Example](collage_magazine.jpg)
+**And more! Use `python modular_collage_maker.py --list-styles` to see all available styles.**
 
 
 ### Caption Support
@@ -280,6 +362,15 @@ This tool was inspired by the automatic collage features in:
 - AI-powered layout suggestions
 
 ## Changelog
+
+### Version 3.0.0 - Modular Architecture 🏗️
+- **COMPLETE SYSTEM REDESIGN**: Modular, extensible plugin architecture
+- **15+ COLLAGE STYLES**: Basic (4), Creative (5), Geometric (4), Examples (2+)
+- **Plugin System**: Add new styles with simple @register_style decorator
+- **Style Discovery**: Automatic registration and --list-styles command
+- **Developer Friendly**: Complete API documentation and examples
+- **Backward Compatible**: All original features preserved
+- **New Styles Added**: Spiral, Hexagon, Film Strip, Scrapbook, Puzzle, Mandala, Voronoi, Fractal, Kaleidoscope, Diamond, Wave
 
 ### Version 2.1.0
 - **MAJOR IMPROVEMENT**: Perfect space utilization - zero wasted space in all layouts

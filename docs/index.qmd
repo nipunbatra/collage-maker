@@ -18,7 +18,7 @@ One command creates magazine-worthy collages from any folder of photos.
 ::: {.gallery-item}
 ### 🏢 Professional Grid 
 Perfect for portfolios and social media
-![Grid Layout Example](images/collage_grid.jpg){.gallery-image data-title="Professional Grid Style" data-caption="Clean, organized layouts with perfect spacing"}
+![Professional Grid Style - Clean, organized layouts with perfect spacing](images/collage_grid.jpg){.lightbox group="gallery"}
 ```bash
 --style grid
 ```
@@ -28,7 +28,7 @@ Perfect for portfolios and social media
 ::: {.gallery-item}
 ### 🎨 Artistic Mandala
 Circular mathematical beauty
-![Mandala Layout Example](images/test_mandala.jpg){.gallery-image data-title="Artistic Mandala Style" data-caption="Symmetrical, meditative circular designs"}
+![Artistic Mandala Style - Symmetrical, meditative circular designs](images/test_mandala.jpg){.lightbox group="gallery"}
 ```bash
 --style mandala
 ```
@@ -38,7 +38,7 @@ Circular mathematical beauty
 ::: {.gallery-item}
 ### 📸 Vintage Polaroid
 Nostalgic photo memories
-![Polaroid Layout Example](images/collage_polaroid.jpg){.gallery-image data-title="Vintage Polaroid Style" data-caption="Authentic vintage feel with captions"}
+![Vintage Polaroid Style - Authentic vintage feel with captions](images/collage_polaroid.jpg){.lightbox group="gallery"}
 ```bash
 --style polaroid
 ```
@@ -48,7 +48,7 @@ Nostalgic photo memories
 ::: {.gallery-item}
 ### 🧩 Dynamic Mosaic
 Intelligent space-filling
-![Mosaic Layout Example](images/collage_mosaic.jpg){.gallery-image data-title="Dynamic Mosaic Style" data-caption="Modern, magazine-style layouts"}
+![Dynamic Mosaic Style - Modern, magazine-style layouts](images/collage_mosaic.jpg){.lightbox group="gallery"}
 ```bash
 --style mosaic
 ```
@@ -58,7 +58,7 @@ Intelligent space-filling
 ::: {.gallery-item}
 ### 🎬 Film Strip Cinema
 Classic movie aesthetic
-![Film Strip Example](images/creative_filmstrip.jpg){.gallery-image data-title="Film Strip Cinema Style" data-caption="Cinematic storytelling sequences"}
+![Film Strip Cinema Style - Cinematic storytelling sequences](images/creative_filmstrip.jpg){.lightbox group="gallery"}
 ```bash
 --style filmstrip
 ```
@@ -68,7 +68,7 @@ Classic movie aesthetic
 ::: {.gallery-item}
 ### 🔬 Voronoi Cells
 Organic mathematical patterns
-![Voronoi Example](images/test_voronoi.jpg){.gallery-image data-title="Voronoi Cells Style" data-caption="Scientific, organic pattern beauty"}
+![Voronoi Cells Style - Scientific, organic pattern beauty](images/test_voronoi.jpg){.lightbox group="gallery"}
 ```bash
 --style voronoi
 ```

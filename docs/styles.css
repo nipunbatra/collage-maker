@@ -218,50 +218,54 @@ hr {
     background: #f8f9fa;
     border-radius: 8px;
     margin: 1rem 0;
-    border: 1px solid #dee2e6;
+    border: 2px solid #dee2e6;
     padding: 0.5rem;
     flex-shrink: 0;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.gallery-item img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.gallery-item a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.gallery-item a:hover {
-    text-decoration: none;
-}
-
-/* Simple lightbox effect - opens in new tab with full size */
-.gallery-image {
+    transition: all 0.3s ease;
     position: relative;
 }
 
-.gallery-image::after {
-    content: "🔍 Click to view full size";
-    position: absolute;
-    bottom: 0.5rem;
-    right: 0.5rem;
-    background: rgba(0,0,0,0.7);
-    color: white;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    pointer-events: none;
+.gallery-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    border-color: #667eea;
 }
 
-.gallery-item:hover .gallery-image::after {
+/* Add click indicator overlay */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item::before {
+    content: "🔍 Click to explore";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.gallery-item:hover::before {
     opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add subtle glow effect on hover */
+.gallery-item:hover img {
+    box-shadow: 
+        0 8px 25px rgba(0,0,0,0.2),
+        0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .gallery-item pre {
@@ -352,125 +356,172 @@ h2 + p em {
     color: #2d3748;
 }
 
-/* Lightbox Styles */
-#lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
+
+/* Spectacular Gallery Styles */
+.mega-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
 }
 
-.lightbox-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.lightbox-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90vw;
-    max-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.lightbox-content {
+.gallery-card {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
     position: relative;
-    background: white;
-    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
-.lightbox-image {
-    max-width: 80vw;
-    max-height: 70vh;
-    object-fit: contain;
-    display: block;
-}
-
-.lightbox-info {
-    padding: 1.5rem;
-    text-align: center;
-    background: white;
-}
-
-.lightbox-title {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.5rem;
-    color: #333;
-}
-
-.lightbox-caption {
-    margin: 0 0 1rem 0;
-    color: #666;
-    font-size: 1rem;
-}
-
-.lightbox-counter {
-    font-size: 0.9rem;
-    color: #999;
-}
-
-/* Navigation buttons */
-.lightbox-close,
-.lightbox-prev,
-.lightbox-next {
+.gallery-card::before {
+    content: '';
     position: absolute;
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    cursor: pointer;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.gallery-card:hover::before {
+    left: 100%;
+}
+
+.gallery-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.gallery-card.featured {
+    border-image: linear-gradient(135deg, #667eea, #764ba2) 1;
+}
+
+.gallery-card.creative {
+    border-image: linear-gradient(135deg, #f093fb, #f5576c) 1;
+}
+
+.gallery-card.geometric {
+    border-image: linear-gradient(135deg, #4facfe, #00f2fe) 1;
+}
+
+.gallery-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin: 1rem 0;
+    border: 2px solid #e9ecef;
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #333;
 }
 
-.lightbox-close:hover,
-.lightbox-prev:hover,
-.lightbox-next:hover {
+.gallery-card img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Performance Grid */
+.performance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.perf-card {
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.perf-card:hover {
+    transform: translateY(-5px);
+}
+
+.perf-card.lightning {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+.perf-card.balanced {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.perf-card.artistic {
+    background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+}
+
+/* Tips Grid */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.tip-card {
     background: white;
-    transform: scale(1.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
 }
 
-.lightbox-close {
-    top: -60px;
-    right: 0;
+.tip-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.lightbox-prev {
-    top: 50%;
-    left: -70px;
-    transform: translateY(-50%);
+.tip-card h3 {
+    color: #667eea;
+    margin-bottom: 1rem;
 }
 
-.lightbox-next {
-    top: 50%;
-    right: -70px;
-    transform: translateY(-50%);
+/* Commands Showcase */
+.commands-showcase {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
 }
 
-/* Hide navigation on single image */
-.lightbox-container[data-single="true"] .lightbox-prev,
-.lightbox-container[data-single="true"] .lightbox-next {
-    display: none;
+.commands-showcase pre {
+    background: rgba(0,0,0,0.2);
+    color: #e2e8f0;
+    border: none;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 0;
+}
+
+.commands-showcase code {
+    color: #e2e8f0;
+    background: transparent;
+}
+
+/* Gallery Features */
+.gallery-features {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    margin: 2rem 0;
+    font-weight: 500;
 }
 
 /* Responsive design */

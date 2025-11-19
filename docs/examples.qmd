@@ -3,527 +3,155 @@ title: "Gallery"
 page-layout: full
 ---
 
-<div class="gallery-hero">
-
 # Complete Style Gallery
 
-**15+ stunning styles • Professional quality • Infinite possibilities**
-
-Transform any photo collection into magazine-worthy art with one command.
-
-</div>
-
-<div class="gallery-intro">
-
-**Quick Start**: Download samples and create your first masterpiece in 30 seconds:
-
-```bash
-python collage_maker.py --download-samples
-python collage_maker.py --folder sample_images --style mandala
-```
-
-</div>
-
-<div class="gallery-features">
-
-**Interactive Gallery**: Click any image for full-size viewing • Navigate with arrow keys • See detailed descriptions • Professional lightbox experience
-
-</div>
+**15+ styles | 23 backgrounds | Infinite possibilities**
 
 ---
 
-## Basic Styles Collection
-*Professional layouts for business, social media, and everyday use*
+## Background Showcase
+
+*See the difference backgrounds make*
 
 <div class="mega-gallery">
 
 <div class="gallery-card featured">
 
-### **Perfect Grid Layout**
+### Mandala with Sunset
 
-![Professional Grid Style - Mathematical precision with perfect spacing](images/collage_grid.jpg){.lightbox group="basic" title="Grid Style: Perfect Business Alignment"}
+![Mandala with sunset gradient](images/mandala_sunset.jpg){.lightbox group="backgrounds" title="Mandala: Sunset Gradient"}
 
-**Best for**: Business portfolios • LinkedIn posts • Product catalogs • Real estate
-**Performance**: Lightning fast • 100% space efficiency • Zero wasted pixels
-**Social Ready**: Instagram (1080x1080) • Facebook albums • Professional presentations
+Warm orange-to-gold diagonal gradient
 
 ```bash
-python collage_maker.py --folder photos --style grid
-python collage_maker.py --folder photos --style grid --background noir      # Dark professional
-python collage_maker.py --folder photos --style grid --background charcoal  # Subtle dark
-```
-
-</div>
-
-<div class="gallery-card featured">
-
-### **Intelligent Mosaic**
-
-![Dynamic Mosaic Style - Smart algorithm optimizes size and placement](images/collage_mosaic.jpg){.lightbox group="basic" title="Mosaic Style: AI-Powered Layout"}
-
-**Innovation**: Smart size detection • Visual weight balancing • Dynamic optimization
-**Perfect for**: Travel blogs • Creative showcases • Modern websites • Art galleries
-**Algorithm**: 95% space usage • Intelligent placement • Professional aesthetics
-
-```bash
-python collage_maker.py --folder photos --style mosaic
-python collage_maker.py --folder photos --style mosaic --background ocean    # Cool blues
-python collage_maker.py --folder photos --style mosaic --background emerald  # Fresh green
-```
-
-</div>
-
-<div class="gallery-card featured">
-
-### **Vintage Polaroid Magic**
-
-![Authentic Polaroid Style - Hand-rotated photos with film borders](images/collage_polaroid.jpg){.lightbox group="basic" title="Polaroid Style: Nostalgic Memories"}
-
-**Nostalgia**: Authentic rotation • Hand-written captions • Film grain borders
-**Perfect for**: Family albums • Wedding memories • Personal stories • Scrapbooks
-**Features**: Auto-caption extraction • JSON support • Vintage film aesthetic
-
-```bash
-python collage_maker.py --folder photos --style polaroid
-python collage_maker.py --folder photos --style polaroid --background vintage  # Retro warmth
-python collage_maker.py --folder photos --style polaroid --background cream    # Soft neutral
-```
-
-</div>
-
-<div class="gallery-card featured">
-
-### **Editorial Magazine**
-
-![Magazine Style - Hero image with professional thumbnail layout](images/collage_magazine.jpg){.lightbox group="basic" title="Magazine Style: Editorial Excellence"}
-
-**Professional**: Hero image focus • Supporting thumbnails • Editorial typography
-**Best for**: Blog headers • News articles • Feature stories • Brand showcases
-**Social Media**: Facebook covers (1200x630) • LinkedIn banners • YouTube thumbnails
-
-```bash
-python collage_maker.py --folder photos --style magazine
-python collage_maker.py --folder photos --style magazine --background noir   # Modern dark
-python collage_maker.py --folder photos --style magazine --background mint   # Fresh clean
-```
-
-</div>
-
-</div>
-
----
-
-## Creative Styles Collection
-*Artistic arrangements that captivate and inspire*
-
-<div class="mega-gallery">
-
-<div class="gallery-card creative">
-
-### **Mesmerizing Spiral**
-
-![Spiral Style - Hypnotic flow from center outward](images/creative_spiral.jpg){.lightbox group="creative" title="Spiral Style: Hypnotic Flow"}
-
-**Visual Impact**: Hypnotic movement • Golden ratio mathematics • Natural flow patterns
-**Perfect for**: Artistic presentations • Gallery exhibitions • Creative portfolios
-**Science**: Fibonacci sequences • Mathematical spirals • Organic growth patterns
-
-```bash
-python collage_maker.py --folder photos --style spiral
-python collage_maker.py --folder photos --style spiral --background sunset   # Warm energy
-python collage_maker.py --folder photos --style spiral --background golden   # Luxurious glow
-```
-
-</div>
-
-<div class="gallery-card creative">
-
-### **Honeycomb Hexagons**
-
-![Hexagon Style - Perfect geometric tessellation](images/creative_hexagon.jpg){.lightbox group="creative" title="Hexagon Style: Nature's Geometry"}
-
-**Nature's Design**: Perfect tessellation • Honeycomb efficiency • Zero-waste geometry
-**Best for**: Scientific presentations • Tech showcases • Modern architecture
-**Mathematics**: Perfect fit • No gaps • Maximum efficiency • Natural inspiration
-
-```bash
-python collage_maker.py --folder photos --style hexagon
-python collage_maker.py --folder photos --style hexagon --background ocean     # Cool tech
-python collage_maker.py --folder photos --style hexagon --background twilight  # Dramatic
-```
-
-</div>
-
-<div class="gallery-card creative">
-
-### **Cinematic Film Strip**
-
-![Film Strip Style - Classic movie reel with authentic perforations](images/creative_filmstrip.jpg){.lightbox group="creative" title="Film Strip Style: Hollywood Magic"}
-
-**Cinema Magic**: Vintage film aesthetic • Sprocket holes • Sequential storytelling
-**Perfect for**: Movie themes • Timeline stories • Event documentation • Retro vibes
-**Authentic**: Film grain texture • Real perforations • Hollywood glamour
-
-```bash
-python collage_maker.py --folder photos --style filmstrip
-python collage_maker.py --folder photos --style filmstrip --background black    # Classic cinema
-python collage_maker.py --folder photos --style filmstrip --background burgundy # Vintage theater
-```
-
-</div>
-
-<div class="gallery-card creative">
-
-### **Handmade Scrapbook**
-
-![Scrapbook Style - Casual overlapping with tape effects](images/creative_scrapbook.jpg){.lightbox group="creative" title="Scrapbook Style: Handcrafted Love"}
-
-**Handcrafted**: Overlapping layers • Realistic tape • Casual arrangement
-**Best for**: Personal memories • DIY projects • Family albums • Casual presentations
-**Details**: Random rotation • Authentic shadows • Craft aesthetic • Personal touch
-
-```bash
-python collage_maker.py --folder photos --style scrapbook
-python collage_maker.py --folder photos --style scrapbook --background vintage  # Retro craft
-python collage_maker.py --folder photos --style scrapbook --background peach    # Soft warmth
-```
-
-</div>
-
-<div class="gallery-card creative">
-
-### **Interlocking Puzzle**
-
-![Puzzle Style - Realistic jigsaw pieces with 3D shadows](images/creative_puzzle.jpg){.lightbox group="creative" title="Puzzle Style: Perfect Fit"}
-
-**Puzzle Magic**: Interlocking pieces • Realistic shadows • 3D depth effects
-**Perfect for**: Team building • Problem solving • Interactive presentations
-**Visual**: Deep shadows • Piece variations • Professional finish • Tactile feel
-
-```bash
-python collage_maker.py --folder photos --style puzzle
-python collage_maker.py --folder photos --style puzzle --background aurora   # Cool mystery
-python collage_maker.py --folder photos --style puzzle --background emerald  # Fresh green
-```
-
-</div>
-
-</div>
-
----
-
-## Geometric Styles Collection  
-*Where mathematics meets artistic beauty*
-
-<div class="mega-gallery">
-
-<div class="gallery-card geometric">
-
-### **Sacred Mandala**
-
-![Mandala Style - Sacred geometry with perfect radial symmetry](images/test_mandala.jpg){.lightbox group="geometric" title="Mandala Style: Sacred Mathematics"}
-
-**Sacred Geometry**: Perfect symmetry • Spiritual patterns • Meditative beauty
-**Best for**: Wellness content • Spiritual themes • Balanced presentations • Art therapy
-**Mathematics**: Radial symmetry • Golden proportions • Harmonic divisions
-
-```bash
-python collage_maker.py --folder photos --style mandala
-python collage_maker.py --folder photos --style mandala --background sunset   # Warm spiritual
-python collage_maker.py --folder photos --style mandala --background golden   # Sacred gold
-```
-
-</div>
-
-<div class="gallery-card geometric">
-
-### **Voronoi Cells**
-
-![Voronoi Style - Natural cell division patterns](images/test_voronoi.jpg){.lightbox group="geometric" title="Voronoi Style: Nature's Algorithm"}
-
-**Nature's Math**: Organic boundaries • Proximity calculations • Natural efficiency
-**Perfect for**: Scientific themes • Biology presentations • Tech innovations
-**Algorithm**: Optimal space division • Natural boundaries • Mathematical precision
-
-```bash
-python collage_maker.py --folder photos --style voronoi
-python collage_maker.py --folder photos --style voronoi --background ocean    # Bio-science
-python collage_maker.py --folder photos --style voronoi --background arctic   # Clean minimal
-```
-
-</div>
-
-<div class="gallery-card geometric">
-
-### **Fractal Universe**
-
-![Fractal Style - Self-similar recursive patterns](images/geometric_fractal.jpg){.lightbox group="geometric" title="Fractal Style: Infinite Beauty"}
-
-**Infinite Patterns**: Self-similarity • Recursive beauty • Multiple scales
-**Best for**: Mathematical art • Technical presentations • Complex data visualization
-**Features**: Scale independence • Natural complexity • Mathematical elegance
-
-```bash
-python collage_maker.py --folder photos --style fractal
-python collage_maker.py --folder photos --style fractal --background twilight  # Deep mystery
-python collage_maker.py --folder photos --style fractal --background rose      # Soft elegance
-```
-
-</div>
-
-<div class="gallery-card geometric">
-
-### **Kaleidoscope Dreams**
-
-![Kaleidoscope Style - Mesmerizing symmetrical reflections](images/geometric_kaleidoscope.jpg){.lightbox group="geometric" title="Kaleidoscope Style: Mirror Magic"}
-
-**Mirror Magic**: Symmetrical reflections • Hypnotic patterns • Radial repetition
-**Perfect for**: Artistic displays • Decorative purposes • Creative presentations
-**Visual**: Multiple reflections • Mesmerizing beauty • Optical illusions
-
-```bash
-python collage_maker.py --folder photos --style kaleidoscope
-python collage_maker.py --folder photos --style kaleidoscope --background lavender  # Dreamy
-python collage_maker.py --folder photos --style kaleidoscope --background coral     # Vibrant
-```
-
-</div>
-
-</div>
-
----
-
-## Performance & Quality Guide
-
-<div class="performance-grid">
-
-<div class="perf-card lightning">
-
-### **Lightning Fast**
-
-**Grid • Magazine • Mosaic**  
-Generate professional collages in under 5 seconds
-
-</div>
-
-<div class="perf-card balanced">
-
-### **Balanced Power**  
-
-**Polaroid • Hexagon • Film Strip • Scrapbook • Puzzle**  
-Perfect balance of speed and artistic complexity
-
-</div>
-
-<div class="perf-card artistic">
-
-### **Artistic Mastery**
-
-**Mandala • Spiral • Voronoi • Fractal • Kaleidoscope**  
-Complex algorithms create stunning mathematical art
-
-</div>
-
-</div>
-
----
-
-## Pro Tips for Spectacular Results
-
-<div class="tips-grid">
-
-<div class="tip-card">
-
-### **Image Count Sweet Spots**
-
-- **Grid**: 4-100+ images (scales infinitely)
-- **Mosaic**: 6-20 images (optimal balance)  
-- **Geometric**: 8-16 images (mathematical harmony)
-- **Creative**: 5-15 images (perfect storytelling)
-
-</div>
-
-<div class="tip-card">
-
-### **Social Media Mastery**
-
-- **Instagram Posts**: 1080x1080 (Grid, Mandala)
-- **Facebook Covers**: 1200x630 (Magazine)  
-- **YouTube Thumbnails**: 1280x720 (Mosaic)
-- **Instagram Stories**: 1080x1920 (Polaroid)
-
-</div>
-
-<div class="tip-card">
-
-### **Quality Excellence**
-
-- **Format**: JPEG with 95% quality
-- **Enhancement**: Auto-sharpening + contrast
-- **Resolution**: Up to 4K+ supported
-- **Color**: Full RGB color space
-
-</div>
-
-<div class="tip-card">
-
-### **Speed Optimization**
-
-- **SSD Storage**: 3x faster processing
-- **RAM**: 8GB+ for large batches
-- **CPU**: Multi-core for complex styles
-- **Image Size**: 800x600+ for best quality
-
-</div>
-
-</div>
-
----
-
-## Quick Start Commands
-
-<div class="commands-showcase">
-
-```bash
-# Download perfect test images
-python collage_maker.py --download-samples
-
-# Try the most popular styles
-python collage_maker.py --folder sample_images --style mandala    # Sacred geometry
-python collage_maker.py --folder sample_images --style mosaic     # Smart layout
-python collage_maker.py --folder sample_images --style spiral     # Hypnotic flow
-python collage_maker.py --folder sample_images --style hexagon    # Nature's pattern
-
-# Social media ready formats
-python collage_maker.py --folder photos --style grid --width 1080 --height 1080     # Instagram
-python collage_maker.py --folder photos --style magazine --width 1200 --height 630  # Facebook
-python collage_maker.py --folder photos --style mosaic --width 1280 --height 720    # YouTube
-
-# See all available magic
-python collage_maker.py --list-styles
-```
-
-</div>
-
----
-
-## Background Comparisons
-
-*See the dramatic difference backgrounds make - same photos, transformed look*
-
-<div class="mega-gallery">
-
-<div class="gallery-card featured">
-
-### **Mandala: Default vs Sunset**
-
-Transform your mandala from simple to stunning with a warm gradient.
-
-```bash
-# Default (light gray)
-python collage_maker.py --folder photos --style mandala
-
-# With sunset gradient
 python collage_maker.py --folder photos --style mandala --background sunset
 ```
 
-**Default**: Clean, neutral background
-**Sunset**: Warm orange-to-gold diagonal gradient adds energy and warmth
+</div>
+
+<div class="gallery-card featured">
+
+### Grid with Noir
+
+![Grid with noir gradient](images/grid_noir.jpg){.lightbox group="backgrounds" title="Grid: Noir Gradient"}
+
+Dark diagonal gradient for modern look
+
+```bash
+python collage_maker.py --folder photos --style grid --background noir
+```
 
 </div>
 
 <div class="gallery-card featured">
 
-### **Grid: Default vs Noir**
+### Spiral with Ocean
 
-Professional grid layout elevated with sophisticated dark tones.
+![Spiral with ocean gradient](images/spiral_ocean.jpg){.lightbox group="backgrounds" title="Spiral: Ocean Gradient"}
 
-```bash
-# Default (light gray)
-python collage_maker.py --folder photos --style grid
-
-# With noir gradient
-python collage_maker.py --folder photos --style grid --background noir
-```
-
-**Default**: Light, airy feel
-**Noir**: Dark diagonal gradient for modern, professional look
-
-</div>
-
-<div class="gallery-card creative">
-
-### **Spiral: Default vs Ocean**
-
-Cool blue tones transform the spiral into an aquatic journey.
+Cool blue-to-cyan vertical gradient
 
 ```bash
-# Default (light gray)
-python collage_maker.py --folder photos --style spiral
-
-# With ocean gradient
 python collage_maker.py --folder photos --style spiral --background ocean
 ```
 
-**Default**: Neutral presentation
-**Ocean**: Blue-to-cyan vertical gradient for calm, professional feel
+</div>
+
+<div class="gallery-card featured">
+
+### Polaroid with Vintage
+
+![Polaroid with vintage gradient](images/polaroid_vintage.jpg){.lightbox group="backgrounds" title="Polaroid: Vintage Gradient"}
+
+Warm tan-to-cream for retro feel
+
+```bash
+python collage_maker.py --folder photos --style polaroid --background vintage
+```
 
 </div>
 
 <div class="gallery-card creative">
 
-### **Polaroid: Default vs Vintage**
+### Hexagon with Twilight
 
-Nostalgic polaroids enhanced with warm, retro tones.
+![Hexagon with twilight gradient](images/hexagon_twilight.jpg){.lightbox group="backgrounds" title="Hexagon: Twilight Gradient"}
 
-```bash
-# Default (light gray)
-python collage_maker.py --folder photos --style polaroid
-
-# With vintage gradient
-python collage_maker.py --folder photos --style polaroid --background vintage
-```
-
-**Default**: Modern, clean look
-**Vintage**: Tan-to-cream gradient for authentic retro aesthetic
-
-</div>
-
-<div class="gallery-card geometric">
-
-### **Hexagon: Default vs Twilight**
-
-Geometric honeycomb with dramatic purple atmosphere.
+Deep purple vertical gradient
 
 ```bash
-# Default (light gray)
-python collage_maker.py --folder photos --style hexagon
-
-# With twilight gradient
 python collage_maker.py --folder photos --style hexagon --background twilight
 ```
 
-**Default**: Clean geometric pattern
-**Twilight**: Deep purple vertical gradient for artistic drama
+</div>
+
+<div class="gallery-card creative">
+
+### Mosaic with Emerald
+
+![Mosaic with emerald gradient](images/mosaic_emerald.jpg){.lightbox group="backgrounds" title="Mosaic: Emerald Gradient"}
+
+Fresh green diagonal gradient
+
+```bash
+python collage_maker.py --folder photos --style mosaic --background emerald
+```
+
+</div>
+
+<div class="gallery-card creative">
+
+### Scrapbook with Peach
+
+![Scrapbook with peach gradient](images/scrapbook_peach.jpg){.lightbox group="backgrounds" title="Scrapbook: Peach Gradient"}
+
+Soft warm vertical gradient
+
+```bash
+python collage_maker.py --folder photos --style scrapbook --background peach
+```
 
 </div>
 
 <div class="gallery-card geometric">
 
-### **Magazine: Default vs Emerald**
+### Kaleidoscope with Lavender
 
-Editorial layout with fresh, natural green tones.
+![Kaleidoscope with lavender gradient](images/kaleidoscope_lavender.jpg){.lightbox group="backgrounds" title="Kaleidoscope: Lavender Gradient"}
+
+Dreamy purple diagonal gradient
 
 ```bash
-# Default (light gray)
-python collage_maker.py --folder photos --style magazine
-
-# With emerald gradient
-python collage_maker.py --folder photos --style magazine --background emerald
+python collage_maker.py --folder photos --style kaleidoscope --background lavender
 ```
 
-**Default**: Standard editorial look
-**Emerald**: Green diagonal gradient for fresh, natural feel
+</div>
+
+<div class="gallery-card geometric">
+
+### Magazine with Mint
+
+![Magazine with mint gradient](images/magazine_mint.jpg){.lightbox group="backgrounds" title="Magazine: Mint Gradient"}
+
+Fresh mint vertical gradient
+
+```bash
+python collage_maker.py --folder photos --style magazine --background mint
+```
+
+</div>
+
+<div class="gallery-card geometric">
+
+### Fractal with Rose
+
+![Fractal with rose gradient](images/fractal_rose.jpg){.lightbox group="backgrounds" title="Fractal: Rose Gradient"}
+
+Soft pink diagonal gradient
+
+```bash
+python collage_maker.py --folder photos --style fractal --background rose
+```
 
 </div>
 
@@ -531,70 +159,196 @@ python collage_maker.py --folder photos --style magazine --background emerald
 
 ---
 
-## More Background Examples
-
-*Additional gradient options to explore*
+## All Styles (Default Background)
 
 <div class="mega-gallery">
 
-<div class="gallery-card featured">
+<div class="gallery-card">
 
-### **Golden Radial**
+### Grid
 
-Luxurious gold burst radiating from center. Creates a spotlight effect.
-
-```bash
-python collage_maker.py --folder photos --style mandala --background golden
-python collage_maker.py --folder photos --style spiral --background golden
-```
-
-**Perfect for**: Awards, achievements, special celebrations
-
-</div>
-
-<div class="gallery-card creative">
-
-### **Aurora & Arctic**
-
-Cool, icy tones for clean minimal aesthetics.
+![Grid Style](images/collage_grid.jpg){.lightbox group="styles" title="Grid Style"}
 
 ```bash
-python collage_maker.py --folder photos --style mosaic --background aurora
-python collage_maker.py --folder photos --style voronoi --background arctic
+python collage_maker.py --folder photos --style grid
 ```
-
-**Perfect for**: Winter themes, tech presentations, minimal design
 
 </div>
 
-<div class="gallery-card geometric">
+<div class="gallery-card">
 
-### **Lavender & Rose**
+### Mosaic
 
-Soft, dreamy pastels for elegant presentations.
+![Mosaic Style](images/collage_mosaic.jpg){.lightbox group="styles" title="Mosaic Style"}
 
 ```bash
-python collage_maker.py --folder photos --style kaleidoscope --background lavender
-python collage_maker.py --folder photos --style fractal --background rose
+python collage_maker.py --folder photos --style mosaic
 ```
 
-**Perfect for**: Weddings, feminine themes, soft aesthetics
+</div>
+
+<div class="gallery-card">
+
+### Polaroid
+
+![Polaroid Style](images/collage_polaroid.jpg){.lightbox group="styles" title="Polaroid Style"}
+
+```bash
+python collage_maker.py --folder photos --style polaroid
+```
+
+</div>
+
+<div class="gallery-card">
+
+### Magazine
+
+![Magazine Style](images/collage_magazine.jpg){.lightbox group="styles" title="Magazine Style"}
+
+```bash
+python collage_maker.py --folder photos --style magazine
+```
+
+</div>
+
+<div class="gallery-card">
+
+### Spiral
+
+![Spiral Style](images/creative_spiral.jpg){.lightbox group="styles" title="Spiral Style"}
+
+```bash
+python collage_maker.py --folder photos --style spiral
+```
+
+</div>
+
+<div class="gallery-card">
+
+### Hexagon
+
+![Hexagon Style](images/creative_hexagon.jpg){.lightbox group="styles" title="Hexagon Style"}
+
+```bash
+python collage_maker.py --folder photos --style hexagon
+```
+
+</div>
+
+<div class="gallery-card">
+
+### Film Strip
+
+![Film Strip Style](images/creative_filmstrip.jpg){.lightbox group="styles" title="Film Strip Style"}
+
+```bash
+python collage_maker.py --folder photos --style filmstrip
+```
+
+</div>
+
+<div class="gallery-card">
+
+### Scrapbook
+
+![Scrapbook Style](images/creative_scrapbook.jpg){.lightbox group="styles" title="Scrapbook Style"}
+
+```bash
+python collage_maker.py --folder photos --style scrapbook
+```
+
+</div>
+
+<div class="gallery-card">
+
+### Puzzle
+
+![Puzzle Style](images/creative_puzzle.jpg){.lightbox group="styles" title="Puzzle Style"}
+
+```bash
+python collage_maker.py --folder photos --style puzzle
+```
+
+</div>
+
+<div class="gallery-card">
+
+### Mandala
+
+![Mandala Style](images/mandala_default.jpg){.lightbox group="styles" title="Mandala Style"}
+
+```bash
+python collage_maker.py --folder photos --style mandala
+```
+
+</div>
+
+<div class="gallery-card">
+
+### Voronoi
+
+![Voronoi Style](images/test_voronoi.jpg){.lightbox group="styles" title="Voronoi Style"}
+
+```bash
+python collage_maker.py --folder photos --style voronoi
+```
+
+</div>
+
+<div class="gallery-card">
+
+### Fractal
+
+![Fractal Style](images/geometric_fractal.jpg){.lightbox group="styles" title="Fractal Style"}
+
+```bash
+python collage_maker.py --folder photos --style fractal
+```
+
+</div>
+
+<div class="gallery-card">
+
+### Kaleidoscope
+
+![Kaleidoscope Style](images/geometric_kaleidoscope.jpg){.lightbox group="styles" title="Kaleidoscope Style"}
+
+```bash
+python collage_maker.py --folder photos --style kaleidoscope
+```
 
 </div>
 
 </div>
 
-### All Available Backgrounds
+---
 
-**Solid Colors**: white, black, cream, charcoal, slate, navy, forest, burgundy, mocha
+## Available Backgrounds
 
 **Gradients**: sunset, ocean, aurora, lavender, coral, mint, rose, twilight, golden, arctic, noir, peach, emerald, vintage
 
+**Solid Colors**: white, black, cream, charcoal, slate, navy, forest, burgundy, mocha
+
 ```bash
-# List all backgrounds with descriptions
 python collage_maker.py --list-backgrounds
 ```
 
 ---
 
-**Ready to transform your photos into stunning art? Start creating magic in 30 seconds!**
+## Quick Commands
+
+```bash
+# Download sample images
+python collage_maker.py --download-samples
+
+# Create with background
+python collage_maker.py --folder sample_images --style mandala --background sunset
+
+# Social media sizes
+python collage_maker.py --folder photos --style grid --width 1080 --height 1080      # Instagram
+python collage_maker.py --folder photos --style magazine --width 1200 --height 630   # Facebook
+
+# List all options
+python collage_maker.py --list-styles
+python collage_maker.py --list-backgrounds
+```

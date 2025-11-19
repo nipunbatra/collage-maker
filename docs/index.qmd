@@ -6,78 +6,12 @@ page-layout: full
 ::: {.hero-banner}
 # Transform Your Photos Into Stunning Collages
 
-**15+ artistic styles | Zero wasted space | Professional quality**
+**15+ artistic styles | 23 background presets | Professional quality**
 
 One command creates magazine-worthy collages from any folder of photos.
 :::
 
-## Gallery Showcase
-
-::: {.gallery-grid}
-
-::: {.gallery-item}
-###  Professional Grid 
-Perfect for portfolios and social media
-![Professional Grid Style - Clean, organized layouts with perfect spacing](images/collage_grid.jpg){.lightbox group="gallery"}
-```bash
---style grid
-```
-*Clean, organized layouts with perfect spacing*
-:::
-
-::: {.gallery-item}
-###  Artistic Mandala
-Circular mathematical beauty
-![Artistic Mandala Style - Symmetrical, meditative circular designs](images/test_mandala.jpg){.lightbox group="gallery"}
-```bash
---style mandala
-```
-*Symmetrical, meditative circular designs*
-:::
-
-::: {.gallery-item}
-###  Vintage Polaroid
-Nostalgic photo memories
-![Vintage Polaroid Style - Authentic vintage feel with captions](images/collage_polaroid.jpg){.lightbox group="gallery"}
-```bash
---style polaroid
-```
-*Authentic vintage feel with captions*
-:::
-
-::: {.gallery-item}
-###  Dynamic Mosaic
-Intelligent space-filling
-![Dynamic Mosaic Style - Modern, magazine-style layouts](images/collage_mosaic.jpg){.lightbox group="gallery"}
-```bash
---style mosaic
-```
-*Modern, magazine-style layouts*
-:::
-
-::: {.gallery-item}
-###  Film Strip Cinema
-Classic movie aesthetic
-![Film Strip Cinema Style - Cinematic storytelling sequences](images/creative_filmstrip.jpg){.lightbox group="gallery"}
-```bash
---style filmstrip
-```
-*Cinematic storytelling sequences*
-:::
-
-::: {.gallery-item}
-###  Voronoi Cells
-Organic mathematical patterns
-![Voronoi Cells Style - Scientific, organic pattern beauty](images/test_voronoi.jpg){.lightbox group="gallery"}
-```bash
---style voronoi
-```
-*Scientific, organic pattern beauty*
-:::
-
-:::
-
-## Instant Results
+## Quick Start
 
 ```bash
 # Get started in 30 seconds
@@ -90,115 +24,53 @@ python collage_maker.py --download-samples
 # Create your first masterpiece
 python collage_maker.py --folder sample_images --style mandala
 
-# Add custom titles to your collages
-python collage_maker.py --folder sample_images --style grid --title "My Photo Collection"
+# With stunning backgrounds
+python collage_maker.py --folder sample_images --style mandala --background sunset
+python collage_maker.py --folder sample_images --style grid --background noir
+
+# See all options
+python collage_maker.py --list-styles
+python collage_maker.py --list-backgrounds
 ```
-
-## Popular Use Cases
-
-::: {.use-case-grid}
-
-### Social Media Ready
-- **Instagram**: Perfect 1080x1080 squares
-- **Facebook**: Cover photo layouts
-- **Stories**: Vertical 1080x1920 formats
-
-### Professional Work
-- **Portfolios**: Clean grid presentations
-- **Marketing**: Eye-catching mosaic designs
-- **Presentations**: Magazine-style layouts
-
-### Personal Projects
-- **Family Albums**: Nostalgic polaroid styles
-- **Travel Memories**: Dynamic spiral arrangements
-- **Art Projects**: Geometric kaleidoscope patterns
-
-:::
-
-## Title & Customization Features
-
-::: {.gallery-grid}
-
-::: {.gallery-item}
-### **Grid with Title**
-Perfect for labeled collections
-![Grid collage with custom title](images/sample_grid_with_title.jpg){.lightbox group="titles" title="Grid Style with Custom Title"}
-```bash
---title "Sample Gallery"
-```
-*Professional labeling for any photo collection*
-:::
-
-::: {.gallery-item}
-### **Mosaic with Title**
-Creative layouts with branding
-![Mosaic collage with custom title](images/sample_mosaic_with_title.jpg){.lightbox group="titles" title="Mosaic Style with Custom Title"}
-```bash
---title "Creative Mosaic"
-```
-*Artistic presentations with custom branding*
-:::
-
-::: {.gallery-item}
-### **Polaroid with Title**
-Vintage memories with labels
-![Polaroid collage with custom title](images/sample_polaroid_with_title.jpg){.lightbox group="titles" title="Polaroid Style with Custom Title"}
-```bash
---title "Vintage Memories"
-```
-*Nostalgic layouts with meaningful captions*
-:::
-
-::: {.gallery-item}
-### **Magazine with Title**
-Professional editorial style
-![Magazine collage with custom title](images/sample_magazine_with_title.jpg){.lightbox group="titles" title="Magazine Style with Custom Title"}
-```bash
---title "Feature Story" --title-position top
-```
-*Editorial layouts with professional typography*
-:::
-
-:::
 
 ## Why Choose Collage Maker?
 
 ::: {.feature-highlights}
 
-** 15+ Unique Styles**  
+** 15+ Unique Styles**
 From basic grids to complex fractals
 
-** Custom Titles & Branding**  
-Add professional labels and captions
+** 23 Background Presets**
+Stunning gradients and solid colors
 
-** Zero Configuration**  
+** Zero Configuration**
 Works instantly with any image folder
 
-** Perfect Space Usage**  
+** Perfect Space Usage**
 Mathematical algorithms eliminate wasted space
 
-** Infinitely Extensible**  
+** Infinitely Extensible**
 Plugin architecture for custom styles
 
-** Social Media Ready**  
-Pre-configured for all major platforms
-
-** Professional Quality**  
+** Professional Quality**
 High-resolution output with image enhancement
 
 :::
 
-## Explore More
+## Explore
 
 ::: {.nav-cards}
 
-[**See All Examples →**](examples.qmd)  
-Browse the complete gallery of 15+ styles
+[**See All Examples →**](examples.qmd)
+Browse the complete gallery with all styles and backgrounds
 
-[**Quick Installation →**](installation.qmd)  
+[**Style Guide →**](styles.qmd)
+Detailed guide for all styles and background options
+
+[**Quick Installation →**](installation.qmd)
 Set up in under 2 minutes
 
-[**Create Custom Styles →**](developer.qmd)  
+[**Create Custom Styles →**](developer.qmd)
 Extend with your own algorithms
 
 :::

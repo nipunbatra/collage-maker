@@ -161,8 +161,6 @@ def main(folder, output, style, width, height, no_frames, rows, cols, title, tit
             if title:
                 kwargs['title'] = title
                 kwargs['title_position'] = title_position
-            if background:
-                kwargs['background'] = background
 
             collage = CollageStyleRegistry.create_collage(
                 style_name,

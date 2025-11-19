@@ -155,6 +155,230 @@ python collage_maker.py --folder photos --style fractal --background rose
 
 </div>
 
+<div class="gallery-card featured">
+
+### Mandala with Golden
+
+![Mandala with golden gradient](images/mandala_golden.jpg){.lightbox group="backgrounds" title="Mandala: Golden Radial"}
+
+Luxurious gold radial burst
+
+```bash
+python collage_maker.py --folder photos --style mandala --background golden
+```
+
+</div>
+
+<div class="gallery-card featured">
+
+### Grid with Ocean
+
+![Grid with ocean gradient](images/grid_ocean.jpg){.lightbox group="backgrounds" title="Grid: Ocean Gradient"}
+
+Cool blue professional look
+
+```bash
+python collage_maker.py --folder photos --style grid --background ocean
+```
+
+</div>
+
+<div class="gallery-card featured">
+
+### Spiral with Sunset
+
+![Spiral with sunset gradient](images/spiral_sunset.jpg){.lightbox group="backgrounds" title="Spiral: Sunset Gradient"}
+
+Warm diagonal energy
+
+```bash
+python collage_maker.py --folder photos --style spiral --background sunset
+```
+
+</div>
+
+<div class="gallery-card creative">
+
+### Polaroid with Cream
+
+![Polaroid with cream background](images/polaroid_cream.jpg){.lightbox group="backgrounds" title="Polaroid: Cream"}
+
+Soft neutral background
+
+```bash
+python collage_maker.py --folder photos --style polaroid --background cream
+```
+
+</div>
+
+<div class="gallery-card creative">
+
+### Hexagon with Ocean
+
+![Hexagon with ocean gradient](images/hexagon_ocean.jpg){.lightbox group="backgrounds" title="Hexagon: Ocean Gradient"}
+
+Tech-inspired cool tones
+
+```bash
+python collage_maker.py --folder photos --style hexagon --background ocean
+```
+
+</div>
+
+<div class="gallery-card creative">
+
+### Mosaic with Noir
+
+![Mosaic with noir gradient](images/mosaic_noir.jpg){.lightbox group="backgrounds" title="Mosaic: Noir Gradient"}
+
+Sophisticated dark aesthetic
+
+```bash
+python collage_maker.py --folder photos --style mosaic --background noir
+```
+
+</div>
+
+<div class="gallery-card geometric">
+
+### Magazine with Noir
+
+![Magazine with noir gradient](images/magazine_noir.jpg){.lightbox group="backgrounds" title="Magazine: Noir Gradient"}
+
+Professional dark editorial
+
+```bash
+python collage_maker.py --folder photos --style magazine --background noir
+```
+
+</div>
+
+<div class="gallery-card geometric">
+
+### Puzzle with Aurora
+
+![Puzzle with aurora gradient](images/puzzle_aurora.jpg){.lightbox group="backgrounds" title="Puzzle: Aurora Gradient"}
+
+Deep teal mystery
+
+```bash
+python collage_maker.py --folder photos --style puzzle --background aurora
+```
+
+</div>
+
+<div class="gallery-card geometric">
+
+### Voronoi with Arctic
+
+![Voronoi with arctic gradient](images/voronoi_arctic.jpg){.lightbox group="backgrounds" title="Voronoi: Arctic Gradient"}
+
+Icy clean minimal
+
+```bash
+python collage_maker.py --folder photos --style voronoi --background arctic
+```
+
+</div>
+
+<div class="gallery-card featured">
+
+### Fractal with Twilight
+
+![Fractal with twilight gradient](images/fractal_twilight.jpg){.lightbox group="backgrounds" title="Fractal: Twilight Gradient"}
+
+Deep purple mathematical art
+
+```bash
+python collage_maker.py --folder photos --style fractal --background twilight
+```
+
+</div>
+
+<div class="gallery-card featured">
+
+### Kaleidoscope with Coral
+
+![Kaleidoscope with coral gradient](images/kaleidoscope_coral.jpg){.lightbox group="backgrounds" title="Kaleidoscope: Coral Gradient"}
+
+Vibrant warm tones
+
+```bash
+python collage_maker.py --folder photos --style kaleidoscope --background coral
+```
+
+</div>
+
+<div class="gallery-card creative">
+
+### Film Strip with Black
+
+![Film Strip with black background](images/filmstrip_black.jpg){.lightbox group="backgrounds" title="Film Strip: Black"}
+
+Classic cinema aesthetic
+
+```bash
+python collage_maker.py --folder photos --style filmstrip --background black
+```
+
+</div>
+
+<div class="gallery-card creative">
+
+### Scrapbook with Vintage
+
+![Scrapbook with vintage gradient](images/scrapbook_vintage.jpg){.lightbox group="backgrounds" title="Scrapbook: Vintage Gradient"}
+
+Retro craft warmth
+
+```bash
+python collage_maker.py --folder photos --style scrapbook --background vintage
+```
+
+</div>
+
+<div class="gallery-card geometric">
+
+### Mandala with Arctic
+
+![Mandala with arctic gradient](images/mandala_arctic.jpg){.lightbox group="backgrounds" title="Mandala: Arctic Gradient"}
+
+Cool minimalist zen
+
+```bash
+python collage_maker.py --folder photos --style mandala --background arctic
+```
+
+</div>
+
+<div class="gallery-card geometric">
+
+### Grid with Emerald
+
+![Grid with emerald gradient](images/grid_emerald.jpg){.lightbox group="backgrounds" title="Grid: Emerald Gradient"}
+
+Fresh natural green
+
+```bash
+python collage_maker.py --folder photos --style grid --background emerald
+```
+
+</div>
+
+<div class="gallery-card geometric">
+
+### Spiral with Lavender
+
+![Spiral with lavender gradient](images/spiral_lavender.jpg){.lightbox group="backgrounds" title="Spiral: Lavender Gradient"}
+
+Dreamy soft purple
+
+```bash
+python collage_maker.py --folder photos --style spiral --background lavender
+```
+
+</div>
+
 </div>
 
 ---

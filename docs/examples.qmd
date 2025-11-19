@@ -381,58 +381,137 @@ python collage_maker.py --list-styles
 
 ---
 
-## Stunning Background Examples
+## Background Comparisons
 
-*Elevate your collages with beautiful gradients and colors*
+*See the dramatic difference backgrounds make - same photos, transformed look*
 
 <div class="mega-gallery">
 
 <div class="gallery-card featured">
 
-### **Sunset Gradient**
+### **Mandala: Default vs Sunset**
 
-Create warm, inviting collages with the sunset gradient that flows from vibrant orange to golden yellow.
+Transform your mandala from simple to stunning with a warm gradient.
 
 ```bash
+# Default (light gray)
+python collage_maker.py --folder photos --style mandala
+
+# With sunset gradient
 python collage_maker.py --folder photos --style mandala --background sunset
-python collage_maker.py --folder photos --style spiral --background sunset
 ```
 
-**Perfect for**: Celebrations, summer memories, warm occasions
+**Default**: Clean, neutral background
+**Sunset**: Warm orange-to-gold diagonal gradient adds energy and warmth
 
 </div>
 
 <div class="gallery-card featured">
 
-### **Ocean Gradient**
+### **Grid: Default vs Noir**
 
-Cool blue tones flowing from deep ocean to tropical cyan. Ideal for calm, professional presentations.
+Professional grid layout elevated with sophisticated dark tones.
 
 ```bash
-python collage_maker.py --folder photos --style hexagon --background ocean
-python collage_maker.py --folder photos --style voronoi --background ocean
+# Default (light gray)
+python collage_maker.py --folder photos --style grid
+
+# With noir gradient
+python collage_maker.py --folder photos --style grid --background noir
 ```
 
-**Perfect for**: Travel photos, beach memories, corporate presentations
+**Default**: Light, airy feel
+**Noir**: Dark diagonal gradient for modern, professional look
 
 </div>
 
 <div class="gallery-card creative">
 
-### **Twilight Gradient**
+### **Spiral: Default vs Ocean**
 
-Dramatic deep purple gradient for artistic and mysterious vibes.
+Cool blue tones transform the spiral into an aquatic journey.
 
 ```bash
-python collage_maker.py --folder photos --style kaleidoscope --background twilight
-python collage_maker.py --folder photos --style fractal --background twilight
+# Default (light gray)
+python collage_maker.py --folder photos --style spiral
+
+# With ocean gradient
+python collage_maker.py --folder photos --style spiral --background ocean
 ```
 
-**Perfect for**: Evening events, artistic projects, dramatic presentations
+**Default**: Neutral presentation
+**Ocean**: Blue-to-cyan vertical gradient for calm, professional feel
 
 </div>
 
 <div class="gallery-card creative">
+
+### **Polaroid: Default vs Vintage**
+
+Nostalgic polaroids enhanced with warm, retro tones.
+
+```bash
+# Default (light gray)
+python collage_maker.py --folder photos --style polaroid
+
+# With vintage gradient
+python collage_maker.py --folder photos --style polaroid --background vintage
+```
+
+**Default**: Modern, clean look
+**Vintage**: Tan-to-cream gradient for authentic retro aesthetic
+
+</div>
+
+<div class="gallery-card geometric">
+
+### **Hexagon: Default vs Twilight**
+
+Geometric honeycomb with dramatic purple atmosphere.
+
+```bash
+# Default (light gray)
+python collage_maker.py --folder photos --style hexagon
+
+# With twilight gradient
+python collage_maker.py --folder photos --style hexagon --background twilight
+```
+
+**Default**: Clean geometric pattern
+**Twilight**: Deep purple vertical gradient for artistic drama
+
+</div>
+
+<div class="gallery-card geometric">
+
+### **Magazine: Default vs Emerald**
+
+Editorial layout with fresh, natural green tones.
+
+```bash
+# Default (light gray)
+python collage_maker.py --folder photos --style magazine
+
+# With emerald gradient
+python collage_maker.py --folder photos --style magazine --background emerald
+```
+
+**Default**: Standard editorial look
+**Emerald**: Green diagonal gradient for fresh, natural feel
+
+</div>
+
+</div>
+
+---
+
+## More Background Examples
+
+*Additional gradient options to explore*
+
+<div class="mega-gallery">
+
+<div class="gallery-card featured">
 
 ### **Golden Radial**
 
@@ -447,33 +526,33 @@ python collage_maker.py --folder photos --style spiral --background golden
 
 </div>
 
-<div class="gallery-card geometric">
+<div class="gallery-card creative">
 
-### **Noir Gradient**
+### **Aurora & Arctic**
 
-Sophisticated dark gray diagonal gradient for modern, professional looks.
+Cool, icy tones for clean minimal aesthetics.
 
 ```bash
-python collage_maker.py --folder photos --style grid --background noir
-python collage_maker.py --folder photos --style magazine --background noir
+python collage_maker.py --folder photos --style mosaic --background aurora
+python collage_maker.py --folder photos --style voronoi --background arctic
 ```
 
-**Perfect for**: Portfolio, professional work, minimalist design
+**Perfect for**: Winter themes, tech presentations, minimal design
 
 </div>
 
 <div class="gallery-card geometric">
 
-### **Vintage Warmth**
+### **Lavender & Rose**
 
-Classic tan to cream gradient for nostalgic, timeless feel.
+Soft, dreamy pastels for elegant presentations.
 
 ```bash
-python collage_maker.py --folder photos --style polaroid --background vintage
-python collage_maker.py --folder photos --style scrapbook --background vintage
+python collage_maker.py --folder photos --style kaleidoscope --background lavender
+python collage_maker.py --folder photos --style fractal --background rose
 ```
 
-**Perfect for**: Family albums, retro themes, nostalgic memories
+**Perfect for**: Weddings, feminine themes, soft aesthetics
 
 </div>
 

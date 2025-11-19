@@ -43,12 +43,14 @@ python collage_maker.py --folder sample_images --style mandala
 
 ![Professional Grid Style - Mathematical precision with perfect spacing](images/collage_grid.jpg){.lightbox group="basic" title="Grid Style: Perfect Business Alignment"}
 
-**Best for**: Business portfolios • LinkedIn posts • Product catalogs • Real estate  
-**Performance**: Lightning fast • 100% space efficiency • Zero wasted pixels  
+**Best for**: Business portfolios • LinkedIn posts • Product catalogs • Real estate
+**Performance**: Lightning fast • 100% space efficiency • Zero wasted pixels
 **Social Ready**: Instagram (1080x1080) • Facebook albums • Professional presentations
 
 ```bash
 python collage_maker.py --folder photos --style grid
+python collage_maker.py --folder photos --style grid --background noir      # Dark professional
+python collage_maker.py --folder photos --style grid --background charcoal  # Subtle dark
 ```
 
 </div>
@@ -59,12 +61,14 @@ python collage_maker.py --folder photos --style grid
 
 ![Dynamic Mosaic Style - Smart algorithm optimizes size and placement](images/collage_mosaic.jpg){.lightbox group="basic" title="Mosaic Style: AI-Powered Layout"}
 
-**Innovation**: Smart size detection • Visual weight balancing • Dynamic optimization  
-**Perfect for**: Travel blogs • Creative showcases • Modern websites • Art galleries  
+**Innovation**: Smart size detection • Visual weight balancing • Dynamic optimization
+**Perfect for**: Travel blogs • Creative showcases • Modern websites • Art galleries
 **Algorithm**: 95% space usage • Intelligent placement • Professional aesthetics
 
 ```bash
 python collage_maker.py --folder photos --style mosaic
+python collage_maker.py --folder photos --style mosaic --background ocean    # Cool blues
+python collage_maker.py --folder photos --style mosaic --background emerald  # Fresh green
 ```
 
 </div>
@@ -75,12 +79,14 @@ python collage_maker.py --folder photos --style mosaic
 
 ![Authentic Polaroid Style - Hand-rotated photos with film borders](images/collage_polaroid.jpg){.lightbox group="basic" title="Polaroid Style: Nostalgic Memories"}
 
-**Nostalgia**: Authentic rotation • Hand-written captions • Film grain borders  
-**Perfect for**: Family albums • Wedding memories • Personal stories • Scrapbooks  
+**Nostalgia**: Authentic rotation • Hand-written captions • Film grain borders
+**Perfect for**: Family albums • Wedding memories • Personal stories • Scrapbooks
 **Features**: Auto-caption extraction • JSON support • Vintage film aesthetic
 
 ```bash
 python collage_maker.py --folder photos --style polaroid
+python collage_maker.py --folder photos --style polaroid --background vintage  # Retro warmth
+python collage_maker.py --folder photos --style polaroid --background cream    # Soft neutral
 ```
 
 </div>
@@ -91,12 +97,14 @@ python collage_maker.py --folder photos --style polaroid
 
 ![Magazine Style - Hero image with professional thumbnail layout](images/collage_magazine.jpg){.lightbox group="basic" title="Magazine Style: Editorial Excellence"}
 
-**Professional**: Hero image focus • Supporting thumbnails • Editorial typography  
-**Best for**: Blog headers • News articles • Feature stories • Brand showcases  
+**Professional**: Hero image focus • Supporting thumbnails • Editorial typography
+**Best for**: Blog headers • News articles • Feature stories • Brand showcases
 **Social Media**: Facebook covers (1200x630) • LinkedIn banners • YouTube thumbnails
 
 ```bash
 python collage_maker.py --folder photos --style magazine
+python collage_maker.py --folder photos --style magazine --background noir   # Modern dark
+python collage_maker.py --folder photos --style magazine --background mint   # Fresh clean
 ```
 
 </div>
@@ -116,12 +124,14 @@ python collage_maker.py --folder photos --style magazine
 
 ![Spiral Style - Hypnotic flow from center outward](images/creative_spiral.jpg){.lightbox group="creative" title="Spiral Style: Hypnotic Flow"}
 
-**Visual Impact**: Hypnotic movement • Golden ratio mathematics • Natural flow patterns  
-**Perfect for**: Artistic presentations • Gallery exhibitions • Creative portfolios  
+**Visual Impact**: Hypnotic movement • Golden ratio mathematics • Natural flow patterns
+**Perfect for**: Artistic presentations • Gallery exhibitions • Creative portfolios
 **Science**: Fibonacci sequences • Mathematical spirals • Organic growth patterns
 
 ```bash
 python collage_maker.py --folder photos --style spiral
+python collage_maker.py --folder photos --style spiral --background sunset   # Warm energy
+python collage_maker.py --folder photos --style spiral --background golden   # Luxurious glow
 ```
 
 </div>
@@ -132,12 +142,14 @@ python collage_maker.py --folder photos --style spiral
 
 ![Hexagon Style - Perfect geometric tessellation](images/creative_hexagon.jpg){.lightbox group="creative" title="Hexagon Style: Nature's Geometry"}
 
-**Nature's Design**: Perfect tessellation • Honeycomb efficiency • Zero-waste geometry  
-**Best for**: Scientific presentations • Tech showcases • Modern architecture  
+**Nature's Design**: Perfect tessellation • Honeycomb efficiency • Zero-waste geometry
+**Best for**: Scientific presentations • Tech showcases • Modern architecture
 **Mathematics**: Perfect fit • No gaps • Maximum efficiency • Natural inspiration
 
 ```bash
 python collage_maker.py --folder photos --style hexagon
+python collage_maker.py --folder photos --style hexagon --background ocean     # Cool tech
+python collage_maker.py --folder photos --style hexagon --background twilight  # Dramatic
 ```
 
 </div>
@@ -148,12 +160,14 @@ python collage_maker.py --folder photos --style hexagon
 
 ![Film Strip Style - Classic movie reel with authentic perforations](images/creative_filmstrip.jpg){.lightbox group="creative" title="Film Strip Style: Hollywood Magic"}
 
-**Cinema Magic**: Vintage film aesthetic • Sprocket holes • Sequential storytelling  
-**Perfect for**: Movie themes • Timeline stories • Event documentation • Retro vibes  
+**Cinema Magic**: Vintage film aesthetic • Sprocket holes • Sequential storytelling
+**Perfect for**: Movie themes • Timeline stories • Event documentation • Retro vibes
 **Authentic**: Film grain texture • Real perforations • Hollywood glamour
 
 ```bash
 python collage_maker.py --folder photos --style filmstrip
+python collage_maker.py --folder photos --style filmstrip --background black    # Classic cinema
+python collage_maker.py --folder photos --style filmstrip --background burgundy # Vintage theater
 ```
 
 </div>
@@ -164,12 +178,14 @@ python collage_maker.py --folder photos --style filmstrip
 
 ![Scrapbook Style - Casual overlapping with tape effects](images/creative_scrapbook.jpg){.lightbox group="creative" title="Scrapbook Style: Handcrafted Love"}
 
-**Handcrafted**: Overlapping layers • Realistic tape • Casual arrangement  
-**Best for**: Personal memories • DIY projects • Family albums • Casual presentations  
+**Handcrafted**: Overlapping layers • Realistic tape • Casual arrangement
+**Best for**: Personal memories • DIY projects • Family albums • Casual presentations
 **Details**: Random rotation • Authentic shadows • Craft aesthetic • Personal touch
 
 ```bash
 python collage_maker.py --folder photos --style scrapbook
+python collage_maker.py --folder photos --style scrapbook --background vintage  # Retro craft
+python collage_maker.py --folder photos --style scrapbook --background peach    # Soft warmth
 ```
 
 </div>
@@ -180,12 +196,14 @@ python collage_maker.py --folder photos --style scrapbook
 
 ![Puzzle Style - Realistic jigsaw pieces with 3D shadows](images/creative_puzzle.jpg){.lightbox group="creative" title="Puzzle Style: Perfect Fit"}
 
-**Puzzle Magic**: Interlocking pieces • Realistic shadows • 3D depth effects  
-**Perfect for**: Team building • Problem solving • Interactive presentations  
+**Puzzle Magic**: Interlocking pieces • Realistic shadows • 3D depth effects
+**Perfect for**: Team building • Problem solving • Interactive presentations
 **Visual**: Deep shadows • Piece variations • Professional finish • Tactile feel
 
 ```bash
 python collage_maker.py --folder photos --style puzzle
+python collage_maker.py --folder photos --style puzzle --background aurora   # Cool mystery
+python collage_maker.py --folder photos --style puzzle --background emerald  # Fresh green
 ```
 
 </div>
@@ -205,12 +223,14 @@ python collage_maker.py --folder photos --style puzzle
 
 ![Mandala Style - Sacred geometry with perfect radial symmetry](images/test_mandala.jpg){.lightbox group="geometric" title="Mandala Style: Sacred Mathematics"}
 
-**Sacred Geometry**: Perfect symmetry • Spiritual patterns • Meditative beauty  
-**Best for**: Wellness content • Spiritual themes • Balanced presentations • Art therapy  
+**Sacred Geometry**: Perfect symmetry • Spiritual patterns • Meditative beauty
+**Best for**: Wellness content • Spiritual themes • Balanced presentations • Art therapy
 **Mathematics**: Radial symmetry • Golden proportions • Harmonic divisions
 
 ```bash
 python collage_maker.py --folder photos --style mandala
+python collage_maker.py --folder photos --style mandala --background sunset   # Warm spiritual
+python collage_maker.py --folder photos --style mandala --background golden   # Sacred gold
 ```
 
 </div>
@@ -221,12 +241,14 @@ python collage_maker.py --folder photos --style mandala
 
 ![Voronoi Style - Natural cell division patterns](images/test_voronoi.jpg){.lightbox group="geometric" title="Voronoi Style: Nature's Algorithm"}
 
-**Nature's Math**: Organic boundaries • Proximity calculations • Natural efficiency  
-**Perfect for**: Scientific themes • Biology presentations • Tech innovations  
+**Nature's Math**: Organic boundaries • Proximity calculations • Natural efficiency
+**Perfect for**: Scientific themes • Biology presentations • Tech innovations
 **Algorithm**: Optimal space division • Natural boundaries • Mathematical precision
 
 ```bash
 python collage_maker.py --folder photos --style voronoi
+python collage_maker.py --folder photos --style voronoi --background ocean    # Bio-science
+python collage_maker.py --folder photos --style voronoi --background arctic   # Clean minimal
 ```
 
 </div>
@@ -237,12 +259,14 @@ python collage_maker.py --folder photos --style voronoi
 
 ![Fractal Style - Self-similar recursive patterns](images/geometric_fractal.jpg){.lightbox group="geometric" title="Fractal Style: Infinite Beauty"}
 
-**Infinite Patterns**: Self-similarity • Recursive beauty • Multiple scales  
-**Best for**: Mathematical art • Technical presentations • Complex data visualization  
+**Infinite Patterns**: Self-similarity • Recursive beauty • Multiple scales
+**Best for**: Mathematical art • Technical presentations • Complex data visualization
 **Features**: Scale independence • Natural complexity • Mathematical elegance
 
 ```bash
 python collage_maker.py --folder photos --style fractal
+python collage_maker.py --folder photos --style fractal --background twilight  # Deep mystery
+python collage_maker.py --folder photos --style fractal --background rose      # Soft elegance
 ```
 
 </div>
@@ -253,12 +277,14 @@ python collage_maker.py --folder photos --style fractal
 
 ![Kaleidoscope Style - Mesmerizing symmetrical reflections](images/geometric_kaleidoscope.jpg){.lightbox group="geometric" title="Kaleidoscope Style: Mirror Magic"}
 
-**Mirror Magic**: Symmetrical reflections • Hypnotic patterns • Radial repetition  
-**Perfect for**: Artistic displays • Decorative purposes • Creative presentations  
+**Mirror Magic**: Symmetrical reflections • Hypnotic patterns • Radial repetition
+**Perfect for**: Artistic displays • Decorative purposes • Creative presentations
 **Visual**: Multiple reflections • Mesmerizing beauty • Optical illusions
 
 ```bash
 python collage_maker.py --folder photos --style kaleidoscope
+python collage_maker.py --folder photos --style kaleidoscope --background lavender  # Dreamy
+python collage_maker.py --folder photos --style kaleidoscope --background coral     # Vibrant
 ```
 
 </div>

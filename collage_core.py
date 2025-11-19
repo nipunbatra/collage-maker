@@ -21,14 +21,121 @@ except ImportError:
 
 class CollageBase(ABC):
     """Base class for all collage styles"""
-    
-    def __init__(self, output_size=(1920, 1080), background_color=(245, 245, 245)):
+
+    # Predefined background presets
+    BACKGROUND_PRESETS = {
+        # Solid colors
+        'white': (255, 255, 255),
+        'black': (0, 0, 0),
+        'cream': (255, 253, 245),
+        'charcoal': (54, 57, 63),
+        'slate': (47, 49, 54),
+        'navy': (25, 45, 75),
+        'forest': (34, 49, 39),
+        'burgundy': (74, 25, 36),
+        'mocha': (62, 47, 39),
+
+        # Gradient presets (start_color, end_color, direction)
+        'sunset': ((255, 87, 51), (255, 195, 113), 'diagonal'),
+        'ocean': ((0, 119, 182), (144, 224, 239), 'vertical'),
+        'aurora': ((15, 32, 39), (44, 83, 100), 'vertical'),
+        'lavender': ((230, 230, 250), (186, 156, 205), 'diagonal'),
+        'coral': ((255, 154, 139), (255, 218, 193), 'horizontal'),
+        'mint': ((162, 217, 206), (227, 253, 245), 'vertical'),
+        'rose': ((255, 228, 225), (255, 182, 193), 'diagonal'),
+        'twilight': ((10, 10, 35), (75, 35, 100), 'vertical'),
+        'golden': ((255, 215, 0), (255, 248, 220), 'radial'),
+        'arctic': ((174, 198, 207), (224, 237, 241), 'vertical'),
+        'noir': ((30, 30, 30), (80, 80, 80), 'diagonal'),
+        'peach': ((255, 218, 185), (255, 239, 219), 'vertical'),
+        'emerald': ((0, 105, 92), (129, 199, 132), 'diagonal'),
+        'vintage': ((210, 180, 140), (245, 235, 220), 'vertical'),
+    }
+
+    def __init__(self, output_size=(1920, 1080), background_color=(245, 245, 245), background=None):
         self.output_size = output_size
         self.background_color = background_color
+        self.background = background  # Can be preset name, tuple, or gradient spec
         self.center_x = output_size[0] // 2
         self.center_y = output_size[1] // 2
         self.min_padding = 3
         self.title_height = 80  # Reserved space for title
+
+    def _create_background(self):
+        """Create background image based on settings"""
+        if self.background is None:
+            return Image.new('RGB', self.output_size, self.background_color)
+
+        # Check if it's a preset name
+        if isinstance(self.background, str) and self.background in self.BACKGROUND_PRESETS:
+            preset = self.BACKGROUND_PRESETS[self.background]
+
+            # Solid color preset
+            if isinstance(preset, tuple) and len(preset) == 3 and isinstance(preset[0], int):
+                return Image.new('RGB', self.output_size, preset)
+
+            # Gradient preset
+            elif isinstance(preset, tuple) and len(preset) == 3:
+                start_color, end_color, direction = preset
+                return self._create_gradient(start_color, end_color, direction)
+
+        # Direct gradient specification: (start_color, end_color, direction)
+        elif isinstance(self.background, tuple) and len(self.background) == 3:
+            if isinstance(self.background[0], tuple):
+                start_color, end_color, direction = self.background
+                return self._create_gradient(start_color, end_color, direction)
+            else:
+                # Solid color tuple
+                return Image.new('RGB', self.output_size, self.background)
+
+        # Default fallback
+        return Image.new('RGB', self.output_size, self.background_color)
+
+    def _create_gradient(self, start_color, end_color, direction='vertical'):
+        """Create gradient background"""
+        img = Image.new('RGB', self.output_size)
+        draw = ImageDraw.Draw(img)
+
+        width, height = self.output_size
+
+        if direction == 'vertical':
+            for y in range(height):
+                ratio = y / height
+                r = int(start_color[0] + (end_color[0] - start_color[0]) * ratio)
+                g = int(start_color[1] + (end_color[1] - start_color[1]) * ratio)
+                b = int(start_color[2] + (end_color[2] - start_color[2]) * ratio)
+                draw.line([(0, y), (width, y)], fill=(r, g, b))
+
+        elif direction == 'horizontal':
+            for x in range(width):
+                ratio = x / width
+                r = int(start_color[0] + (end_color[0] - start_color[0]) * ratio)
+                g = int(start_color[1] + (end_color[1] - start_color[1]) * ratio)
+                b = int(start_color[2] + (end_color[2] - start_color[2]) * ratio)
+                draw.line([(x, 0), (x, height)], fill=(r, g, b))
+
+        elif direction == 'diagonal':
+            for y in range(height):
+                for x in range(width):
+                    ratio = (x + y) / (width + height)
+                    r = int(start_color[0] + (end_color[0] - start_color[0]) * ratio)
+                    g = int(start_color[1] + (end_color[1] - start_color[1]) * ratio)
+                    b = int(start_color[2] + (end_color[2] - start_color[2]) * ratio)
+                    draw.point((x, y), fill=(r, g, b))
+
+        elif direction == 'radial':
+            center_x, center_y = width // 2, height // 2
+            max_dist = math.sqrt(center_x**2 + center_y**2)
+            for y in range(height):
+                for x in range(width):
+                    dist = math.sqrt((x - center_x)**2 + (y - center_y)**2)
+                    ratio = min(dist / max_dist, 1.0)
+                    r = int(start_color[0] + (end_color[0] - start_color[0]) * ratio)
+                    g = int(start_color[1] + (end_color[1] - start_color[1]) * ratio)
+                    b = int(start_color[2] + (end_color[2] - start_color[2]) * ratio)
+                    draw.point((x, y), fill=(r, g, b))
+
+        return img
     
     @abstractmethod
     def create_collage(self, images, **kwargs):
@@ -278,19 +385,19 @@ class CollageStyleRegistry:
         return list(cls._styles.keys())
     
     @classmethod
-    def create_collage(cls, style_name, folder_path, output_size=(1920, 1080), **kwargs):
+    def create_collage(cls, style_name, folder_path, output_size=(1920, 1080), background=None, **kwargs):
         """Create collage using specified style"""
         style_class = cls.get_style(style_name)
         if not style_class:
             raise ValueError(f"Unknown style: {style_name}")
-        
-        style_instance = style_class(output_size=output_size)
+
+        style_instance = style_class(output_size=output_size, background=background)
         images = style_instance.load_images(folder_path)
-        
+
         if not images:
             print("No images found!")
             return None
-        
+
         return style_instance.create_collage(images, **kwargs)
 
 

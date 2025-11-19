@@ -170,6 +170,74 @@ python collage_maker.py --folder photos --style mosaic --width 3440 --height 144
 python collage_maker.py --folder photos --style magazine --width 1080 --height 1920
 ```
 
+## Background Options
+
+Transform your collages with stunning backgrounds! Choose from solid colors, beautiful gradients, or create custom color schemes.
+
+### Solid Color Presets
+```bash
+# Elegant dark backgrounds
+python collage_maker.py --folder photos --style polaroid --background black
+python collage_maker.py --folder photos --style grid --background charcoal
+python collage_maker.py --folder photos --style mosaic --background slate
+python collage_maker.py --folder photos --style mandala --background navy
+
+# Warm, inviting tones
+python collage_maker.py --folder photos --style scrapbook --background cream
+python collage_maker.py --folder photos --style polaroid --background mocha
+
+# Nature-inspired
+python collage_maker.py --folder photos --style hexagon --background forest
+python collage_maker.py --folder photos --style spiral --background burgundy
+```
+
+### Gradient Presets
+These beautiful gradients add depth and visual interest to your collages:
+
+```bash
+# Warm Gradients
+python collage_maker.py --folder photos --style mandala --background sunset    # Orange to gold diagonal
+python collage_maker.py --folder photos --style grid --background coral        # Coral to peach horizontal
+python collage_maker.py --folder photos --style polaroid --background golden   # Gold radial burst
+python collage_maker.py --folder photos --style mosaic --background peach      # Soft peach vertical
+
+# Cool Gradients
+python collage_maker.py --folder photos --style spiral --background ocean      # Blue to cyan vertical
+python collage_maker.py --folder photos --style hexagon --background arctic    # Icy blue vertical
+python collage_maker.py --folder photos --style magazine --background mint     # Mint to white vertical
+
+# Elegant Gradients
+python collage_maker.py --folder photos --style kaleidoscope --background lavender  # Purple diagonal
+python collage_maker.py --folder photos --style fractal --background rose          # Pink diagonal
+python collage_maker.py --folder photos --style voronoi --background twilight      # Dark purple vertical
+
+# Modern Gradients
+python collage_maker.py --folder photos --style puzzle --background aurora     # Deep teal vertical
+python collage_maker.py --folder photos --style mandala --background noir      # Dark gray diagonal
+python collage_maker.py --folder photos --style grid --background emerald      # Green diagonal
+python collage_maker.py --folder photos --style mosaic --background vintage    # Tan to cream vertical
+```
+
+### List All Available Backgrounds
+```bash
+python collage_maker.py --list-backgrounds
+```
+
+### Background + Style Recommendations
+
+| Background | Best Styles | Mood |
+|------------|-------------|------|
+| sunset | mandala, spiral | Warm, energetic |
+| ocean | hexagon, voronoi | Calm, professional |
+| twilight | kaleidoscope, fractal | Dramatic, artistic |
+| cream | polaroid, scrapbook | Nostalgic, cozy |
+| noir | grid, magazine | Modern, sophisticated |
+| golden | mandala, spiral | Luxurious, celebratory |
+| arctic | hexagon, mosaic | Clean, minimal |
+| emerald | grid, puzzle | Natural, fresh |
+| lavender | kaleidoscope, spiral | Soft, dreamy |
+| vintage | polaroid, scrapbook | Retro, warm |
+
 ## Next Steps
 
 - [View examples of all styles](examples.qmd)

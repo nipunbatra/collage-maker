@@ -379,4 +379,117 @@ python collage_maker.py --list-styles
 
 </div>
 
+---
+
+## Stunning Background Examples
+
+*Elevate your collages with beautiful gradients and colors*
+
+<div class="mega-gallery">
+
+<div class="gallery-card featured">
+
+### **Sunset Gradient**
+
+Create warm, inviting collages with the sunset gradient that flows from vibrant orange to golden yellow.
+
+```bash
+python collage_maker.py --folder photos --style mandala --background sunset
+python collage_maker.py --folder photos --style spiral --background sunset
+```
+
+**Perfect for**: Celebrations, summer memories, warm occasions
+
+</div>
+
+<div class="gallery-card featured">
+
+### **Ocean Gradient**
+
+Cool blue tones flowing from deep ocean to tropical cyan. Ideal for calm, professional presentations.
+
+```bash
+python collage_maker.py --folder photos --style hexagon --background ocean
+python collage_maker.py --folder photos --style voronoi --background ocean
+```
+
+**Perfect for**: Travel photos, beach memories, corporate presentations
+
+</div>
+
+<div class="gallery-card creative">
+
+### **Twilight Gradient**
+
+Dramatic deep purple gradient for artistic and mysterious vibes.
+
+```bash
+python collage_maker.py --folder photos --style kaleidoscope --background twilight
+python collage_maker.py --folder photos --style fractal --background twilight
+```
+
+**Perfect for**: Evening events, artistic projects, dramatic presentations
+
+</div>
+
+<div class="gallery-card creative">
+
+### **Golden Radial**
+
+Luxurious gold burst radiating from center. Creates a spotlight effect.
+
+```bash
+python collage_maker.py --folder photos --style mandala --background golden
+python collage_maker.py --folder photos --style spiral --background golden
+```
+
+**Perfect for**: Awards, achievements, special celebrations
+
+</div>
+
+<div class="gallery-card geometric">
+
+### **Noir Gradient**
+
+Sophisticated dark gray diagonal gradient for modern, professional looks.
+
+```bash
+python collage_maker.py --folder photos --style grid --background noir
+python collage_maker.py --folder photos --style magazine --background noir
+```
+
+**Perfect for**: Portfolio, professional work, minimalist design
+
+</div>
+
+<div class="gallery-card geometric">
+
+### **Vintage Warmth**
+
+Classic tan to cream gradient for nostalgic, timeless feel.
+
+```bash
+python collage_maker.py --folder photos --style polaroid --background vintage
+python collage_maker.py --folder photos --style scrapbook --background vintage
+```
+
+**Perfect for**: Family albums, retro themes, nostalgic memories
+
+</div>
+
+</div>
+
+### All Available Backgrounds
+
+**Solid Colors**: white, black, cream, charcoal, slate, navy, forest, burgundy, mocha
+
+**Gradients**: sunset, ocean, aurora, lavender, coral, mint, rose, twilight, golden, arctic, noir, peach, emerald, vintage
+
+```bash
+# List all backgrounds with descriptions
+python collage_maker.py --list-backgrounds
+```
+
+---
+
 **Ready to transform your photos into stunning art? Start creating magic in 30 seconds!**

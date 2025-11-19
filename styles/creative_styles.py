@@ -25,10 +25,10 @@ class SpiralStyle(CollageBase):
         """Create spiral collage"""
         if not images:
             return None
-        
-        collage = Image.new('RGB', self.output_size, self.background_color)
+
+        collage = self._create_background()
         selected_images = random.sample(images, min(len(images), 15))
-        
+
         image_size = 120
         spiral_spacing = 30
         
@@ -73,10 +73,10 @@ class HexagonStyle(CollageBase):
         """Create hexagonal honeycomb collage"""
         if not images:
             return None
-        
-        collage = Image.new('RGB', self.output_size, self.background_color)
+
+        collage = self._create_background()
         selected_images = random.sample(images, min(len(images), 20))
-        
+
         hex_size = 100
         hex_width = int(hex_size * math.sqrt(3))
         hex_height = int(hex_size * 1.5)
@@ -308,8 +308,8 @@ class PuzzleStyle(CollageBase):
         """Create puzzle piece collage"""
         if not images:
             return None
-        
-        collage = Image.new('RGB', self.output_size, (240, 240, 240))
+
+        collage = self._create_background()
         selected_images = random.sample(images, min(len(images), 16))
         
         piece_size = 150

@@ -25,10 +25,10 @@ class MandalaStyle(CollageBase):
         """Create mandala collage"""
         if not images:
             return None
-        
-        collage = Image.new('RGB', self.output_size, self.background_color)
+
+        collage = self._create_background()
         selected_images = random.sample(images, min(len(images), 12))
-        
+
         rings = 3
         max_radius = min(self.output_size[0], self.output_size[1]) // 2 - 50
         
@@ -97,10 +97,10 @@ class VoronoiStyle(CollageBase):
         """Create Voronoi diagram collage"""
         if not images:
             return None
-        
-        collage = Image.new('RGB', self.output_size, self.background_color)
+
+        collage = self._create_background()
         selected_images = random.sample(images, min(len(images), 8))
-        
+
         # Generate seed points
         seed_points = []
         for i in range(len(selected_images)):
@@ -167,10 +167,10 @@ class FractalStyle(CollageBase):
         """Create fractal collage"""
         if not images:
             return None
-        
-        collage = Image.new('RGB', self.output_size, self.background_color)
+
+        collage = self._create_background()
         selected_images = random.sample(images, min(len(images), 16))
-        
+
         self.img_index = 0
         self.selected_images = selected_images
         self.collage = collage
@@ -232,7 +232,7 @@ class KaleidoscopeStyle(CollageBase):
         base_triangle = self._create_base_triangle(images, triangle_size)
         
         # Create kaleidoscope by reflecting the triangle
-        collage = Image.new('RGB', self.output_size, self.background_color)
+        collage = self._create_background()
         
         # Create 6 reflections around center
         for i in range(6):

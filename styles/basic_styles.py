@@ -37,7 +37,7 @@ class GridStyle(CollageBase):
         cell_height = (self.output_size[1] - (rows + 1) * self.min_padding) // rows
         
         # Create background
-        collage = Image.new('RGB', self.output_size, self.background_color)
+        collage = self._create_background()
         
         # Use all images (no random sampling since we calculated optimal grid)
         selected_images = images[:rows * cols]
@@ -114,8 +114,8 @@ class MosaicStyle(CollageBase):
         """Create mosaic collage with perfect space utilization"""
         if not images:
             return None
-        
-        collage = Image.new('RGB', self.output_size, self.background_color)
+
+        collage = self._create_background()
         selected_images = random.sample(images, min(len(images), 15))
         
         # Generate regions for perfect packing
@@ -224,9 +224,9 @@ class PolaroidStyle(CollageBase):
         """Create polaroid collage"""
         if not images:
             return None
-        
-        collage = Image.new('RGB', self.output_size, self.background_color)
-        
+
+        collage = self._create_background()
+
         # Adaptive polaroid size based on canvas
         canvas_ratio = self.output_size[0] / self.output_size[1]
         if canvas_ratio > 1.5:
@@ -335,8 +335,8 @@ class MagazineStyle(CollageBase):
         """Create magazine collage"""
         if not images:
             return None
-        
-        collage = Image.new('RGB', self.output_size, self.background_color)
+
+        collage = self._create_background()
         selected_images = random.sample(images, min(len(images), 12))
         
         # Calculate optimal split

@@ -83,9 +83,11 @@ def download_sample_images():
 @click.option('--cols', type=int, help='Number of columns for grid layout (grid style only)')
 @click.option('--title', help='Overall title text for the collage')
 @click.option('--title-position', type=click.Choice(['top', 'bottom', 'center']), default='bottom', help='Position for title text')
+@click.option('--background', '-bg', help='Background preset or color (e.g., sunset, ocean, black, "#ff5733")')
 @click.option('--list-styles', is_flag=True, help='List all available styles')
+@click.option('--list-backgrounds', is_flag=True, help='List all available background presets')
 @click.option('--download-samples', is_flag=True, help='Download sample images for testing')
-def main(folder, output, style, width, height, no_frames, rows, cols, title, title_position, list_styles, download_samples):
+def main(folder, output, style, width, height, no_frames, rows, cols, title, title_position, background, list_styles, list_backgrounds, download_samples):
     """Create beautiful photo collages with modular extensible styles"""
     
     if list_styles:
@@ -94,6 +96,24 @@ def main(folder, output, style, width, height, no_frames, rows, cols, title, tit
             style_class = CollageStyleRegistry.get_style(style_name)
             style_instance = style_class()
             print(f"  {style_name:12} - {style_instance.description}")
+        return
+
+    if list_backgrounds:
+        from collage_core import CollageBase
+        print("Available background presets:\n")
+        print("Solid Colors:")
+        solids = [(k, v) for k, v in CollageBase.BACKGROUND_PRESETS.items()
+                  if isinstance(v, tuple) and len(v) == 3 and isinstance(v[0], int)]
+        for name, color in sorted(solids):
+            print(f"  {name:12} - RGB{color}")
+
+        print("\nGradients:")
+        gradients = [(k, v) for k, v in CollageBase.BACKGROUND_PRESETS.items()
+                     if isinstance(v, tuple) and len(v) == 3 and isinstance(v[0], tuple)]
+        for name, (start, end, direction) in sorted(gradients):
+            print(f"  {name:12} - {direction} gradient")
+
+        print("\nUsage: python collage_maker.py --folder photos --style grid --background sunset")
         return
     
     if download_samples:
@@ -141,11 +161,14 @@ def main(folder, output, style, width, height, no_frames, rows, cols, title, tit
             if title:
                 kwargs['title'] = title
                 kwargs['title_position'] = title_position
-            
+            if background:
+                kwargs['background'] = background
+
             collage = CollageStyleRegistry.create_collage(
-                style_name, 
-                folder, 
+                style_name,
+                folder,
                 output_size=(width, height),
+                background=background,
                 **kwargs
             )
             
